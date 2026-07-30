@@ -1,0 +1,134 @@
+{
+  "country": "Japan",
+  "iso2": "JP",
+  "tax_year": 2025,
+  "currency": "JPY",
+  "skills": {
+    "calculation": "japan-tax-calculation",
+    "reporting": "japan-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if you have a domicile in Japan or have had a residence for one year or more.",
+    "non_permanent_resident": "A resident without Japanese nationality who has had a domicile or residence in Japan for five years or less within the last ten years. Foreign-source income is taxed only if paid in or remitted to Japan.",
+    "permanent_resident_for_tax": "After five years in ten, worldwide income becomes fully taxable. This five-year cliff is the single most important date for foreign residents in Japan.",
+    "worldwide_income": "Yes once you become a permanent resident for tax purposes."
+  },
+  "headline": {
+    "national_rates": "5% to 45% across seven brackets",
+    "reconstruction_surtax": "2.1% of the national income tax",
+    "inhabitant_tax": "a flat 10% local tax, billed in June for the previous calendar year",
+    "social_insurance": "roughly 15% employee, matched by the employer"
+  },
+  "income_tax": {
+    "name": "Income tax (shotokuzei)",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 1950000, "rate": 0.05},
+      {"up_to": 3300000, "rate": 0.10},
+      {"up_to": 6950000, "rate": 0.20},
+      {"up_to": 9000000, "rate": 0.23},
+      {"up_to": 18000000, "rate": 0.33},
+      {"up_to": 40000000, "rate": 0.40},
+      {"up_to": null, "rate": 0.45}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Employment income deduction (kyuyo shotoku kojo)",
+    "amount": 650000,
+    "rate": 0.28,
+    "cap": 1950000,
+    "note": "approximation of the statutory tiered formula, which is capped at 1,950,000 above 8,500,000 of salary"
+  },
+  "personal_allowance": {
+    "name": "Basic deduction (kiso kojo)",
+    "amount": 580000,
+    "note": "raised by the 2025 reform; withdrawn above 24,000,000 of income"
+  },
+  "local_tax": {
+    "name": "Inhabitant tax (juminzei)",
+    "default_rate": 0.10,
+    "note": "6% municipal plus 4% prefectural, with a small per capita levy of about 5,000 on top"
+  },
+  "surcharges": [
+    {
+      "name": "Special reconstruction income tax",
+      "base": "tax",
+      "rate": 0.021,
+      "above_threshold_only": false,
+      "note": "2.1% of the national income tax, in force through 2037"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Health insurance", "rate": 0.04955, "ceiling": 16290000, "deductible": true, "note": "Tokyo rate; varies slightly by prefecture"},
+      {"name": "Employees' pension insurance", "rate": 0.0915, "ceiling": 7800000, "deductible": true},
+      {"name": "Employment insurance", "rate": 0.0055, "deductible": true},
+      {"name": "Long-term care insurance (age 40 to 64)", "rate": 0.0, "deductible": true, "note": "an extra 0.8% applies from age 40"}
+    ],
+    "employer": [
+      {"name": "Health insurance", "rate": 0.04955, "ceiling": 16290000},
+      {"name": "Employees' pension insurance", "rate": 0.0915, "ceiling": 7800000},
+      {"name": "Employment and workers' accident insurance", "rate": 0.0115}
+    ],
+    "self_employed": [
+      {"name": "National health insurance", "rate": 0.10, "ceiling": 8900000, "deductible": true, "note": "municipality-specific formula with a household cap"},
+      {"name": "National pension (kokumin nenkin)", "type": "fixed", "amount": 210120, "deductible": true, "note": "flat monthly amount of about 17,510"}
+    ]
+  },
+  "capital_gains": {
+    "listed_securities": "20.315% (15% national, 0.315% reconstruction, 5% local), usually withheld in a tokutei kouza account",
+    "real_estate": "39.63% if held five years or less, 20.315% if held longer",
+    "principal_residence": "a 30,000,000 special deduction applies on the sale of your own home",
+    "nisa": "the NISA account gives a permanent exemption on investment income within generous annual limits and is the default choice for retail investors"
+  },
+  "quirks": [
+    "Inhabitant tax is billed a year in arrears. Your first year in Japan feels cheap and your first year after leaving can produce a bill for income you earned while resident - appointing a tax agent before departure avoids problems.",
+    "Most employees never file. The employer's year-end adjustment (nenmatsu chosei) in December settles the liability, and a return is needed only for income over 20,000,000, second jobs, or specific deductions like large medical expenses.",
+    "The five-year non-permanent resident window is decisive. Foreign income and foreign capital gains are largely outside the net until you cross it, so the timing of asset sales matters enormously.",
+    "Furusato nozei lets you redirect part of your inhabitant tax to a municipality of your choice in exchange for local goods, at a net cost of 2,000 yen. It is effectively free money and is widely used.",
+    "An exit tax applies to residents holding 100,000,000 yen or more of financial assets who have lived in Japan more than five of the last ten years."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "National Tax Agency (NTA), plus municipal offices for inhabitant tax",
+    "portal": "https://www.e-tax.nta.go.jp - e-Tax, and the NTA return preparation corner",
+    "who_must_file": "Employees with a single employer and salary up to 20,000,000 are settled by the year-end adjustment. A final return (kakutei shinkoku) is required above that, or with side income over 200,000, multiple employers, or to claim medical, donation or first-year housing loan deductions.",
+    "deadlines": [
+      {"date": "16 February to 15 March 2026", "what": "Final income tax return (kakutei shinkoku) for 2025"},
+      {"date": "15 March 2026", "what": "Payment of income tax, or the first instalment"},
+      {"date": "December 2025", "what": "Employer year-end adjustment (nenmatsu chosei)"},
+      {"date": "June 2026", "what": "Inhabitant tax bills issued for 2025 income; paid in four instalments or through payroll"},
+      {"date": "31 March 2026", "what": "Consumption tax return for taxable businesses"}
+    ],
+    "forms": [
+      {"id": "Form A / Form B", "name": "Final income tax return (kakutei shinkoku)"},
+      {"id": "Gensen choshu hyo", "name": "Withholding tax statement from the employer - the key document"},
+      {"id": "Nenmatsu chosei forms", "name": "Year-end adjustment declarations for dependants and insurance"},
+      {"id": "Table 3", "name": "Separate taxation schedule for capital gains"},
+      {"id": "Overseas assets report", "name": "Required where foreign assets exceed 50,000,000 yen"}
+    ],
+    "documents_to_collect": [
+      "My Number (individual number) card and e-Tax credentials",
+      "Gensen choshu hyo from each employer",
+      "Insurance premium certificates (life, earthquake, private pension) sent each autumn",
+      "Medical expense receipts - a deduction applies above 100,000 yen a year for the household",
+      "Furusato nozei donation receipts, or the one-stop exception forms",
+      "Housing loan balance certificate for the housing loan tax credit"
+    ],
+    "penalties": {
+      "late_filing": "additional tax of 15% to 20% of the amount due, reduced to 5% for voluntary late filing",
+      "understatement": "10% to 15% additional tax; 35% to 40% where there is concealment",
+      "late_payment": "delinquent tax at around 2.4% to 8.7% a year depending on the delay"
+    }
+  },
+  "sources": [
+    {"name": "National Tax Agency", "url": "https://www.nta.go.jp/english/"},
+    {"name": "NTA - Income tax rates", "url": "https://www.nta.go.jp/english/taxes/individual/12005.htm"},
+    {"name": "Japan Pension Service", "url": "https://www.nenkin.go.jp"}
+  ],
+  "warnings": [
+    "The employment income deduction is a close approximation of a tiered statutory formula, not an exact reproduction.",
+    "Inhabitant tax uses its own slightly smaller deductions, so the 10% here is applied to the national taxable income base.",
+    "Dependant, spouse and insurance deductions are not modelled and reduce the real bill for most households."
+  ]
+}

@@ -114,7 +114,13 @@ def cmd_compare(args: argparse.Namespace) -> int:
     )
     print(
         "Amounts are in each country's own currency - no FX conversion is applied, "
-        "so compare rates rather than absolute amounts.\n"
+        "so compare rates rather than absolute amounts."
+    )
+    print(
+        "Social security is not comparable across systems: the Netherlands folds it "
+        "into the income tax rate, Singapore's CPF and New Zealand's KiwiSaver are\n"
+        "your own savings, and Australia's superannuation is an employer cost. Read "
+        "the per-country notes before drawing conclusions.\n"
     )
     header = f"{'ISO':<5}{'Country':<24}{'Income tax':>14}{'Social sec':>13}{'Net':>14}{'Burden':>9}{'Marginal':>10}"
     print(header)

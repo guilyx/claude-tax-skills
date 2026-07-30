@@ -1,0 +1,137 @@
+{
+  "country": "India",
+  "iso2": "IN",
+  "tax_year": 2025,
+  "currency": "INR",
+  "skills": {
+    "calculation": "india-tax-calculation",
+    "reporting": "india-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if present 182 days or more in the financial year, or 60 days in the year plus 365 days across the four preceding years. The 60-day test extends to 182 days for citizens leaving for employment abroad.",
+    "rnor": "Resident but Not Ordinarily Resident status applies if you were non-resident in nine of the ten preceding years, or present 729 days or less in the preceding seven. RNORs are not taxed on foreign income.",
+    "deemed_resident": "An Indian citizen with Indian income above 1,500,000 who is not tax resident anywhere else is deemed resident and taxed as RNOR.",
+    "worldwide_income": "Yes for ordinarily resident individuals. The financial year runs 1 April to 31 March."
+  },
+  "headline": {
+    "new_regime": "the default since 2023-24: no exemptions, lower rates, nil tax up to 1,200,000 of income after rebate",
+    "old_regime": "still available by election, with HRA, 80C and other deductions but higher rates",
+    "surcharge": "10% to 25% on high incomes, plus a 4% health and education cess on the whole liability",
+    "standard_deduction": "75,000 for salaried taxpayers under the new regime"
+  },
+  "income_tax": {
+    "name": "Income tax (new regime, section 115BAC)",
+    "type": "progressive",
+    "note": "slabs for financial year 2025-26 (assessment year 2026-27)",
+    "brackets": [
+      {"up_to": 400000, "rate": 0.0},
+      {"up_to": 800000, "rate": 0.05},
+      {"up_to": 1200000, "rate": 0.10},
+      {"up_to": 1600000, "rate": 0.15},
+      {"up_to": 2000000, "rate": 0.20},
+      {"up_to": 2400000, "rate": 0.25},
+      {"up_to": null, "rate": 0.30}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Standard deduction (salaried)",
+    "amount": 75000,
+    "note": "50,000 under the old regime"
+  },
+  "credits": [
+    {
+      "name": "Rebate under section 87A",
+      "amount": 60000,
+      "refundable": false,
+      "taper": {"threshold": 1200000, "rate": 1.0, "floor": 0},
+      "note": "makes income up to 1,200,000 effectively tax free under the new regime, with marginal relief just above the threshold"
+    }
+  ],
+  "surcharges": [
+    {
+      "name": "Surcharge on high income",
+      "base": "gross_income",
+      "threshold": 5000000,
+      "above_threshold_only": false,
+      "rate": 0.0,
+      "note": "10% of tax above 5,000,000, 15% above 10,000,000, 25% above 20,000,000 under the new regime; apply manually - marginal relief caps the increase"
+    },
+    {
+      "name": "Health and education cess",
+      "base": "tax",
+      "rate": 0.04,
+      "above_threshold_only": false,
+      "note": "4% of income tax plus surcharge"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Employees' Provident Fund", "rate": 0.12, "ceiling": 180000, "deductible": false, "note": "12% of basic salary; the statutory wage ceiling is 15,000 a month but many employers contribute on full basic pay"}
+    ],
+    "employer": [
+      {"name": "Employees' Provident Fund", "rate": 0.12, "ceiling": 180000},
+      {"name": "Employees' State Insurance", "rate": 0.0325, "ceiling": 252000, "note": "applies where monthly wages are 21,000 or less"}
+    ],
+    "self_employed": []
+  },
+  "capital_gains": {
+    "listed_equity_short_term": "20% where held 12 months or less (raised from 15% in July 2024)",
+    "listed_equity_long_term": "12.5% above an annual exemption of 125,000, where held more than 12 months",
+    "other_assets_long_term": "12.5% without indexation, held more than 24 months; resident individuals may use the 20% with indexation option for property bought before 23 July 2024",
+    "property": "exemption available under sections 54 and 54F where proceeds are reinvested in residential property"
+  },
+  "quirks": [
+    "The new regime is the default. If the old regime is better for you - typically where you claim house rent allowance, home loan interest and the full 150,000 under section 80C - you must actively elect it, and salaried taxpayers can switch each year.",
+    "The financial year runs 1 April to 31 March, and the return is filed for the 'assessment year' that follows. Getting these two labels mixed up is the most common filing error.",
+    "Form 26AS and the Annual Information Statement show everything the tax department already knows about your income. Reconciling against them before filing prevents almost all notices.",
+    "Advance tax is due in four instalments if your liability exceeds 10,000, and interest under sections 234B and 234C accrues automatically if you underpay.",
+    "The Liberalised Remittance Scheme applies a 20% tax collected at source on most foreign remittances above 1,000,000 a year, which is creditable against your final liability but is a real cash flow cost."
+  ],
+  "reporting": {
+    "tax_year_end": "31 March",
+    "authority": "Income Tax Department, Central Board of Direct Taxes",
+    "portal": "https://www.incometax.gov.in",
+    "who_must_file": "Anyone with income above the basic exemption limit before deductions, anyone with foreign assets or signing authority over a foreign account, and anyone meeting the high-value transaction criteria such as large deposits, foreign travel spending or electricity bills.",
+    "deadlines": [
+      {"date": "31 July 2026", "what": "Return for financial year 2025-26 for individuals not subject to audit"},
+      {"date": "31 October 2026", "what": "Return where a tax audit is required"},
+      {"date": "31 December 2026", "what": "Belated or revised return, with a late fee"},
+      {"date": "15 Jun / 15 Sep / 15 Dec / 15 Mar", "what": "Advance tax instalments at 15%, 45%, 75% and 100% cumulative"},
+      {"date": "15 June", "what": "Employers issue Form 16 for the preceding financial year"}
+    ],
+    "forms": [
+      {"id": "ITR-1 (Sahaj)", "name": "Salary, one house property and other income up to 5,000,000"},
+      {"id": "ITR-2", "name": "Capital gains, more than one property, or foreign assets"},
+      {"id": "ITR-3", "name": "Business or professional income"},
+      {"id": "ITR-4 (Sugam)", "name": "Presumptive business income under sections 44AD, 44ADA, 44AE"},
+      {"id": "Form 16", "name": "Employer certificate of salary paid and tax deducted"},
+      {"id": "Form 26AS / AIS", "name": "Consolidated tax credit statement and Annual Information Statement"},
+      {"id": "Form 10-IEA", "name": "Election to opt out of the new tax regime"}
+    ],
+    "documents_to_collect": [
+      "PAN and Aadhaar, which must be linked",
+      "Form 16 from each employer",
+      "Form 26AS and the Annual Information Statement, downloaded from the portal",
+      "Bank interest certificates and Form 16A for other tax deducted at source",
+      "Capital gains statements from brokers and mutual funds",
+      "Rent receipts and landlord PAN if claiming house rent allowance under the old regime",
+      "Details of all foreign assets and foreign bank accounts - Schedule FA is mandatory and heavily penalised"
+    ],
+    "penalties": {
+      "late_filing_fee": "5,000 under section 234F, reduced to 1,000 where total income is 500,000 or less",
+      "interest": "1% a month under section 234A for late filing, 234B and 234C for advance tax shortfalls",
+      "underreporting": "50% of the tax on underreported income, 200% where it is misreported",
+      "foreign_assets": "penalties of 1,000,000 under the Black Money Act for failing to report foreign assets, regardless of the amount involved"
+    }
+  },
+  "sources": [
+    {"name": "Income Tax Department", "url": "https://www.incometax.gov.in/iec/foportal/"},
+    {"name": "CBDT - Tax slabs", "url": "https://incometaxindia.gov.in"},
+    {"name": "EPFO", "url": "https://www.epfindia.gov.in"}
+  ],
+  "warnings": [
+    "The surcharge on income above 5,000,000 is present in the data with a zero rate so that it appears in the output but does not double-count. Apply 10%, 15% or 25% manually with marginal relief.",
+    "The old regime with its deductions (80C, 80D, HRA, home loan interest) is not modelled. For taxpayers with significant deductions it can produce a lower result.",
+    "Provident fund is charged here on the full salary up to a proxy ceiling; in practice it is charged on basic pay, which is typically 40% to 50% of the total."
+  ]
+}

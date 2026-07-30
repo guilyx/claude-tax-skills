@@ -1,0 +1,137 @@
+{
+  "country": "Luxembourg",
+  "iso2": "LU",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "luxembourg-tax-calculation",
+    "reporting": "luxembourg-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if you have your domicile (a home you keep and use) or habitual abode of more than six months in Luxembourg.",
+    "worldwide_income": "Yes for residents. Cross-border workers from Belgium, France and Germany are taxed on Luxembourg employment income and can often elect to be treated as residents.",
+    "impatriate_regime": "A regime for inbound employees exempts 50% of gross annual remuneration up to 400,000, replacing the older cost-reimbursement approach."
+  },
+  "headline": {
+    "rates": "0% to 42% across 23 brackets, plus an employment fund surcharge of 7% or 9%",
+    "tax_classes": "class 1 for single taxpayers, class 1a for single parents and over-64s, class 2 for jointly taxed couples",
+    "social_security": "about 12.45% employee",
+    "capital_gains": "speculative gains taxed in full; long-held assets largely exempt"
+  },
+  "income_tax": {
+    "name": "Impôt sur le revenu",
+    "type": "progressive",
+    "note": "simplified from the statutory 23-bracket scale for tax class 1; the real scale steps in 2% increments",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {"income_splitting_factor": 1},
+      "married_joint": {"income_splitting_factor": 2, "note": "tax class 2 splits income between the spouses"}
+    },
+    "brackets": [
+      {"up_to": 13230, "rate": 0.0},
+      {"up_to": 15435, "rate": 0.08},
+      {"up_to": 17691, "rate": 0.10},
+      {"up_to": 19896, "rate": 0.12},
+      {"up_to": 22152, "rate": 0.14},
+      {"up_to": 24357, "rate": 0.16},
+      {"up_to": 26613, "rate": 0.18},
+      {"up_to": 28818, "rate": 0.20},
+      {"up_to": 31074, "rate": 0.22},
+      {"up_to": 33279, "rate": 0.24},
+      {"up_to": 35535, "rate": 0.26},
+      {"up_to": 37740, "rate": 0.28},
+      {"up_to": 39996, "rate": 0.30},
+      {"up_to": 42201, "rate": 0.32},
+      {"up_to": 44457, "rate": 0.34},
+      {"up_to": 46662, "rate": 0.36},
+      {"up_to": 48918, "rate": 0.38},
+      {"up_to": 110403, "rate": 0.39},
+      {"up_to": 165600, "rate": 0.40},
+      {"up_to": 220788, "rate": 0.41},
+      {"up_to": null, "rate": 0.42}
+    ]
+  },
+  "surcharges": [
+    {
+      "name": "Contribution au fonds pour l'emploi",
+      "base": "tax",
+      "rate": 0.07,
+      "above_threshold_only": false,
+      "note": "9% where taxable income exceeds roughly 150,000 (class 1) or 300,000 (class 2)"
+    }
+  ],
+  "standard_deduction": {
+    "name": "Frais d'obtention forfaitaires",
+    "amount": 540,
+    "note": "flat employment expense allowance; commuting relief (frais de déplacement) is separate"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "Assurance pension", "rate": 0.08, "ceiling": 165000, "deductible": true},
+      {"name": "Assurance maladie", "rate": 0.0305, "ceiling": 165000, "deductible": true},
+      {"name": "Assurance dépendance", "rate": 0.014, "deductible": false, "note": "charged on income above a quarter of the minimum wage, with no ceiling"}
+    ],
+    "employer": [
+      {"name": "Assurance pension", "rate": 0.08, "ceiling": 165000},
+      {"name": "Assurance maladie et accident", "rate": 0.0425, "ceiling": 165000},
+      {"name": "Mutualité des employeurs", "rate": 0.0165, "ceiling": 165000}
+    ],
+    "self_employed": [
+      {"name": "Cotisations indépendants", "rate": 0.2495, "ceiling": 165000, "deductible": true}
+    ]
+  },
+  "capital_gains": {
+    "speculative": "gains on assets held six months or less are taxed at ordinary progressive rates",
+    "long_held": "gains on securities held more than six months are exempt unless you hold a substantial participation of more than 10%",
+    "real_estate": "gains on property held more than two years are taxed at half the global rate, with an allowance; your main home is exempt",
+    "note": "the six-month rule makes Luxembourg unusually attractive for medium-term investors"
+  },
+  "quirks": [
+    "Tax class matters enormously. Non-resident cross-border workers, married couples with a non-resident spouse, and single parents each face different scales, and the class assigned on your tax card is not always the optimal one.",
+    "The employment fund surcharge adds 7% or 9% on top of the tax itself, so the real top marginal rate is about 45.8%.",
+    "Interest paid on a personal loan, life insurance premiums and private pension contributions are all deductible within limits - Luxembourg has more of these small deductions than most systems.",
+    "Cross-border commuters can request to be taxed as residents, which lets them deduct foreign mortgage interest and use class 2. Whether it helps depends on the spouse's income.",
+    "Securities held more than six months escape capital gains tax entirely, which is one of the most generous treatments in the EU."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Administration des contributions directes (ACD)",
+    "portal": "https://guichet.public.lu / MyGuichet.lu",
+    "who_must_file": "Residents with income above 100,000, with multiple employers, with non-employment income above thresholds, or who want to claim deductions. Others may be settled by an annual payroll adjustment (décompte annuel).",
+    "deadlines": [
+      {"date": "31 December 2026", "what": "Return for the 2025 tax year - Luxembourg allows a full extra year"},
+      {"date": "31 December 2026", "what": "Deadline for the annual payroll adjustment (décompte annuel) for 2025"},
+      {"date": "10 Mar / 10 Jun / 10 Sep / 10 Dec", "what": "Quarterly advance payments where assessed"},
+      {"date": "Within one month", "what": "Objection period after receiving an assessment (bulletin d'impôt)"}
+    ],
+    "forms": [
+      {"id": "Modèle 100", "name": "Income tax return for residents and assimilated non-residents"},
+      {"id": "Modèle 163", "name": "Annual payroll adjustment (décompte annuel)"},
+      {"id": "Certificat de rémunération", "name": "Annual salary certificate from the employer"},
+      {"id": "Modèle 166", "name": "Application for tax class or rate change"}
+    ],
+    "documents_to_collect": [
+      "Matricule (13-digit national identifier) and LuxTrust or eID for MyGuichet",
+      "Certificat de rémunération from each employer",
+      "Interest certificates for mortgages and personal loans",
+      "Private pension (prévoyance-vieillesse) and life insurance certificates",
+      "Childcare and home help invoices",
+      "Details of the spouse's foreign income if requesting joint or resident treatment"
+    ],
+    "penalties": {
+      "late_filing": "surcharge of up to 10% of the tax due",
+      "late_payment": "0.6% per month",
+      "non_filing": "assessment on estimated income (taxation d'office)"
+    }
+  },
+  "sources": [
+    {"name": "Administration des contributions directes", "url": "https://impotsdirects.public.lu"},
+    {"name": "Guichet.lu - Income tax", "url": "https://guichet.public.lu/en/citoyens/impots-taxes.html"},
+    {"name": "CCSS - Social security", "url": "https://ccss.public.lu"}
+  ],
+  "warnings": [
+    "The statutory scale has 23 brackets stepping in 2% increments; the schedule here is a close but simplified reproduction.",
+    "Tax class 1a is not modelled - single parents and taxpayers over 64 pay less than the class 1 figures shown.",
+    "The 9% employment fund surcharge for high incomes is not switched on automatically."
+  ]
+}

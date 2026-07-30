@@ -1,0 +1,89 @@
+{
+  "country": "United Arab Emirates",
+  "iso2": "AE",
+  "tax_year": 2025,
+  "currency": "AED",
+  "skills": {
+    "calculation": "uae-tax-calculation",
+    "reporting": "uae-tax-reporting"
+  },
+  "residency": {
+    "test": "For domestic purposes, an individual is UAE tax resident if physically present 183 days in a 12-month period, or 90 days with UAE nationality, residency or a permanent home plus a job or business.",
+    "worldwide_income": "There is no personal income tax, so residence matters mainly for obtaining a tax residency certificate under a double tax treaty.",
+    "certificate": "A Tax Residency Certificate from the Federal Tax Authority is what other countries actually want to see - being physically present is not enough on its own.",
+    "warning": "Your former home country may continue to treat you as resident. Leaving properly - ending residence there - is the part people get wrong, not arriving in the UAE."
+  },
+  "headline": {
+    "personal_income_tax": "none on salary, investment income or capital gains",
+    "corporate_tax": "9% on business profits above 375,000, which can reach individuals carrying on a licensed business",
+    "vat": "5%",
+    "social_security": "applies to UAE and GCC nationals only"
+  },
+  "income_tax": {
+    "name": "Personal income tax",
+    "type": "none",
+    "note": "the UAE levies no personal income tax on individuals"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "GPSSA pension (UAE nationals only)", "rate": 0.0, "note": "5% for UAE nationals in the private sector; nil for expatriate employees"}
+    ],
+    "employer": [
+      {"name": "GPSSA pension (for UAE national employees)", "rate": 0.0, "note": "12.5% in Abu Dhabi, 15% elsewhere, for UAE nationals only"}
+    ]
+  },
+  "capital_gains": {
+    "individuals": "no capital gains tax on personal investments, property or share disposals",
+    "business_assets": "gains realised inside a business subject to corporate tax form part of taxable profit",
+    "note": "the absence of capital gains tax does not stop your country of citizenship taxing you - US citizens in particular remain fully taxable"
+  },
+  "quirks": [
+    "There is no personal income tax, but there is corporate tax. An individual with a commercial licence and turnover above 1m AED from business activity is within the corporate tax net and must register, even as a sole practitioner. Employment income and personal investment income stay outside it.",
+    "Free zone companies can qualify for a 0% corporate tax rate on qualifying income, but the conditions are specific and require adequate substance.",
+    "The absence of income tax is only half the picture. Housing, schooling and healthcare are typically paid privately and are a large part of the real cost of living.",
+    "End-of-service gratuity accrues under the labour law and functions as a form of deferred pay for expatriate employees.",
+    "A Tax Residency Certificate requires 183 days of presence supported by entry and exit records, a tenancy contract and bank statements. Apply early - it takes time and other countries will ask for it."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Federal Tax Authority (FTA)",
+    "portal": "https://eservices.tax.gov.ae - EmaraTax",
+    "who_must_file": "There is no personal income tax return. Individuals conducting a business or business activity with turnover above 1,000,000 AED in a calendar year must register for corporate tax and file a corporate tax return.",
+    "deadlines": [
+      {"date": "No personal return", "what": "Salaried individuals have no filing obligation of any kind"},
+      {"date": "9 months after the tax period ends", "what": "Corporate tax return for individuals carrying on a business"},
+      {"date": "31 March 2026", "what": "Corporate tax registration deadline for natural persons who exceeded the 1m turnover threshold in 2025"},
+      {"date": "28 days after each quarter", "what": "VAT return for VAT-registered businesses"},
+      {"date": "Annually", "what": "Economic substance and ultimate beneficial owner filings for certain entities"}
+    ],
+    "forms": [
+      {"id": "EmaraTax registration", "name": "Corporate tax or VAT registration for individuals in business"},
+      {"id": "CT return", "name": "Corporate tax return, filed via EmaraTax"},
+      {"id": "VAT 201", "name": "Periodic VAT return"},
+      {"id": "TRC application", "name": "Tax Residency Certificate application"}
+    ],
+    "documents_to_collect": [
+      "Emirates ID and residence visa",
+      "Entry and exit report from the ICP or GDRFA, which evidences days of presence",
+      "Ejari or tenancy contract and utility bills",
+      "Six months of UAE bank statements for a residency certificate application",
+      "Trade licence and audited or management accounts if carrying on a business",
+      "Salary certificate from the employer"
+    ],
+    "penalties": {
+      "late_corporate_tax_registration": "10,000 AED",
+      "late_corporate_tax_return": "500 per month for the first twelve months, then 1,000 per month",
+      "vat": "penalties for late registration, late filing and late payment, each separately assessed"
+    }
+  },
+  "sources": [
+    {"name": "Federal Tax Authority", "url": "https://tax.gov.ae"},
+    {"name": "UAE Government - Taxation", "url": "https://u.ae/en/information-and-services/finance-and-investment/taxation"},
+    {"name": "Corporate Tax Law (Federal Decree-Law 47 of 2022)", "url": "https://tax.gov.ae/en/taxes/corporate.tax.aspx"}
+  ],
+  "warnings": [
+    "This model returns zero personal tax, which is correct for salary. It does not compute corporate tax for individuals carrying on a business.",
+    "Nationals of the UAE and other GCC states pay social security contributions that are not modelled here.",
+    "Moving to the UAE does not end tax liability in a former home country automatically, and never does for US citizens."
+  ]
+}

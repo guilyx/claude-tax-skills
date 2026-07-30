@@ -1,0 +1,123 @@
+{
+  "country": "Singapore",
+  "iso2": "SG",
+  "tax_year": 2025,
+  "currency": "SGD",
+  "skills": {
+    "calculation": "singapore-tax-calculation",
+    "reporting": "singapore-tax-reporting"
+  },
+  "residency": {
+    "test": "Tax resident if you stay or work in Singapore for 183 days or more in the calendar year, or under the two-year and three-year administrative concessions.",
+    "worldwide_income": "No. Singapore taxes income accrued in or derived from Singapore, and foreign income only if received in Singapore in specific circumstances - foreign-sourced income received by individuals is generally exempt.",
+    "non_resident": "Non-residents pay the higher of 15% flat on employment income or the resident rates, and 24% on other income.",
+    "note": "Income is assessed for a Year of Assessment based on the preceding calendar year - YA 2026 assesses 2025 income."
+  },
+  "headline": {
+    "rates": "0% to 24%, reaching the top rate above 1,000,000",
+    "cpf": "20% employee and 17% employer for citizens and permanent residents; foreigners on work passes do not contribute",
+    "no_capital_gains_tax": "Singapore has no capital gains tax",
+    "gst": "9%"
+  },
+  "income_tax": {
+    "name": "Individual income tax",
+    "type": "progressive",
+    "note": "resident rates for Year of Assessment 2026 on 2025 income",
+    "brackets": [
+      {"up_to": 20000, "rate": 0.0},
+      {"up_to": 30000, "rate": 0.02},
+      {"up_to": 40000, "rate": 0.035},
+      {"up_to": 80000, "rate": 0.07},
+      {"up_to": 120000, "rate": 0.115},
+      {"up_to": 160000, "rate": 0.15},
+      {"up_to": 200000, "rate": 0.18},
+      {"up_to": 240000, "rate": 0.19},
+      {"up_to": 280000, "rate": 0.195},
+      {"up_to": 320000, "rate": 0.20},
+      {"up_to": 500000, "rate": 0.22},
+      {"up_to": 1000000, "rate": 0.23},
+      {"up_to": null, "rate": 0.24}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Earned income relief",
+    "amount": 1000,
+    "note": "6,000 if aged 55 to 59 and 8,000 from 60; all personal reliefs together are capped at 80,000"
+  },
+  "social_security": {
+    "employee": [
+      {
+        "name": "CPF employee contribution",
+        "rate": 0.20,
+        "ceiling": 88800,
+        "deductible": true,
+        "note": "citizens and permanent residents only, up to the Ordinary Wage ceiling of 7,400 a month in 2025 and the 37,740 annual limit. Foreigners on Employment or S Passes contribute nothing"
+      }
+    ],
+    "employer": [
+      {"name": "CPF employer contribution", "rate": 0.17, "ceiling": 88800},
+      {"name": "Skills Development Levy", "rate": 0.0025, "ceiling": 55200}
+    ],
+    "self_employed": [
+      {"name": "MediSave contribution", "rate": 0.08, "ceiling": 88800, "deductible": true, "note": "compulsory for self-employed citizens and PRs with net trade income above 6,000"}
+    ]
+  },
+  "capital_gains": {
+    "general": "no capital gains tax",
+    "trading": "gains can be recharacterised as trading income and taxed if the frequency, holding period and financing pattern indicate a trade rather than investment",
+    "property": "no CGT, but Additional Buyer's Stamp Duty and Seller's Stamp Duty apply on purchase and quick resale",
+    "dividends": "dividends from Singapore resident companies are exempt under the one-tier system"
+  },
+  "quirks": [
+    "Foreign-sourced income received by individuals is generally exempt. Combined with no capital gains tax, this is what actually makes Singapore attractive - not the headline rates, which are unremarkable in the middle brackets.",
+    "CPF applies only to citizens and permanent residents. A foreigner and a citizen on the same salary have very different take-home pay, and comparing them without saying which is which is misleading.",
+    "Personal reliefs are capped at 80,000 in total. Above that, additional CPF top-ups and SRS contributions give no further relief.",
+    "The two-year administrative concession means a stay spanning two calendar years totalling at least 183 days can be treated as resident for both years, which matters a lot for arrivals late in the year.",
+    "The Supplementary Retirement Scheme allows deductible contributions of 15,300 for citizens and PRs, or 35,700 for foreigners, which is one of the few real deductions available to expatriates."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Inland Revenue Authority of Singapore (IRAS)",
+    "portal": "https://mytax.iras.gov.sg (Singpass required)",
+    "who_must_file": "Anyone who receives a filing notification, and anyone with annual income above 22,000 or any self-employment income. Employees of companies in the Auto-Inclusion Scheme have salary data pre-filled.",
+    "deadlines": [
+      {"date": "18 April 2026", "what": "E-filing deadline for Year of Assessment 2026 (2025 income)"},
+      {"date": "15 April 2026", "what": "Paper filing deadline"},
+      {"date": "1 March 2026", "what": "Employers submit employment income under the Auto-Inclusion Scheme"},
+      {"date": "Within 30 days of the notice", "what": "Payment of the assessed tax, or start a GIRO instalment plan"},
+      {"date": "Two months before departure", "what": "Tax clearance (Form IR21) for foreign employees leaving Singapore"}
+    ],
+    "forms": [
+      {"id": "Form B1", "name": "Return for tax residents with employment income"},
+      {"id": "Form B", "name": "Return for the self-employed"},
+      {"id": "Form M", "name": "Return for non-residents"},
+      {"id": "IR8A", "name": "Return of employee's remuneration, filed by the employer"},
+      {"id": "IR21", "name": "Tax clearance notification for departing foreign employees"},
+      {"id": "Form P", "name": "Partnership return"}
+    ],
+    "documents_to_collect": [
+      "Singpass for portal access",
+      "IR8A from the employer, or confirmation that they are on the Auto-Inclusion Scheme",
+      "Records of rental income and allowable expenses",
+      "Business accounts if self-employed, kept for five years",
+      "Donation receipts to Institutions of a Public Character - deductible at 250% of the amount given",
+      "CPF and SRS contribution statements"
+    ],
+    "penalties": {
+      "late_filing": "up to 1,000 fine, and an estimated assessment which must still be paid",
+      "late_payment": "5% penalty, plus 1% a month up to 12% additional",
+      "understatement": "up to 200% of the undercharged tax; up to 400% with intent to evade",
+      "tax_clearance": "the employer must withhold monies from a departing foreign employee until clearance is given"
+    }
+  },
+  "sources": [
+    {"name": "IRAS - Individual income tax rates", "url": "https://www.iras.gov.sg/taxes/individual-income-tax/basics-of-individual-income-tax/tax-residency-and-tax-rates/individual-income-tax-rates"},
+    {"name": "IRAS - Filing", "url": "https://www.iras.gov.sg/taxes/individual-income-tax"},
+    {"name": "CPF Board - Contribution rates", "url": "https://www.cpf.gov.sg/employer/employer-obligations/how-much-cpf-contributions-to-pay"}
+  ],
+  "warnings": [
+    "CPF is modelled as applying at the full rate. Set employment income net of CPF, or ignore the CPF line entirely, for foreigners on work passes who do not contribute.",
+    "CPF rates fall in bands from age 55 onward and are not age-adjusted here.",
+    "Personal reliefs beyond earned income relief (spouse, child, parent, course fees, SRS) are not modelled and are capped at 80,000 in total."
+  ]
+}
