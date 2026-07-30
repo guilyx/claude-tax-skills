@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Validate country data
+        # Runs first: a structural problem in the data explains most test
+        # failures, and its message is far more specific than a test traceback.
+        run: python -m taxcalc validate
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      - name: Smoke-test the CLI
+        run: |
+          python -m taxcalc list
+          python -m taxcalc calc DE --employment 85000
+          python -m taxcalc compare 90000 --countries US,GB,DE,SG
+          python -m taxcalc deadlines JP
