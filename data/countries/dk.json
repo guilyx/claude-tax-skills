@@ -1,0 +1,131 @@
+{
+  "country": "Denmark",
+  "iso2": "DK",
+  "tax_year": 2025,
+  "currency": "DKK",
+  "skills": {
+    "calculation": "denmark-tax-calculation",
+    "reporting": "denmark-tax-reporting"
+  },
+  "residency": {
+    "test": "Full tax liability arises on taking up residence, or after six months of continuous stay. Simply having a home available in Denmark and staying there for work can be enough.",
+    "worldwide_income": "Yes for fully liable taxpayers.",
+    "researcher_scheme": "The expat scheme taxes qualifying researchers and highly paid employees at 27% plus AM-bidrag (an effective 32.84%) for up to seven years, subject to a minimum salary requirement.",
+    "note": "Danish residence rules are triggered easily. Buying or renting a year-round dwelling is often the decisive fact."
+  },
+  "headline": {
+    "am_bidrag": "8% labour market contribution off the top of gross salary",
+    "municipal_tax": "about 25.1% on average",
+    "bottom_bracket": "12.01% state tax",
+    "top_bracket": "15% above about 611,800 of personal income",
+    "tax_ceiling": "52.07% excluding AM-bidrag and church tax"
+  },
+  "income_tax": {
+    "name": "Bundskat (bottom-bracket state tax)",
+    "type": "flat",
+    "rate": 0.1201
+  },
+  "local_tax": {
+    "name": "Kommuneskat (municipal tax)",
+    "default_rate": 0.2507,
+    "note": "national average; ranges from about 23.4% in Rudersdal to 26.3% in Langeland"
+  },
+  "regions": {
+    "KBH": {"name": "København", "rate": 0.2354},
+    "AAR": {"name": "Aarhus", "rate": 0.2452},
+    "ODE": {"name": "Odense", "rate": 0.2550},
+    "AAL": {"name": "Aalborg", "rate": 0.2518},
+    "GEN": {"name": "Gentofte (low)", "rate": 0.2339},
+    "LAN": {"name": "Langeland (high)", "rate": 0.2630}
+  },
+  "personal_allowance": {
+    "name": "Personfradrag",
+    "amount": 51600,
+    "note": "applied here as a deduction; Denmark technically grants it as a credit at the bottom-bracket plus municipal rate"
+  },
+  "standard_deduction": {
+    "name": "Beskæftigelsesfradrag (employment allowance)",
+    "rate": 0.121,
+    "cap": 55600,
+    "note": "10.65% capped at 45,600 historically; raised for 2025"
+  },
+  "surcharges": [
+    {
+      "name": "Topskat (top-bracket tax)",
+      "base": "gross_income",
+      "threshold": 611800,
+      "above_threshold_only": true,
+      "rate": 0.15,
+      "note": "charged on personal income after AM-bidrag; from 2026 this splits into a middle and a top bracket"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "AM-bidrag (labour market contribution)", "rate": 0.08, "deductible": true},
+      {"name": "ATP (labour market supplementary pension)", "type": "fixed", "amount": 1136, "deductible": true}
+    ],
+    "employer": [
+      {"name": "ATP employer share", "type": "fixed", "amount": 2272},
+      {"name": "Other employer levies (AES, AUB, financing)", "rate": 0.01}
+    ],
+    "self_employed": [
+      {"name": "AM-bidrag", "rate": 0.08, "deductible": true}
+    ]
+  },
+  "capital_gains": {
+    "shares": "27% up to 67,500 of share income (135,000 for couples), 42% above",
+    "property": "gains on your own home are exempt under the parcelhusreglen if you have lived there",
+    "other_capital_income": "net capital income is taxed with other income, with a separate ceiling of 42%",
+    "note": "Denmark taxes some unrealised gains on foreign investment funds and pension assets annually"
+  },
+  "quirks": [
+    "AM-bidrag comes off the top before anything else, so the headline marginal rate of about 55.9% for top-bracket taxpayers already includes it.",
+    "The tax ceiling caps the combined bottom, top and municipal rate at 52.07%, but AM-bidrag and church tax sit outside the ceiling.",
+    "Church tax of roughly 0.7% is charged automatically to members of the Danish National Church; you must actively opt out.",
+    "The 27% expat scheme has a strict minimum salary requirement checked every month, and one month below the threshold can disqualify you retroactively.",
+    "Preliminary income assessment (forskudsopgørelse) drives your monthly withholding. Updating it when your circumstances change is how Danes avoid a large bill in March."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Skattestyrelsen (SKAT)",
+    "portal": "https://www.skat.dk - TastSelv, MitID required",
+    "who_must_file": "Everyone receives an annual statement (årsopgørelse) that is generated automatically. You must correct it if anything is missing - most notably foreign income, property abroad and share transactions.",
+    "deadlines": [
+      {"date": "Mid-March 2026", "what": "Årsopgørelse for 2025 available in TastSelv"},
+      {"date": "1 May 2026", "what": "Deadline to correct the annual statement for most individuals"},
+      {"date": "1 July 2026", "what": "Deadline for taxpayers with foreign income or self-employment"},
+      {"date": "November 2025", "what": "Preliminary income assessment (forskudsopgørelse) for the following year is published"},
+      {"date": "1 July 2026", "what": "Residual tax paid by this date carries a lower interest surcharge"}
+    ],
+    "forms": [
+      {"id": "Årsopgørelse", "name": "Annual tax statement, generated automatically"},
+      {"id": "Oplysningsskema", "name": "Information form for those with income not reported automatically"},
+      {"id": "Forskudsopgørelse", "name": "Preliminary income assessment driving monthly withholding"},
+      {"id": "Blanket 04.012", "name": "Foreign income supplement"},
+      {"id": "Blanket 49.020", "name": "Application for the researcher/expat tax scheme"}
+    ],
+    "documents_to_collect": [
+      "CPR number and MitID",
+      "The årsopgørelse, which already contains salary, interest, mortgage and Danish share income",
+      "Foreign income, foreign pension and foreign property details - none of this is pre-filled",
+      "Documentation of commuting distance for the befordringsfradrag, which is generous over long distances",
+      "Union fees and unemployment insurance (A-kasse) contributions, both deductible",
+      "Records of any share purchases and sales through foreign brokers"
+    ],
+    "penalties": {
+      "late_correction": "an estimated assessment (taksation) plus a fee of about 200",
+      "underreporting": "penalties from one to two times the evaded tax, with criminal liability above thresholds",
+      "interest": "a non-deductible surcharge on residual tax, higher after 1 July"
+    }
+  },
+  "sources": [
+    {"name": "Skattestyrelsen - Tax in Denmark", "url": "https://skat.dk/en-us/individuals"},
+    {"name": "Skatteministeriet - Tax rates", "url": "https://www.skm.dk/tal-og-metode/satser/"},
+    {"name": "Borger.dk - Tax", "url": "https://www.borger.dk"}
+  ],
+  "warnings": [
+    "The personal allowance is applied as a deduction rather than as Denmark's actual tax credit, which slightly changes results.",
+    "The 52.07% tax ceiling is not enforced by this model; very high incomes may be marginally overstated.",
+    "Church tax is excluded. Add roughly 0.7% of taxable income for members."
+  ]
+}

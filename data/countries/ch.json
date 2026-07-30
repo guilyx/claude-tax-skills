@@ -1,0 +1,130 @@
+{
+  "country": "Switzerland",
+  "iso2": "CH",
+  "tax_year": 2025,
+  "currency": "CHF",
+  "skills": {
+    "calculation": "switzerland-tax-calculation",
+    "reporting": "switzerland-tax-reporting"
+  },
+  "default_region": "ZH",
+  "residency": {
+    "test": "Resident if you intend to stay - 30 days with gainful activity, or 90 days without. Registering at the commune is decisive in practice.",
+    "worldwide_income": "Yes for residents, but foreign real estate and permanent establishments are exempt with progression.",
+    "note": "Tax is levied at three levels: federal, cantonal and communal. The canton and even the commune you live in can change the bill by a factor of two."
+  },
+  "headline": {
+    "federal_max": "11.5%",
+    "cantonal_communal": "roughly 5% to 30% combined depending on canton and commune",
+    "wealth_tax": "cantonal wealth tax applies to worldwide net assets, typically 0.1% to 1%",
+    "capital_gains": "private capital gains on movable assets are tax free"
+  },
+  "income_tax": {
+    "name": "Direct federal tax",
+    "type": "progressive",
+    "note": "approximate single-taxpayer schedule; married taxpayers use a separate, lower scale",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {"income_splitting_factor": 1},
+      "married_joint": {"income_splitting_factor": 1.9, "note": "approximates the separate married scale"}
+    },
+    "brackets": [
+      {"up_to": 15000, "rate": 0.0},
+      {"up_to": 32800, "rate": 0.0077},
+      {"up_to": 42900, "rate": 0.0088},
+      {"up_to": 57200, "rate": 0.0264},
+      {"up_to": 75200, "rate": 0.0297},
+      {"up_to": 81000, "rate": 0.0594},
+      {"up_to": 107400, "rate": 0.066},
+      {"up_to": 139600, "rate": 0.088},
+      {"up_to": 182600, "rate": 0.11},
+      {"up_to": null, "rate": 0.115}
+    ]
+  },
+  "local_tax": {
+    "name": "Cantonal and communal income tax",
+    "default_rate": 0.13,
+    "note": "combined cantonal and communal rate; pass --region or --local-rate for a specific location"
+  },
+  "regions": {
+    "ZG": {"name": "Zug", "rate": 0.08, "note": "approximate combined effective rate at middle-to-high income"},
+    "SZ": {"name": "Schwyz", "rate": 0.09},
+    "ZH": {"name": "Zurich", "rate": 0.14},
+    "LU": {"name": "Lucerne", "rate": 0.12},
+    "BS": {"name": "Basel-Stadt", "rate": 0.175},
+    "BE": {"name": "Bern", "rate": 0.19},
+    "GE": {"name": "Geneva", "rate": 0.18},
+    "VD": {"name": "Vaud", "rate": 0.185},
+    "TI": {"name": "Ticino", "rate": 0.15},
+    "VS": {"name": "Valais", "rate": 0.16}
+  },
+  "social_security": {
+    "employee": [
+      {"name": "AHV/IV/EO (old age, disability, income compensation)", "rate": 0.053, "deductible": true},
+      {"name": "ALV (unemployment)", "rate": 0.011, "ceiling": 148200, "deductible": true},
+      {"name": "ALV solidarity contribution", "rate": 0.005, "floor": 148200, "floor_mode": "reduce_base", "deductible": true},
+      {"name": "BVG occupational pension (approximate)", "rate": 0.07, "ceiling": 90720, "deductible": true, "note": "age-banded from 7% to 18% of the coordinated salary; plan-specific"},
+      {"name": "Non-occupational accident insurance", "rate": 0.01, "ceiling": 148200, "deductible": false}
+    ],
+    "employer": [
+      {"name": "AHV/IV/EO", "rate": 0.053},
+      {"name": "ALV", "rate": 0.011, "ceiling": 148200},
+      {"name": "Family allowance and administration", "rate": 0.02},
+      {"name": "BVG occupational pension (approximate)", "rate": 0.07, "ceiling": 90720},
+      {"name": "Occupational accident insurance", "rate": 0.01}
+    ]
+  },
+  "capital_gains": {
+    "movable_assets": "private capital gains on shares and other movable assets are exempt from income tax",
+    "real_estate": "cantonal real estate gains tax (Grundstückgewinnsteuer), heavily reduced for long holding periods",
+    "professional_trader": "if the authorities classify you as a professional securities dealer, gains become taxable income and social security is charged on them"
+  },
+  "quirks": [
+    "Where you live inside a canton matters. Communal multipliers mean two people with identical income a few kilometres apart can pay meaningfully different tax.",
+    "Foreign nationals without a C permit are usually taxed at source (Quellensteuer) through payroll. A full return is required above roughly 120,000 of income, and can be requested below that if deductions would help.",
+    "Private capital gains on securities are tax free, which is unusual and a major reason Switzerland scores well for investors - but wealth tax applies to the assets themselves every year.",
+    "Voluntary purchases into the second pillar (pension buy-in) are fully deductible and are the single largest planning lever for most employees.",
+    "Tax is assessed and paid by canton; moving cantons mid-year means your tax residence for the whole year is generally where you lived on 31 December."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Cantonal tax administration, plus the Federal Tax Administration (ESTV/AFC)",
+    "portal": "Each canton runs its own filing software and portal",
+    "who_must_file": "Swiss citizens and C-permit holders always file. Source-taxed employees file if income exceeds roughly 120,000, if they have other income or assets above cantonal thresholds, or if they request an ordinary assessment.",
+    "deadlines": [
+      {"date": "31 March 2026", "what": "Typical cantonal filing deadline for 2025", "note": "varies by canton - Zurich is 31 March, Geneva 31 March, Vaud 15 March"},
+      {"date": "On request", "what": "Extensions are routinely granted, often to September or November, usually free or for a small fee"},
+      {"date": "31 March 2026", "what": "Deadline to request a subsequent ordinary assessment if taxed at source"},
+      {"date": "Provisional instalments", "what": "Most cantons invoice provisional instalments during the year"}
+    ],
+    "forms": [
+      {"id": "Steuererklärung / Déclaration d'impôt", "name": "Cantonal return covering federal, cantonal and communal tax together"},
+      {"id": "Lohnausweis", "name": "Salary certificate from the employer - the central document"},
+      {"id": "Wertschriftenverzeichnis", "name": "Schedule of securities and bank accounts"},
+      {"id": "Liegenschaftsverzeichnis", "name": "Schedule of real property"}
+    ],
+    "documents_to_collect": [
+      "Lohnausweis from each employer",
+      "Year-end bank statements for every account, including foreign accounts",
+      "Pillar 2 and pillar 3a contribution certificates - both are deductible",
+      "Health insurance premium statements",
+      "Mortgage interest statement and the tax value of any property",
+      "Receipts for professional expenses, commuting and further education"
+    ],
+    "penalties": {
+      "late_filing": "reminder, then an ex officio assessment based on estimated income, plus a fine",
+      "late_payment": "cantonal default interest",
+      "evasion": "typically the evaded tax plus a penalty of the same amount again; voluntary disclosure is penalty-free once in a lifetime"
+    }
+  },
+  "sources": [
+    {"name": "Federal Tax Administration", "url": "https://www.estv.admin.ch"},
+    {"name": "ch.ch - Tax return", "url": "https://www.ch.ch/en/taxes-and-finances/"},
+    {"name": "Federal tax calculator", "url": "https://swisstaxcalculator.estv.admin.ch"}
+  ],
+  "warnings": [
+    "Cantonal and communal rates here are single approximate effective rates. Real cantonal schedules are progressive and commune-specific - always confirm with the official cantonal calculator before relying on a number.",
+    "Wealth tax is not modelled and can be significant for asset-rich taxpayers.",
+    "The federal married scale is approximated by an income-splitting factor rather than the true separate table."
+  ]
+}

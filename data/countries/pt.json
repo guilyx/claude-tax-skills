@@ -1,0 +1,136 @@
+{
+  "country": "Portugal",
+  "iso2": "PT",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "portugal-tax-calculation",
+    "reporting": "portugal-tax-reporting"
+  },
+  "residency": {
+    "test": "More than 183 days in any 12-month period, or having a home in Portugal on any day of that period in circumstances suggesting you intend to keep it as your habitual residence.",
+    "worldwide_income": "Yes for residents.",
+    "ifici": "The former non-habitual resident regime closed to new entrants. Its replacement, IFICI (the incentive for scientific research and innovation), gives a 20% flat rate on qualifying Portuguese employment income and exempts most foreign income for ten years, but only for a narrow list of qualifying activities.",
+    "irs_jovem": "Young workers up to age 35 get a large, tapering exemption on employment income for ten years."
+  },
+  "headline": {
+    "rates": "13% to 48% across nine bands",
+    "solidarity_surcharge": "2.5% above 80,000 and 5% above 250,000",
+    "social_security": "11% employee, 23.75% employer",
+    "flat_rates": "28% on most investment income, with an option to aggregate"
+  },
+  "income_tax": {
+    "name": "IRS",
+    "type": "progressive",
+    "note": "married couples may elect joint taxation, which applies the quotient conjugal",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {"income_splitting_factor": 1},
+      "married_joint": {"income_splitting_factor": 2, "note": "elective joint taxation divides income by two"}
+    },
+    "brackets": [
+      {"up_to": 8059, "rate": 0.13},
+      {"up_to": 12160, "rate": 0.165},
+      {"up_to": 17233, "rate": 0.22},
+      {"up_to": 22306, "rate": 0.25},
+      {"up_to": 28400, "rate": 0.32},
+      {"up_to": 41629, "rate": 0.355},
+      {"up_to": 44987, "rate": 0.435},
+      {"up_to": 83696, "rate": 0.45},
+      {"up_to": null, "rate": 0.48}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Dedução específica (categoria A)",
+    "amount": 4350,
+    "note": "the higher of 4,104 and the social security contributions actually paid; 4,350 reflects the 2025 uplift"
+  },
+  "surcharges": [
+    {
+      "name": "Taxa adicional de solidariedade",
+      "base": "taxable_income",
+      "threshold": 80000,
+      "above_threshold_only": true,
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 170000, "rate": 0.025},
+          {"up_to": null, "rate": 0.05}
+        ]
+      }
+    }
+  ],
+  "credits": [
+    {"name": "Dedução pessoal (per taxpayer)", "amount": 600, "refundable": false},
+    {"name": "Dedução por dependente", "per_child": 726, "refundable": false, "note": "higher for children under three"}
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Segurança Social", "rate": 0.11, "deductible": false, "note": "no ceiling on employment income"}
+    ],
+    "employer": [
+      {"name": "Segurança Social (entidade empregadora)", "rate": 0.2375}
+    ],
+    "self_employed": [
+      {"name": "Segurança Social (trabalhador independente)", "rate": 0.2145, "deductible": false, "note": "charged on 70% of services income, giving an effective rate of about 15%"}
+    ]
+  },
+  "capital_gains": {
+    "securities": "28% flat rate, or elect aggregation with other income; only 50% of gains on small and medium company shares are taxed",
+    "real_estate": "50% of the gain is added to income and taxed at scale rates for residents",
+    "principal_residence": "exempt if reinvested in another main home in the EU/EEA within 36 months, or for taxpayers over 65 reinvesting in a pension product",
+    "crypto": "28% on disposals of assets held less than 365 days; longer holdings of most tokens are exempt"
+  },
+  "quirks": [
+    "The NHR regime is closed to new arrivals. IFICI is much narrower - it requires a qualifying highly skilled activity, and most retirees and remote workers no longer qualify for anything special.",
+    "IRS Jovem is generous and often overlooked: in the first year the exemption covers 100% of employment income up to a ceiling, tapering across ten years.",
+    "Deductions depend on invoices being issued with your NIF. Requesting the NIF on every restaurant, health and education receipt through the year is what actually generates the deduction, and it cannot be reconstructed afterwards.",
+    "Married couples choose each year between separate and joint taxation. Joint filing helps when incomes are very unequal and hurts when they are similar.",
+    "Social security for the self-employed is recalculated quarterly from declared income, not annually."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Autoridade Tributária e Aduaneira (AT)",
+    "portal": "https://www.portaldasfinancas.gov.pt",
+    "who_must_file": "All residents, with limited exemptions for those whose only income is employment or pension income below 8,500 taxed at source.",
+    "deadlines": [
+      {"date": "1 April to 30 June 2026", "what": "Modelo 3 IRS return for 2025 - the window is the same for all income types"},
+      {"date": "15 February 2026", "what": "Confirm household composition and dependants in the portal"},
+      {"date": "25 February 2026", "what": "Validate pending invoices (e-fatura) so deductions are counted"},
+      {"date": "31 August 2026", "what": "Payment of any balance due"},
+      {"date": "July / September / December", "what": "Payments on account for business and professional income"}
+    ],
+    "forms": [
+      {"id": "Modelo 3", "name": "Annual IRS return"},
+      {"id": "Anexo A", "name": "Employment and pension income"},
+      {"id": "Anexo B", "name": "Self-employment (simplified regime)"},
+      {"id": "Anexo G", "name": "Capital gains"},
+      {"id": "Anexo J", "name": "Foreign income"},
+      {"id": "Anexo H", "name": "Deductions and benefits"},
+      {"id": "Modelo 4", "name": "Declaration of securities transfers"}
+    ],
+    "documents_to_collect": [
+      "NIF (número de identificação fiscal) and portal password",
+      "Employer income and withholding statement",
+      "e-fatura validated invoices for health, education, housing and general family expenses",
+      "Rent receipts or mortgage interest statement",
+      "Foreign income and foreign tax certificates for Anexo J",
+      "Details of foreign bank accounts - IBANs must be reported"
+    ],
+    "penalties": {
+      "late_filing": "150 to 3,750",
+      "late_payment": "30% to 100% of the tax due, plus interest at about 4% a year",
+      "omitted_foreign_accounts": "specific penalties apply for failing to report foreign account IBANs"
+    }
+  },
+  "sources": [
+    {"name": "Portal das Finanças", "url": "https://www.portaldasfinancas.gov.pt"},
+    {"name": "Segurança Social Direta", "url": "https://www.seg-social.pt"},
+    {"name": "Código do IRS", "url": "https://info.portaldasfinancas.gov.pt"}
+  ],
+  "warnings": [
+    "IRS Jovem and IFICI are not modelled. If either applies the result will be materially lower.",
+    "Expense-based deductions (health, education, housing) depend on validated e-fatura data and are not included.",
+    "Madeira and the Azores apply reduced rates that are not reflected here."
+  ]
+}

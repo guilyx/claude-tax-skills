@@ -1,0 +1,118 @@
+{
+  "country": "Spain",
+  "iso2": "ES",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "spain-tax-calculation",
+    "reporting": "spain-tax-reporting"
+  },
+  "residency": {
+    "test": "More than 183 days in the calendar year, or your main base of economic interests is in Spain. A resident spouse and minor children create a rebuttable presumption.",
+    "worldwide_income": "Yes for residents.",
+    "beckham_law": "The special regime for inbound workers taxes Spanish employment income at 24% up to 600,000 and generally excludes foreign income, for the year of arrival plus five years. It must be elected within six months of registering with social security.",
+    "note": "Spain has no split-year treatment: you are resident for the entire calendar year or not at all."
+  },
+  "headline": {
+    "rates": "19% to 47% combined state and regional on general income",
+    "savings_income": "19% to 30% on interest, dividends and capital gains",
+    "social_security": "6.48% employee, capped at a monthly base of 4,909.50",
+    "wealth_tax": "regional wealth tax plus a state solidarity tax on large fortunes"
+  },
+  "income_tax": {
+    "name": "IRPF (state plus regional)",
+    "type": "progressive",
+    "note": "half of this scale is set by the autonomous community and varies - Madrid is lower, Catalonia and Valencia higher",
+    "brackets": [
+      {"up_to": 12450, "rate": 0.19},
+      {"up_to": 20200, "rate": 0.24},
+      {"up_to": 35200, "rate": 0.30},
+      {"up_to": 60000, "rate": 0.37},
+      {"up_to": 300000, "rate": 0.45},
+      {"up_to": null, "rate": 0.47}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Reducción por rendimientos del trabajo",
+    "amount": 2000,
+    "note": "flat employment expense reduction; an additional reduction applies to low salaries"
+  },
+  "personal_allowance": {
+    "name": "Mínimo personal y familiar",
+    "amount": 5550,
+    "per_child": 2400,
+    "note": "rises to 6,700 at age 65 and 8,100 at 75; the child amounts increase for the second, third and later children"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "Contingencias comunes", "rate": 0.047, "ceiling": 58914, "deductible": true},
+      {"name": "Desempleo", "rate": 0.0155, "ceiling": 58914, "deductible": true},
+      {"name": "Formación profesional", "rate": 0.001, "ceiling": 58914, "deductible": true},
+      {"name": "Mecanismo de Equidad Intergeneracional (MEI)", "rate": 0.0013, "ceiling": 58914, "deductible": true}
+    ],
+    "employer": [
+      {"name": "Contingencias comunes", "rate": 0.236, "ceiling": 58914},
+      {"name": "Desempleo, FOGASA y formación", "rate": 0.0705, "ceiling": 58914},
+      {"name": "Accidentes de trabajo", "rate": 0.015, "ceiling": 58914}
+    ],
+    "self_employed": [
+      {"name": "Cuota de autónomos (income-banded)", "rate": 0.31, "ceiling": 58914, "deductible": true, "note": "since 2023 the monthly quota depends on declared net income bands, from about 200 to 590 per month"}
+    ]
+  },
+  "capital_gains": {
+    "savings_scale": "19% to 6,000; 21% to 50,000; 23% to 200,000; 27% to 300,000; 30% above",
+    "principal_residence": "reinvestment relief where the proceeds are reinvested in a new main home within two years; full exemption for sellers over 65",
+    "note": "dividends and interest use the same savings scale"
+  },
+  "quirks": [
+    "There is no split tax year. Arriving on 1 July and staying makes you resident for the whole calendar year, including for income earned abroad in the first half.",
+    "Modelo 720 requires reporting foreign assets over 50,000 by category. The historic penalty regime was struck down by the EU Court of Justice, but the obligation itself remains.",
+    "Half of the income tax scale is regional. Madrid, Andalusia and Murcia have cut their share; Catalonia, Valencia and Asturias are higher. Always confirm the community.",
+    "The Beckham regime must be elected within six months of social security registration. Missing that window cannot be fixed later.",
+    "Wealth tax was reinstated in most regions, and where a region exempts it the state solidarity tax on fortunes above 3m applies instead."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Agencia Estatal de Administración Tributaria (AEAT)",
+    "portal": "https://sede.agenciatributaria.gob.es",
+    "who_must_file": "Residents with employment income above 22,000 from one payer, or above 15,876 from more than one payer where the second pays over 1,500. Also anyone with business income, rental income, or capital gains regardless of amount.",
+    "deadlines": [
+      {"date": "Early April 2026", "what": "Renta campaign opens; draft (borrador) available online"},
+      {"date": "30 June 2026", "what": "Deadline to file Modelo 100 for 2025"},
+      {"date": "25 June 2026", "what": "Earlier deadline if paying by direct debit"},
+      {"date": "31 March 2026", "what": "Modelo 720 foreign asset declaration for 2025"},
+      {"date": "20 Apr / 20 Jul / 20 Oct / 30 Jan", "what": "Quarterly Modelo 130 instalments for the self-employed"}
+    ],
+    "forms": [
+      {"id": "Modelo 100", "name": "Annual IRPF return (Declaración de la Renta)"},
+      {"id": "Modelo 720", "name": "Declaration of assets held abroad"},
+      {"id": "Modelo 149/151", "name": "Election for and return under the inbound worker (Beckham) regime"},
+      {"id": "Modelo 130", "name": "Quarterly instalment for self-employed on direct assessment"},
+      {"id": "Modelo 303", "name": "Quarterly VAT return"},
+      {"id": "Modelo 714", "name": "Wealth tax return"}
+    ],
+    "documents_to_collect": [
+      "NIE or DNI and Cl@ve PIN or digital certificate",
+      "Certificado de retenciones from each employer",
+      "Datos fiscales - the pre-filled data AEAT holds on you, always worth downloading first",
+      "Bank and broker annual certificates",
+      "Cadastral reference for any property owned, including foreign property",
+      "Mortgage and pension contribution certificates"
+    ],
+    "penalties": {
+      "late_filing_no_tax_due": "fixed penalty of 100 to 200",
+      "late_filing_with_tax_due": "surcharge of 1% plus 1% per month of delay, rising to 15% plus interest after 12 months",
+      "understatement": "50% to 150% of the unpaid amount depending on severity"
+    }
+  },
+  "sources": [
+    {"name": "Agencia Tributaria - Renta", "url": "https://sede.agenciatributaria.gob.es/Sede/Renta.html"},
+    {"name": "Seguridad Social - Bases y tipos de cotización", "url": "https://www.seg-social.es"},
+    {"name": "AEAT - Modelo 720", "url": "https://sede.agenciatributaria.gob.es"}
+  ],
+  "warnings": [
+    "The scale used here is the common state-plus-regional combination. Substitute your autonomous community's scale for an accurate figure.",
+    "The mínimo personal is applied as a deduction here; Spain actually applies it as a rate-band reduction, which produces slightly different results at high incomes.",
+    "Savings income is taxed on its own scale and is not handled by the general calculation."
+  ]
+}

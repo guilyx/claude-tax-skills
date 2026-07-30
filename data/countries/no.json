@@ -1,0 +1,124 @@
+{
+  "country": "Norway",
+  "iso2": "NO",
+  "tax_year": 2025,
+  "currency": "NOK",
+  "skills": {
+    "calculation": "norway-tax-calculation",
+    "reporting": "norway-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident after 183 days in any 12-month period, or 270 days in any 36-month period.",
+    "worldwide_income": "Yes for residents. Residence for treaty purposes can end earlier than domestic residence.",
+    "paye_scheme": "New foreign workers can opt into a simplified 25% flat PAYE scheme (including national insurance) on employment income up to a threshold, with no deductions and no return to file.",
+    "exit_tax": "Norway levies an exit tax on unrealised gains above a threshold when tax residence ends."
+  },
+  "headline": {
+    "ordinary_income": "22% flat on net income after deductions",
+    "bracket_tax": "trinnskatt of 1.7% to 17.5% on gross personal income, on top of the 22%",
+    "national_insurance": "7.7% employee",
+    "wealth_tax": "about 1% on net wealth above 1.76m, rising to 1.1% above 20.7m"
+  },
+  "income_tax": {
+    "name": "Skatt på alminnelig inntekt",
+    "type": "flat",
+    "rate": 0.22
+  },
+  "standard_deduction": {
+    "name": "Minstefradrag",
+    "rate": 0.46,
+    "cap": 92000,
+    "note": "46% of employment income capped at 92,000"
+  },
+  "personal_allowance": {
+    "name": "Personfradrag",
+    "amount": 108550
+  },
+  "surcharges": [
+    {
+      "name": "Trinnskatt (bracket tax)",
+      "base": "gross_income",
+      "above_threshold_only": false,
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 217400, "rate": 0.0},
+          {"up_to": 306050, "rate": 0.017},
+          {"up_to": 697150, "rate": 0.04},
+          {"up_to": 942400, "rate": 0.137},
+          {"up_to": 1410750, "rate": 0.165},
+          {"up_to": null, "rate": 0.175}
+        ]
+      },
+      "note": "charged on gross personal income before deductions, unlike the 22% ordinary income tax"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Trygdeavgift (national insurance)", "rate": 0.077, "floor": 99650, "deductible": false, "note": "no contribution below the threshold; a phase-in rule applies just above it"}
+    ],
+    "employer": [
+      {"name": "Arbeidsgiveravgift", "rate": 0.141, "note": "zone-dependent - lower or zero in the far north"}
+    ],
+    "self_employed": [
+      {"name": "Trygdeavgift (self-employed rate)", "rate": 0.109, "floor": 99650, "deductible": false}
+    ]
+  },
+  "capital_gains": {
+    "shares": "effective 37.84% - the gain is grossed up by 1.72 and taxed at 22%",
+    "shielding_deduction": "a risk-free return on the share basis (skjermingsfradrag) is exempt",
+    "property": "exempt if you owned the home for at least 12 of the last 24 months and lived in it",
+    "other": "22% on most other capital gains"
+  },
+  "quirks": [
+    "The bracket tax is charged on gross personal income while the 22% is charged on net income, so deductions only reduce part of your bill.",
+    "Wealth tax is real and applies to worldwide net assets including unlisted shares. It drives a lot of financial planning and has prompted some high-net-worth emigration.",
+    "New arrivals are placed on the simplified 25% PAYE scheme by default in their first year. It is simple, but for anyone with mortgage interest or commuting costs the ordinary system is usually cheaper - the choice can be revisited.",
+    "Everything is transparent: the tax lists (skattelistene) publish income, wealth and tax paid for every taxpayer, searchable by anyone logged in with an ID.",
+    "The tax return is fully pre-filled and is treated as submitted if you do nothing, which is convenient but means unclaimed deductions are silently lost."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Skatteetaten",
+    "portal": "https://www.skatteetaten.no (ID-porten / MinID / BankID)",
+    "who_must_file": "Everyone receives a pre-filled return. If it is correct you need do nothing; it is deemed submitted at the deadline. Anyone with corrections or additional income must submit changes.",
+    "deadlines": [
+      {"date": "Mid-March 2026", "what": "Pre-filled return published for the 2025 income year"},
+      {"date": "30 April 2026", "what": "Deadline to submit corrections for individuals"},
+      {"date": "31 May 2026", "what": "Deadline for self-employed and businesses"},
+      {"date": "31 May 2026", "what": "Deadline to request an extension, granted to 30 June"},
+      {"date": "June to October 2026", "what": "Assessments issued in batches; refunds follow"},
+      {"date": "By 31 May", "what": "Additional payment (tilleggsforskudd) to avoid interest on underpayments"}
+    ],
+    "forms": [
+      {"id": "Skattemelding", "name": "Pre-filled tax return"},
+      {"id": "Næringsspesifikasjon", "name": "Business income specification for the self-employed"},
+      {"id": "RF-1030", "name": "Legacy return form reference"},
+      {"id": "Skattekort", "name": "Tax deduction card, set at the start of the year and adjustable at any time"},
+      {"id": "A-melding", "name": "Monthly employer payroll report"}
+    ],
+    "documents_to_collect": [
+      "Fødselsnummer or D-number and an electronic ID",
+      "The pre-filled return, which already includes salary, bank interest, debt and most securities",
+      "Mortgage interest statements, including for foreign mortgages which are not pre-filled",
+      "Documentation of commuting distance, home-away-from-home costs and travel for those who qualify",
+      "Foreign income and foreign tax paid for credit relief",
+      "Valuations of foreign property and unlisted shares for wealth tax"
+    ],
+    "penalties": {
+      "late_filing": "enforcement fine (tvangsmulkt) of about 1,277 per day, capped at roughly 63,850",
+      "incorrect_information": "additional tax of 20%, rising to 40-60% where the omission is intentional",
+      "interest": "charged on underpaid tax from the deadline for additional advance payment"
+    }
+  },
+  "sources": [
+    {"name": "Skatteetaten - Tax rates", "url": "https://www.skatteetaten.no/en/rates/"},
+    {"name": "Skatteetaten - Tax return", "url": "https://www.skatteetaten.no/en/person/taxes/tax-return/"},
+    {"name": "Regjeringen - Tax programme", "url": "https://www.regjeringen.no/en/topics/the-economy/taxes-and-duties/"}
+  ],
+  "warnings": [
+    "Wealth tax is not modelled and can dominate the bill for asset-rich taxpayers.",
+    "The trygdeavgift phase-in just above the threshold is simplified to a hard floor.",
+    "The simplified 25% PAYE scheme for new arrivals is not modelled; if it applies the calculation is simply 25% of gross."
+  ]
+}

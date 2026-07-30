@@ -1,0 +1,121 @@
+{
+  "country": "Australia",
+  "iso2": "AU",
+  "tax_year": 2025,
+  "currency": "AUD",
+  "skills": {
+    "calculation": "australia-tax-calculation",
+    "reporting": "australia-tax-reporting"
+  },
+  "residency": {
+    "test": "The ordinary concepts test, plus the domicile, 183-day and Commonwealth superannuation tests. Meeting any statutory test makes you resident.",
+    "worldwide_income": "Yes for residents. Non-residents pay from the first dollar at 30% with no tax-free threshold and no Medicare levy.",
+    "note": "The tax year runs 1 July to 30 June. Figures here are for the 2025-26 year.",
+    "temporary_resident": "Holders of certain temporary visas are exempt from Australian tax on most foreign income."
+  },
+  "headline": {
+    "tax_free_threshold": "18,200",
+    "rates": "16% / 30% / 37% / 45%",
+    "medicare_levy": "2% of taxable income",
+    "superannuation": "12% employer contribution from 1 July 2025"
+  },
+  "income_tax": {
+    "name": "Individual income tax",
+    "type": "progressive",
+    "note": "2025-26 resident rates",
+    "brackets": [
+      {"up_to": 18200, "rate": 0.0},
+      {"up_to": 45000, "rate": 0.16},
+      {"up_to": 135000, "rate": 0.30},
+      {"up_to": 190000, "rate": 0.37},
+      {"up_to": null, "rate": 0.45}
+    ]
+  },
+  "surcharges": [
+    {
+      "name": "Medicare levy",
+      "base": "taxable_income",
+      "rate": 0.02,
+      "threshold": 27222,
+      "above_threshold_only": false,
+      "note": "phased in between 27,222 and 34,027; family thresholds are higher"
+    },
+    {
+      "name": "Medicare levy surcharge",
+      "base": "taxable_income",
+      "rate": 0.01,
+      "threshold": 101000,
+      "above_threshold_only": false,
+      "note": "only if you have no eligible private hospital cover; rises to 1.25% and 1.5% at higher income tiers"
+    }
+  ],
+  "credits": [
+    {
+      "name": "Low income tax offset",
+      "amount": 700,
+      "refundable": false,
+      "taper": {"threshold": 37500, "rate": 0.05, "floor": 0},
+      "note": "reduces at 5c per dollar to 45,000 then 1.5c per dollar to 66,667"
+    }
+  ],
+  "social_security": {
+    "employer": [
+      {"name": "Superannuation guarantee", "rate": 0.12, "ceiling": 260280, "note": "12% from 1 July 2025, subject to the maximum contribution base"}
+    ]
+  },
+  "capital_gains": {
+    "discount": "50% CGT discount on assets held more than 12 months by individuals",
+    "rate": "net gains are added to income and taxed at marginal rates",
+    "principal_residence": "the main residence exemption generally applies, but is lost for foreign residents at the time of sale",
+    "note": "there is no separate CGT rate - the discount is the relief mechanism"
+  },
+  "quirks": [
+    "The tax year ends 30 June. Anyone arriving from a calendar-year country routinely gets this wrong on their first return.",
+    "The Medicare levy surcharge means that for many people earning above about 101,000, buying basic private hospital cover costs less than the surcharge they avoid.",
+    "HELP/HECS student loan repayments are collected through the tax system and are calculated on repayment income, which adds back reportable fringe benefits and salary-sacrificed super.",
+    "Salary-sacrificed superannuation is taxed at 15% inside the fund, well below most marginal rates, up to the 30,000 concessional cap.",
+    "Foreign residents lose the tax-free threshold entirely and pay 30% from the first dollar."
+  ],
+  "reporting": {
+    "tax_year_end": "30 June",
+    "authority": "Australian Taxation Office (ATO)",
+    "portal": "https://my.gov.au linked to ATO online services",
+    "who_must_file": "Most residents with income above the tax-free threshold, anyone who had tax withheld, and anyone carrying on a business regardless of profit.",
+    "deadlines": [
+      {"date": "31 October 2026", "what": "Individual return for the 2025-26 year if you lodge yourself"},
+      {"date": "15 May 2027", "what": "Extended deadline if lodging through a registered tax agent", "note": "you must be on the agent's client list before 31 October"},
+      {"date": "21st of month or quarterly", "what": "Business activity statement (BAS) for GST and PAYG instalments"},
+      {"date": "14 July", "what": "Employers finalise Single Touch Payroll so income statements become tax-ready"}
+    ],
+    "forms": [
+      {"id": "Individual tax return", "name": "Lodged through myTax, an agent, or paper"},
+      {"id": "Income statement", "name": "Replaces the old payment summary; delivered via Single Touch Payroll"},
+      {"id": "Schedule - business", "name": "Business and professional items schedule for sole traders"},
+      {"id": "BAS", "name": "Business activity statement for GST-registered taxpayers"},
+      {"id": "TFN declaration", "name": "Given to each employer when starting work"}
+    ],
+    "documents_to_collect": [
+      "Tax file number (TFN)",
+      "Income statements from all employers (usually pre-filled by mid-July)",
+      "Private health insurance statement - needed to avoid the surcharge",
+      "Bank interest and dividend statements",
+      "Records of work-related deductions: car logbook, home office hours, professional subscriptions, self-education",
+      "Rental property income and expense records including depreciation schedules"
+    ],
+    "penalties": {
+      "failure_to_lodge": "one penalty unit per 28 days late, up to five units",
+      "shortfall": "25% to 75% of the shortfall depending on behaviour",
+      "general_interest_charge": "compounded daily on unpaid amounts"
+    }
+  },
+  "sources": [
+    {"name": "ATO - Individual income tax rates", "url": "https://www.ato.gov.au/tax-rates-and-codes/tax-rates-australian-residents"},
+    {"name": "ATO - Lodging your tax return", "url": "https://www.ato.gov.au/individuals-and-families/your-tax-return"},
+    {"name": "ATO - Medicare levy surcharge", "url": "https://www.ato.gov.au/individuals-and-families/medicare-and-private-health-insurance"}
+  ],
+  "warnings": [
+    "HELP/HECS student loan repayments are not modelled and can add up to 10% of repayment income.",
+    "The Medicare levy phase-in range and family thresholds are simplified.",
+    "Superannuation is shown as an employer cost; it is not withheld from the employee's salary."
+  ]
+}

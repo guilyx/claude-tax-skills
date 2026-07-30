@@ -1,0 +1,125 @@
+{
+  "country": "Sweden",
+  "iso2": "SE",
+  "tax_year": 2025,
+  "currency": "SEK",
+  "skills": {
+    "calculation": "sweden-tax-calculation",
+    "reporting": "sweden-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if domiciled in Sweden, if you stay continuously for six months, or if you have an essential connection after leaving (family, housing, business interests).",
+    "worldwide_income": "Yes for residents.",
+    "sink": "Non-residents working temporarily in Sweden can elect SINK, a 25% flat withholding with no deductions.",
+    "expert_tax": "The expert tax relief exempts 25% of remuneration for qualifying key personnel for up to seven years."
+  },
+  "headline": {
+    "municipal_tax": "about 32.4% on average, set by each municipality and region",
+    "state_tax": "an extra 20% on taxable income above 625,800",
+    "employee_contribution": "7% pension fee, fully offset by a tax credit for most people",
+    "employer_contribution": "31.42%"
+  },
+  "income_tax": {
+    "name": "Statlig inkomstskatt (state income tax)",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 625800, "rate": 0.0},
+      {"up_to": null, "rate": 0.20}
+    ]
+  },
+  "local_tax": {
+    "name": "Kommunalskatt (municipal and regional tax)",
+    "default_rate": 0.3241,
+    "note": "national average; ranges from about 29% in Österåker to 35.3% in Dorotea"
+  },
+  "regions": {
+    "STO": {"name": "Stockholm municipality", "rate": 0.2982},
+    "GOT": {"name": "Gothenburg", "rate": 0.3315},
+    "MAL": {"name": "Malmö", "rate": 0.3224},
+    "UPP": {"name": "Uppsala", "rate": 0.3285},
+    "OST": {"name": "Österåker (lowest)", "rate": 0.2908},
+    "DOR": {"name": "Dorotea (highest)", "rate": 0.3535}
+  },
+  "personal_allowance": {
+    "name": "Grundavdrag",
+    "amount": 16900,
+    "note": "ranges from about 16,900 to 45,500 depending on income; the higher amounts apply in the middle of the income range"
+  },
+  "credits": [
+    {
+      "name": "Jobbskatteavdrag (earned income tax credit)",
+      "rate": 0.09,
+      "cap": 45000,
+      "refundable": false,
+      "taper": {"threshold": 700000, "rate": 0.03, "floor": 0},
+      "note": "approximation of a formula tied to the price base amount and the municipal rate"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Allmän pensionsavgift", "rate": 0.07, "ceiling": 613000, "deductible": false, "note": "offset in full by a tax credit for most taxpayers, so the real cost is usually zero"}
+    ],
+    "employer": [
+      {"name": "Arbetsgivaravgifter", "rate": 0.3142, "note": "reduced rates apply for young and older workers"}
+    ],
+    "self_employed": [
+      {"name": "Egenavgifter", "rate": 0.2897, "deductible": true}
+    ]
+  },
+  "capital_gains": {
+    "rate": "30% on capital income, including interest, dividends and gains",
+    "listed_shares": "30%, but most private investors hold shares in an investeringssparkonto (ISK) instead",
+    "isk": "the ISK is taxed on a deemed return on the account balance rather than on gains, which is usually far cheaper in rising markets",
+    "housing": "22/30 of the gain is taxed at 30%, giving an effective 22%; deferral is available when buying a replacement home"
+  },
+  "quirks": [
+    "The investeringssparkonto (ISK) replaces capital gains tax with a small annual charge on the account value. For long-term investors this is the single most important account choice.",
+    "The employee pension fee of 7% is neutralised by a matching credit, so payslips understate the real position - almost nobody actually pays it.",
+    "Municipal rates differ by more than six percentage points across the country, which is a larger swing than most people expect within a single tax system.",
+    "The state tax threshold (skiktgräns) is the point where the marginal rate jumps from roughly 32% to roughly 52%, which is why Swedish salary negotiations often focus on benefits above that level.",
+    "The pre-filled return arrives in March and can be approved by SMS or app in under a minute if nothing needs changing."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Skatteverket",
+    "portal": "https://www.skatteverket.se (BankID required)",
+    "who_must_file": "Everyone who receives a tax return proposal, which is essentially every resident with income. Approving the pre-filled return counts as filing.",
+    "deadlines": [
+      {"date": "Early March 2026", "what": "Pre-filled return (inkomstdeklaration) becomes available digitally"},
+      {"date": "2 May 2026", "what": "Filing deadline for individuals for the 2025 income year"},
+      {"date": "Early April 2026", "what": "Approve by this date with no changes for the earliest refund, usually paid in April"},
+      {"date": "12 February 2026", "what": "Deadline for extra tax payments to avoid interest on large underpayments"},
+      {"date": "Monthly", "what": "Employer PAYE returns (arbetsgivardeklaration) with individual-level reporting"}
+    ],
+    "forms": [
+      {"id": "Inkomstdeklaration 1", "name": "Individual income tax return, pre-filled"},
+      {"id": "K4", "name": "Sale of listed securities"},
+      {"id": "K5 / K6", "name": "Sale of property or tenant-owned apartment"},
+      {"id": "NE", "name": "Sole trader business income"},
+      {"id": "SKV 4314", "name": "Application for SINK taxation"}
+    ],
+    "documents_to_collect": [
+      "Personnummer and BankID",
+      "The pre-filled return, which already contains salary, benefits, interest and most securities sales",
+      "Broker statements for anything not pre-filled, particularly foreign holdings",
+      "Documentation of property sale costs and improvement expenditure - these are not pre-filled and are frequently missed",
+      "Receipts for ROT and RUT home service deductions",
+      "Records of deductible travel to work above the annual threshold"
+    ],
+    "penalties": {
+      "late_filing": "förseningsavgift of 1,250, rising to 3,750 in total for continued delay",
+      "incorrect_information": "skattetillägg of 40% of the underpaid tax, 20% for capital income",
+      "interest": "charged on underpayments above 30,000 from February"
+    }
+  },
+  "sources": [
+    {"name": "Skatteverket - Private individuals", "url": "https://www.skatteverket.se/privat.4.76a43be412206334b89800052864.html"},
+    {"name": "Skatteverket - Municipal tax rates", "url": "https://www.skatteverket.se"},
+    {"name": "SCB - Kommunala skattesatser", "url": "https://www.scb.se"}
+  ],
+  "warnings": [
+    "The grundavdrag and jobbskatteavdrag are both formula-driven and are approximated here; results in the 200,000-500,000 range are the least precise.",
+    "Church fee (about 1%) applies to members of the Church of Sweden and is not included.",
+    "Use the municipality's actual rate rather than the national average whenever it is known."
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "country": "United Kingdom",
+  "iso2": "GB",
+  "tax_year": 2025,
+  "currency": "GBP",
+  "skills": {
+    "calculation": "uk-tax-calculation",
+    "reporting": "uk-tax-reporting"
+  },
+  "residency": {
+    "test": "Statutory Residence Test - automatic overseas tests, then automatic UK tests, then the sufficient ties test.",
+    "automatic_uk": "183 days or more in the UK in the tax year, or a UK home occupied for 91 days, or full-time UK work.",
+    "split_year": "Available in defined cases so that only part of the year is taxed as resident.",
+    "domicile": "The remittance basis for non-domiciled residents was abolished from 6 April 2025 and replaced by a four-year foreign income and gains regime for new arrivals.",
+    "tax_year_note": "The UK tax year runs 6 April to 5 April, not the calendar year."
+  },
+  "headline": {
+    "personal_allowance": "12,570, withdrawn at 1 for every 2 of income above 100,000",
+    "rates": "20% basic, 40% higher, 45% additional (Scotland has six bands up to 48%)",
+    "national_insurance": "8% employee on 12,570-50,270, 2% above",
+    "dividends": "8.75% / 33.75% / 39.35% with a 500 allowance"
+  },
+  "income_tax": {
+    "name": "UK income tax",
+    "type": "progressive",
+    "note": "bands applied to income after the personal allowance; the 45% threshold is 125,140 of taxable income because the allowance is fully withdrawn by that point",
+    "brackets": [
+      {"up_to": 37700, "rate": 0.20},
+      {"up_to": 125140, "rate": 0.40},
+      {"up_to": null, "rate": 0.45}
+    ]
+  },
+  "personal_allowance": {
+    "name": "Personal allowance",
+    "amount": 12570,
+    "taper": {"threshold": 100000, "rate": 0.5, "floor": 0},
+    "note": "the taper creates a 60% effective marginal rate between 100,000 and 125,140"
+  },
+  "social_security": {
+    "employee": [
+      {
+        "name": "National Insurance Class 1",
+        "rate": 0.08,
+        "floor": 12570,
+        "floor_mode": "reduce_base",
+        "ceiling": 50270,
+        "deductible": false,
+        "note": "2% applies above 50,270 and is added separately"
+      },
+      {
+        "name": "National Insurance Class 1 (upper rate)",
+        "rate": 0.02,
+        "floor": 50270,
+        "floor_mode": "reduce_base",
+        "deductible": false
+      }
+    ],
+    "employer": [
+      {"name": "Secondary Class 1 NIC", "rate": 0.15, "floor": 5000, "floor_mode": "reduce_base"}
+    ],
+    "self_employed": [
+      {"name": "Class 4 NIC", "rate": 0.06, "floor": 12570, "floor_mode": "reduce_base", "ceiling": 50270},
+      {"name": "Class 4 NIC (upper rate)", "rate": 0.02, "floor": 50270, "floor_mode": "reduce_base"}
+    ]
+  },
+  "regions": {
+    "SCT": {
+      "name": "Scotland",
+      "replaces_national": true,
+      "note": "Scottish rates apply to non-savings, non-dividend income of Scottish taxpayers",
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 2827, "rate": 0.19},
+          {"up_to": 14921, "rate": 0.20},
+          {"up_to": 31092, "rate": 0.21},
+          {"up_to": 62430, "rate": 0.42},
+          {"up_to": 125140, "rate": 0.45},
+          {"up_to": null, "rate": 0.48}
+        ]
+      }
+    },
+    "ENG": {"name": "England, Wales and Northern Ireland", "rate": 0.0}
+  },
+  "capital_gains": {
+    "annual_exempt_amount": "3,000",
+    "rates": "18% within the basic rate band, 24% above, for both property and other assets",
+    "principal_residence": "private residence relief usually exempts a main home",
+    "reporting": "UK residential property disposals must be reported and paid within 60 days"
+  },
+  "quirks": [
+    "The tax year is 6 April to 5 April. Reporting a calendar year by mistake is the single most common error made by people arriving from other countries.",
+    "Between 100,000 and 125,140 the personal allowance withdrawal produces a 60% effective marginal rate. Pension contributions in that band are unusually valuable.",
+    "The High Income Child Benefit Charge claws back child benefit between 60,000 and 80,000 of adjusted net income, and it is charged on the higher earner.",
+    "Most employees never file a return - PAYE settles the liability. Filing is triggered by specific circumstances such as self-employment, high income or untaxed income.",
+    "The remittance basis ended on 6 April 2025; new arrivals now use the four-year FIG regime instead, which works quite differently."
+  ],
+  "reporting": {
+    "tax_year_end": "5 April",
+    "authority": "HM Revenue and Customs (HMRC)",
+    "portal": "https://www.gov.uk/log-in-file-self-assessment-tax-return",
+    "who_must_file": "Self-employed with turnover above 1,000; partners in a partnership; those with untaxed income, capital gains above the exempt amount, income over 150,000, or liable to the High Income Child Benefit Charge.",
+    "deadlines": [
+      {"date": "5 October 2026", "what": "Register for Self Assessment for the 2025/26 tax year"},
+      {"date": "31 October 2026", "what": "Paper return deadline"},
+      {"date": "31 January 2027", "what": "Online return and balancing payment for 2025/26"},
+      {"date": "31 January 2027", "what": "First payment on account for 2026/27"},
+      {"date": "31 July 2027", "what": "Second payment on account for 2026/27"},
+      {"date": "60 days from completion", "what": "UK residential property capital gains return"}
+    ],
+    "forms": [
+      {"id": "SA100", "name": "Self Assessment main return"},
+      {"id": "SA102", "name": "Employment pages"},
+      {"id": "SA103", "name": "Self-employment pages"},
+      {"id": "SA105", "name": "UK property pages"},
+      {"id": "SA106", "name": "Foreign income pages"},
+      {"id": "SA108", "name": "Capital gains summary"},
+      {"id": "SA109", "name": "Residence and remittance basis pages"},
+      {"id": "P60", "name": "End of year employment certificate (from employer)"},
+      {"id": "P11D", "name": "Benefits in kind (from employer)"}
+    ],
+    "documents_to_collect": [
+      "P60 and P45 from employers",
+      "P11D for benefits in kind such as a company car or medical insurance",
+      "Bank and investment interest statements",
+      "Dividend vouchers",
+      "Records of Gift Aid donations and personal pension contributions - both extend the basic rate band",
+      "Rental income and allowable expense records"
+    ],
+    "penalties": {
+      "late_filing": "100 immediately, then 10 per day after 3 months, then 5% or 300 at 6 and 12 months",
+      "late_payment": "5% of the outstanding tax at 30 days, 6 months and 12 months",
+      "interest": "charged daily from the due date at the HMRC late payment rate"
+    }
+  },
+  "sources": [
+    {"name": "GOV.UK - Income tax rates and allowances", "url": "https://www.gov.uk/government/publications/rates-and-allowances-income-tax"},
+    {"name": "GOV.UK - Self Assessment", "url": "https://www.gov.uk/self-assessment-tax-returns"},
+    {"name": "Scottish income tax rates", "url": "https://www.gov.scot/policies/taxes/income-tax/"}
+  ],
+  "warnings": [
+    "Savings and dividend income use separate rates and allowances that this model does not apply.",
+    "Salary sacrifice, pension relief and the High Income Child Benefit Charge materially change the answer for many taxpayers."
+  ]
+}

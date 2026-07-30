@@ -1,0 +1,112 @@
+{
+  "country": "Netherlands",
+  "iso2": "NL",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "netherlands-tax-calculation",
+    "reporting": "netherlands-tax-reporting"
+  },
+  "residency": {
+    "test": "Based on where your personal and economic life is centred - home, family, work, registration and bank accounts - rather than a day count.",
+    "worldwide_income": "Yes for residents, with treaty relief.",
+    "note": "Income is split into three boxes taxed under different rules: box 1 work and home, box 2 substantial shareholdings, box 3 savings and investments."
+  },
+  "headline": {
+    "box1_rates": "35.82% to 38,441, then 37.48% to 76,817, then 49.50%",
+    "note": "the first two rates include national insurance contributions of 27.65%",
+    "credits": "general tax credit up to 3,068 and labour credit up to 5,599, both income-tested",
+    "expat_regime": "the 30% ruling gives qualifying incoming employees a tax-free allowance, capped at the WNT norm"
+  },
+  "income_tax": {
+    "name": "Box 1 income tax and national insurance",
+    "type": "progressive",
+    "note": "rates for taxpayers below state pension age; the first bracket is 17.92% tax plus 27.65% national insurance",
+    "brackets": [
+      {"up_to": 38441, "rate": 0.3582},
+      {"up_to": 76817, "rate": 0.3748},
+      {"up_to": null, "rate": 0.4950}
+    ]
+  },
+  "credits": [
+    {
+      "name": "Algemene heffingskorting (general tax credit)",
+      "amount": 3068,
+      "refundable": false,
+      "taper": {"threshold": 28406, "rate": 0.06337, "floor": 0}
+    },
+    {
+      "name": "Arbeidskorting (labour credit)",
+      "amount": 5599,
+      "refundable": false,
+      "taper": {"threshold": 43071, "rate": 0.0651, "floor": 0},
+      "note": "builds up across three phases at low incomes; this models the plateau and phase-out"
+    }
+  ],
+  "social_security": {
+    "employee": [],
+    "employer": [
+      {"name": "Zvw employer levy (health)", "rate": 0.0651, "ceiling": 75864},
+      {"name": "WW Awf and sector funds", "rate": 0.0274, "ceiling": 75864, "note": "higher rate applies to flexible contracts"},
+      {"name": "WIA/WAO and Whk", "rate": 0.0764, "ceiling": 75864}
+    ],
+    "self_employed": [
+      {"name": "Zvw contribution", "rate": 0.0526, "ceiling": 75864, "deductible": false}
+    ]
+  },
+  "capital_gains": {
+    "box3": "savings and investments are taxed on a deemed return applied to net assets above the 57,684 exemption, currently at 36%. The Supreme Court has forced a route to be taxed on actual return where that is lower.",
+    "box2": "substantial shareholdings (5% or more) are taxed at 24.5% up to 67,804 and 31% above",
+    "shares": "there is no general capital gains tax on listed shares held by individuals - box 3 taxes the holding, not the gain",
+    "principal_residence": "gains on your own home are untaxed; mortgage interest is deductible against box 1 at a restricted rate"
+  },
+  "quirks": [
+    "There is no capital gains tax on ordinary investments. Box 3 taxes an assumed return on your net wealth instead, so a bad investment year can still produce tax.",
+    "The 30% ruling for incoming employees is capped at the WNT norm and has been progressively trimmed. Check the version that applies to your start date rather than assuming the historic 30% for five years.",
+    "The general and labour credits phase out steeply, so the real marginal rate in the 43,000-76,000 range is well above the headline 37.48%.",
+    "Mortgage interest deduction (hypotheekrenteaftrek) is capped at a 37.48% benefit even for top-rate taxpayers, and is reduced by the deemed rental value of the home (eigenwoningforfait).",
+    "Fiscal partners can freely allocate certain shared items between their returns, which is a genuine planning opportunity most people miss."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Belastingdienst",
+    "portal": "https://www.belastingdienst.nl (Mijn Belastingdienst, DigiD required)",
+    "who_must_file": "Anyone who receives an invitation (aangiftebrief), anyone owing more than the small threshold, and anyone expecting a refund - filing voluntarily is common and often worthwhile.",
+    "deadlines": [
+      {"date": "1 May 2026", "what": "Annual return for 2025"},
+      {"date": "1 July 2026", "what": "Extended deadline if you request an extension before 1 May"},
+      {"date": "1 May 2027", "what": "Deadline for taxpayers filing through a tax adviser under the collective arrangement"},
+      {"date": "Before 1 April", "what": "File by this date and the Belastingdienst aims to respond before 1 July"}
+    ],
+    "forms": [
+      {"id": "Aangifte inkomstenbelasting", "name": "Annual income tax return, largely pre-filled online"},
+      {"id": "M-formulier", "name": "Migration year return, for the year you arrive in or leave the Netherlands"},
+      {"id": "C-formulier", "name": "Non-resident return"},
+      {"id": "Jaaropgaaf", "name": "Annual employer statement"},
+      {"id": "Voorlopige aanslag", "name": "Provisional assessment for monthly refunds or payments"}
+    ],
+    "documents_to_collect": [
+      "DigiD login (or eHerkenning for businesses)",
+      "Burgerservicenummer (BSN)",
+      "Jaaropgaaf from each employer",
+      "WOZ value of your home and annual mortgage statement",
+      "Bank and investment balances as at 1 January - box 3 uses that single date",
+      "Records of deductible gifts, healthcare costs and study expenses"
+    ],
+    "penalties": {
+      "late_filing": "verzuimboete of up to 385 for a first offence, more for repeats",
+      "late_payment": "interest (belastingrente) from 1 July following the tax year",
+      "incorrect_return": "up to 100% of the underpaid tax where there is intent"
+    }
+  },
+  "sources": [
+    {"name": "Belastingdienst - Particulieren", "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/home/home"},
+    {"name": "Belastingdienst - Tarieven box 1", "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/inkomstenbelasting/heffingskortingen_boxen_tarieven/"},
+    {"name": "Rijksoverheid - 30% ruling", "url": "https://www.government.nl"}
+  ],
+  "warnings": [
+    "The 30% ruling is not applied automatically. If it applies, reduce gross salary by the exempt portion before running the calculation.",
+    "The labour credit build-up phases at low incomes are simplified to a plateau and taper.",
+    "Box 3 wealth tax is not computed - it depends on asset composition on 1 January, not on income."
+  ]
+}

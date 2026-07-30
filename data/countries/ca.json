@@ -1,0 +1,182 @@
+{
+  "country": "Canada",
+  "iso2": "CA",
+  "tax_year": 2025,
+  "currency": "CAD",
+  "skills": {
+    "calculation": "canada-tax-calculation",
+    "reporting": "canada-tax-reporting"
+  },
+  "default_region": "ON",
+  "residency": {
+    "test": "Residence is determined by significant residential ties - a home, spouse and dependants in Canada - rather than a day count alone.",
+    "deemed_resident": "183 days or more of presence makes you a deemed resident if you have no residential ties.",
+    "worldwide_income": "Yes for residents. Non-residents are taxed on Canadian-source income only.",
+    "departure": "Leaving Canada triggers a deemed disposition of most property at fair market value (the departure tax)."
+  },
+  "headline": {
+    "federal_rates": "14.5% / 20.5% / 26% / 29% / 33% for 2025",
+    "provincial": "added on top and varies widely - Alberta is lowest, Quebec highest",
+    "capital_gains": "50% of gains are included in income",
+    "note": "the lowest federal rate was cut from 15% to 14% part-way through 2025, giving a blended 14.5% for the year"
+  },
+  "income_tax": {
+    "name": "Federal income tax",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 57375, "rate": 0.145},
+      {"up_to": 114750, "rate": 0.205},
+      {"up_to": 177882, "rate": 0.26},
+      {"up_to": 253414, "rate": 0.29},
+      {"up_to": null, "rate": 0.33}
+    ]
+  },
+  "credits": [
+    {
+      "name": "Basic personal amount (federal)",
+      "amount": 2338.71,
+      "refundable": false,
+      "note": "16,129 basic amount at the 14.5% credit rate; reduced for income above roughly 177,882"
+    },
+    {
+      "name": "Canada employment amount",
+      "amount": 210.83,
+      "refundable": false,
+      "note": "1,471 at the lowest rate, for employees only"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "CPP base contribution", "rate": 0.0595, "floor": 3500, "floor_mode": "reduce_base", "ceiling": 67800, "deductible": false, "note": "on pensionable earnings between 3,500 and the 71,300 maximum"},
+      {"name": "CPP2 enhanced contribution", "rate": 0.04, "floor": 71300, "floor_mode": "reduce_base", "ceiling": 9900, "deductible": true, "note": "on earnings between 71,300 and 81,200"},
+      {"name": "Employment Insurance", "rate": 0.0164, "ceiling": 65700, "deductible": false, "note": "Quebec has a lower EI rate and its own parental insurance plan"}
+    ],
+    "employer": [
+      {"name": "CPP", "rate": 0.0595, "floor": 3500, "floor_mode": "reduce_base", "ceiling": 67800},
+      {"name": "Employment Insurance", "rate": 0.02296, "ceiling": 65700}
+    ],
+    "self_employed": [
+      {"name": "CPP (both halves)", "rate": 0.119, "floor": 3500, "floor_mode": "reduce_base", "ceiling": 67800, "deductible": true}
+    ]
+  },
+  "regions": {
+    "ON": {
+      "name": "Ontario",
+      "note": "Ontario also levies a surtax on provincial tax above certain thresholds, and a health premium",
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 52886, "rate": 0.0505},
+          {"up_to": 105775, "rate": 0.0915},
+          {"up_to": 150000, "rate": 0.1116},
+          {"up_to": 220000, "rate": 0.1216},
+          {"up_to": null, "rate": 0.1316}
+        ]
+      }
+    },
+    "BC": {
+      "name": "British Columbia",
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 49279, "rate": 0.0506},
+          {"up_to": 98560, "rate": 0.077},
+          {"up_to": 113158, "rate": 0.105},
+          {"up_to": 137407, "rate": 0.1229},
+          {"up_to": 186306, "rate": 0.147},
+          {"up_to": 259829, "rate": 0.168},
+          {"up_to": null, "rate": 0.205}
+        ]
+      }
+    },
+    "AB": {
+      "name": "Alberta",
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 60000, "rate": 0.08},
+          {"up_to": 151234, "rate": 0.10},
+          {"up_to": 181481, "rate": 0.12},
+          {"up_to": 241974, "rate": 0.13},
+          {"up_to": 362961, "rate": 0.14},
+          {"up_to": null, "rate": 0.15}
+        ]
+      }
+    },
+    "QC": {
+      "name": "Quebec",
+      "note": "Quebec collects its own income tax on a separate return; federal tax is abated by 16.5% for Quebec residents, which this model does not apply",
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 53255, "rate": 0.14},
+          {"up_to": 106495, "rate": 0.19},
+          {"up_to": 129590, "rate": 0.24},
+          {"up_to": null, "rate": 0.2575}
+        ]
+      }
+    },
+    "MB": {"name": "Manitoba", "rate": 0.1275, "note": "approximate middle-bracket rate"},
+    "SK": {"name": "Saskatchewan", "rate": 0.125, "note": "approximate middle-bracket rate"},
+    "NS": {"name": "Nova Scotia", "rate": 0.1495, "note": "approximate middle-bracket rate"},
+    "NB": {"name": "New Brunswick", "rate": 0.14, "note": "approximate middle-bracket rate"}
+  },
+  "capital_gains": {
+    "inclusion_rate": "50% of the gain is included in taxable income",
+    "principal_residence": "exempt under the principal residence exemption for years designated as such",
+    "note": "a proposed increase of the inclusion rate to 66.7% above 250,000 was announced and subsequently abandoned; confirm the current position before relying on it"
+  },
+  "quirks": [
+    "Provincial tax is a genuinely large part of the bill - the same income can differ by more than ten points of effective rate between Alberta and Quebec.",
+    "Quebec residents file two returns: a federal T1 and a provincial TP-1 with Revenu Québec.",
+    "RRSP contributions are deducted from income and the deadline is 60 days after year end, so a contribution made in the first days of March still reduces the previous year's tax.",
+    "TFSA income is completely untaxed but the annual room is limited, and over-contributions are penalised at 1% per month.",
+    "Leaving Canada triggers a deemed disposition of most assets. Plan the departure date deliberately rather than discovering it afterwards."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Canada Revenue Agency (CRA); Revenu Québec for Quebec residents",
+    "portal": "https://www.canada.ca/en/revenue-agency.html",
+    "who_must_file": "Anyone with tax payable, anyone disposing of capital property, and anyone wanting benefits such as the GST/HST credit or Canada Child Benefit - which require a return even with no income.",
+    "deadlines": [
+      {"date": "30 April 2026", "what": "T1 filing and payment deadline for 2025"},
+      {"date": "15 June 2026", "what": "Filing deadline if you or your spouse are self-employed", "note": "any balance owing is still due 30 April"},
+      {"date": "2 March 2026", "what": "RRSP contribution deadline for the 2025 tax year"},
+      {"date": "15 Mar / 15 Jun / 15 Sep / 15 Dec", "what": "Quarterly instalments where required"}
+    ],
+    "forms": [
+      {"id": "T1", "name": "Income Tax and Benefit Return"},
+      {"id": "T4", "name": "Statement of remuneration paid (from employer)"},
+      {"id": "T4A", "name": "Pension, retirement, annuity and other income"},
+      {"id": "T5", "name": "Statement of investment income"},
+      {"id": "T2125", "name": "Statement of business or professional activities"},
+      {"id": "Schedule 3", "name": "Capital gains or losses"},
+      {"id": "T1135", "name": "Foreign income verification statement (foreign property over 100,000)"},
+      {"id": "TP-1", "name": "Quebec provincial return"}
+    ],
+    "documents_to_collect": [
+      "All T4, T4A, T5 and T3 slips (most are also visible in CRA My Account)",
+      "RRSP contribution receipts",
+      "Medical expense and charitable donation receipts",
+      "Tuition certificate T2202 for students",
+      "Records of foreign property if the cost exceeded 100,000 at any time - T1135 is separately penalised",
+      "Notice of assessment from last year, which shows RRSP room"
+    ],
+    "penalties": {
+      "late_filing": "5% of the balance owing plus 1% per full month, up to 12 months",
+      "repeat_late_filing": "10% plus 2% per month, up to 20 months",
+      "late_payment": "interest at the prescribed rate, compounded daily",
+      "t1135": "25 per day, minimum 100 and maximum 2,500, even with no tax owing"
+    }
+  },
+  "sources": [
+    {"name": "CRA - Personal income tax", "url": "https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax.html"},
+    {"name": "CRA - Federal and provincial tax rates", "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html"},
+    {"name": "Revenu Québec", "url": "https://www.revenuquebec.ca"}
+  ],
+  "warnings": [
+    "Provincial credits, surtaxes (Ontario) and health premiums are not modelled; only the provincial rate schedule is applied.",
+    "The Quebec federal abatement of 16.5% is not applied, so Quebec results overstate federal tax.",
+    "Provincial basic personal amounts are omitted, which overstates provincial tax at low incomes."
+  ]
+}

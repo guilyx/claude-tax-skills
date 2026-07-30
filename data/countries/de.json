@@ -1,0 +1,125 @@
+{
+  "country": "Germany",
+  "iso2": "DE",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "germany-tax-calculation",
+    "reporting": "germany-tax-reporting"
+  },
+  "residency": {
+    "test": "Unlimited liability if you have a Wohnsitz (a home available to you) or habitual abode of more than six months in Germany.",
+    "note": "A registered address (Anmeldung) is strong evidence of a Wohnsitz. Unlike most countries, keeping a flat available can create residence even with few days of presence.",
+    "worldwide_income": "Yes for unlimited taxpayers; progression clause (Progressionsvorbehalt) raises the rate on German income even where foreign income is exempt by treaty."
+  },
+  "headline": {
+    "basic_allowance": "12,096 built into the rate formula (Grundfreibetrag)",
+    "rates": "continuous formula from 14% to 42%, then 45% above 277,825",
+    "solidarity_surcharge": "5.5% of income tax, only above a high exemption threshold",
+    "church_tax": "8% or 9% of income tax if registered with a church"
+  },
+  "income_tax": {
+    "name": "Einkommensteuer",
+    "type": "piecewise_polynomial",
+    "note": "EStG section 32a formula - the rate rises continuously rather than in steps",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {"income_splitting_factor": 1},
+      "married_joint": {"income_splitting_factor": 2, "note": "Splittingverfahren"}
+    },
+    "zones": [
+      {"up_to": 12096, "coeffs": [], "constant": 0},
+      {"up_to": 17443, "offset": 12096, "divisor": 10000, "coeffs": [932.30, 1400, 0], "constant": 0},
+      {"up_to": 68480, "offset": 17443, "divisor": 10000, "coeffs": [176.64, 2397, 0], "constant": 1015.13},
+      {"up_to": 277825, "offset": 0, "divisor": 1, "coeffs": [0.42, 0], "constant": -10911.92},
+      {"up_to": null, "offset": 0, "divisor": 1, "coeffs": [0.45, 0], "constant": -19246.67}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Arbeitnehmer-Pauschbetrag",
+    "amount": 1230,
+    "note": "flat employment expense allowance; claim actual costs instead if higher"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "Rentenversicherung (pension)", "rate": 0.093, "ceiling": 96600, "deductible": true},
+      {"name": "Arbeitslosenversicherung (unemployment)", "rate": 0.013, "ceiling": 96600, "deductible": false},
+      {"name": "Krankenversicherung (health)", "rate": 0.0855, "ceiling": 66150, "deductible": true, "note": "7.3% general plus half of the 2.5% average supplementary rate"},
+      {"name": "Pflegeversicherung (long-term care)", "rate": 0.018, "ceiling": 66150, "deductible": true, "note": "add 0.6% if childless and over 23"}
+    ],
+    "employer": [
+      {"name": "Rentenversicherung", "rate": 0.093, "ceiling": 96600},
+      {"name": "Arbeitslosenversicherung", "rate": 0.013, "ceiling": 96600},
+      {"name": "Krankenversicherung", "rate": 0.0855, "ceiling": 66150},
+      {"name": "Pflegeversicherung", "rate": 0.018, "ceiling": 66150}
+    ]
+  },
+  "surcharges": [
+    {
+      "name": "Solidaritätszuschlag",
+      "base": "tax",
+      "rate": 0.055,
+      "threshold": 19950,
+      "above_threshold_only": false,
+      "note": "charged on the whole income tax once assessed tax exceeds the exemption limit; a sliding transition band applies just above it"
+    }
+  ],
+  "capital_gains": {
+    "rate": "25% Abgeltungsteuer plus solidarity surcharge and any church tax",
+    "allowance": "Sparer-Pauschbetrag of 1,000 (2,000 for joint filers)",
+    "real_estate": "gains exempt after a ten-year holding period, or if the property was your own home for the year of sale and the two preceding years",
+    "shares": "the flat rate applies; substantial shareholdings of 1% or more fall under the partial income procedure"
+  },
+  "quirks": [
+    "Tax classes (Steuerklassen I to VI) change monthly withholding, not the annual liability. A married couple in classes III/V will see very different payslips from IV/IV but the same final assessment.",
+    "Church tax is collected with income tax and only stops when you formally leave the church (Kirchenaustritt), which has a fee and takes effect from a specific date.",
+    "The Progressionsvorbehalt means tax-free foreign income and benefits such as Elterngeld or Kurzarbeitergeld still push up the rate on your German income.",
+    "Health insurance is capped, so between the health ceiling (66,150) and the pension ceiling (96,600) the effective marginal wedge actually falls before rising again.",
+    "Filing is mandatory in defined cases (multiple employers, tax class combinations, side income above 410) but voluntary filers often get a refund - the average refund is around 1,000."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Finanzamt (local tax office), coordinated by the Bundeszentralamt für Steuern",
+    "portal": "https://www.elster.de",
+    "who_must_file": "Mandatory where you had tax class combinations III/V or IV with factor, more than one employer, wage replacement benefits over 410, side income over 410, or you are self-employed. Everyone else may file voluntarily within four years.",
+    "deadlines": [
+      {"date": "31 July 2026", "what": "Return for tax year 2025 if filing yourself"},
+      {"date": "30 April 2027", "what": "Return for 2025 if a Steuerberater or Lohnsteuerhilfeverein files for you"},
+      {"date": "31 December 2029", "what": "Last date for a voluntary return for 2025 (four-year window)"},
+      {"date": "10 Mar / 10 Jun / 10 Sep / 10 Dec", "what": "Quarterly prepayments (Vorauszahlungen) if assessed"}
+    ],
+    "forms": [
+      {"id": "ESt 1 A", "name": "Main income tax return (Hauptvordruck)"},
+      {"id": "Anlage N", "name": "Employment income"},
+      {"id": "Anlage S", "name": "Self-employed professional income"},
+      {"id": "Anlage G", "name": "Trade or business income"},
+      {"id": "Anlage KAP", "name": "Investment income"},
+      {"id": "Anlage V", "name": "Rental income"},
+      {"id": "Anlage AUS", "name": "Foreign income"},
+      {"id": "Anlage Vorsorgeaufwand", "name": "Insurance and pension contributions"}
+    ],
+    "documents_to_collect": [
+      "Lohnsteuerbescheinigung from each employer",
+      "Steueridentifikationsnummer (11 digits, permanent for life)",
+      "Health and pension insurance certificates",
+      "Receipts for work-related expenses above the 1,230 allowance - commuting, home office, professional training",
+      "Certificates for donations, childcare costs and household services (Handwerkerleistungen)",
+      "Bank Jahressteuerbescheinigung for investment income"
+    ],
+    "penalties": {
+      "late_filing": "Verspätungszuschlag of 0.25% of the assessed tax per month, minimum 25 per month",
+      "late_payment": "Säumniszuschlag of 1% of the outstanding amount per month",
+      "interest": "0.15% per month from 15 months after the end of the tax year"
+    }
+  },
+  "sources": [
+    {"name": "Bundesfinanzministerium - Einkommensteuer", "url": "https://www.bundesfinanzministerium.de"},
+    {"name": "ELSTER online filing", "url": "https://www.elster.de"},
+    {"name": "EStG section 32a (rate formula)", "url": "https://www.gesetze-im-internet.de/estg/__32a.html"}
+  ],
+  "warnings": [
+    "Church tax (8-9% of income tax) is not included. Add it if the taxpayer is a registered church member.",
+    "The solidarity surcharge transition band just above the exemption limit is simplified.",
+    "Health insurance here is the statutory scheme. Privately insured taxpayers pay a fixed premium instead, which changes the result substantially."
+  ]
+}
