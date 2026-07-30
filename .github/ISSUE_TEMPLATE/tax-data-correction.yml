@@ -1,0 +1,58 @@
+name: Tax data correction
+description: A rate, threshold, deadline or other parameter is wrong or out of date
+title: "[data] <country>: "
+labels: ["tax-data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for this — stale or wrong parameters are the failure mode that
+        matters most in this repository, so these reports are the most valuable
+        kind of issue.
+
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      placeholder: Germany (DE)
+    validations:
+      required: true
+
+  - type: input
+    id: tax_year
+    attributes:
+      label: Tax year affected
+      placeholder: "2025"
+    validations:
+      required: true
+
+  - type: textarea
+    id: incorrect
+    attributes:
+      label: What is currently in the data
+      description: Quote the field and value from `data/countries/<iso2>.json`.
+      render: json
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct
+    attributes:
+      label: What it should be
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Official source
+      description: A link to the tax authority or legislation. This is what makes the correction verifiable.
+      placeholder: https://www.gov.uk/government/publications/rates-and-allowances-income-tax
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Effect on the result
+      description: Optional. Output of `python -m taxcalc calc <ISO2> --employment <amount>` before and after, if you have it.

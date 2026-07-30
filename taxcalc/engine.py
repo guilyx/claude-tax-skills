@@ -22,14 +22,11 @@ means a reviewer only has to understand this file to audit any of them.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Mapping, Optional
+from typing import Any
 
-from .schedules import (
-    apply_schedule,
-    contribution_amount,
-    schedule_marginal_rate,
-)
+from .schedules import apply_schedule, contribution_amount
 
 MARGINAL_PROBE = 100.0
 
@@ -42,12 +39,12 @@ class Profile:
     self_employment_income: float = 0.0
     other_income: float = 0.0
     filing_status: str = "single"
-    region: Optional[str] = None
+    region: str | None = None
     children: int = 0
     dependants: int = 0
     deductions: float = 0.0
     credits: float = 0.0
-    local_rate: Optional[float] = None
+    local_rate: float | None = None
     months: int = 12
 
     @property
@@ -63,7 +60,7 @@ class LineItem:
     amount: float
     note: str = ""
 
-    def as_dict(self) -> Dict[str, Any]:
+    def as_dict(self) -> dict[str, Any]:
         return {"label": self.label, "amount": round(self.amount, 2), "note": self.note}
 
 
@@ -84,11 +81,11 @@ class ComputationResult:
     credits_applied: float = 0.0
     total_income_tax: float = 0.0
     net_income: float = 0.0
-    deductions: List[LineItem] = field(default_factory=list)
-    social_security_lines: List[LineItem] = field(default_factory=list)
-    tax_lines: List[LineItem] = field(default_factory=list)
-    credit_lines: List[LineItem] = field(default_factory=list)
-    warnings: List[str] = field(default_factory=list)
+    deductions: list[LineItem] = field(default_factory=list)
+    social_security_lines: list[LineItem] = field(default_factory=list)
+    tax_lines: list[LineItem] = field(default_factory=list)
+    credit_lines: list[LineItem] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
     marginal_wedge: float = 0.0
 
     @property
@@ -104,7 +101,7 @@ class ComputationResult:
     def effective_burden_rate(self) -> float:
         return self.total_burden / self.gross_income if self.gross_income else 0.0
 
-    def as_dict(self) -> Dict[str, Any]:
+    def as_dict(self) -> dict[str, Any]:
         return {
             "country": self.country,
             "iso2": self.iso2,
@@ -170,7 +167,7 @@ def _status_block(data: Mapping[str, Any], key: str, status: str) -> Mapping[str
     return merged
 
 
-def _tapered(amount: float, taper: Optional[Mapping[str, Any]], income: float) -> float:
+def _tapered(amount: float, taper: Mapping[str, Any] | None, income: float) -> float:
     """Withdraw an allowance above a threshold (the UK 100k trap, and friends)."""
     if not taper:
         return amount
@@ -182,7 +179,7 @@ def _tapered(amount: float, taper: Optional[Mapping[str, Any]], income: float) -
     return max(float(taper.get("floor", 0.0)), reduced)
 
 
-def _region_block(data: Mapping[str, Any], region: Optional[str]) -> Optional[Mapping[str, Any]]:
+def _region_block(data: Mapping[str, Any], region: str | None) -> Mapping[str, Any] | None:
     regions = data.get("regions") or {}
     if not regions:
         return None
@@ -207,7 +204,11 @@ def _social_security(
     self_base = profile.self_employment_income
 
     for rule in block.get("employee", []):
-        base = employment_base if rule.get("base", "employment") == "employment" else profile.gross_income
+        base = (
+            employment_base
+            if rule.get("base", "employment") == "employment"
+            else profile.gross_income
+        )
         amount = contribution_amount(base, rule)
         if amount <= 0 and not rule.get("always_show"):
             continue
@@ -269,7 +270,9 @@ def _deductions(
         if amount > 0:
             total += amount
             result.deductions.append(
-                LineItem(standard.get("name", "Standard deduction"), amount, standard.get("note", ""))
+                LineItem(
+                    standard.get("name", "Standard deduction"), amount, standard.get("note", "")
+                )
             )
 
     allowance = _status_block(data, "personal_allowance", profile.filing_status)
@@ -281,7 +284,9 @@ def _deductions(
         if amount > 0:
             total += amount
             result.deductions.append(
-                LineItem(allowance.get("name", "Personal allowance"), amount, allowance.get("note", ""))
+                LineItem(
+                    allowance.get("name", "Personal allowance"), amount, allowance.get("note", "")
+                )
             )
 
     if profile.deductions:
@@ -406,7 +411,9 @@ def _compute_core(data: Mapping[str, Any], profile: Profile) -> ComputationResul
     result.national_income_tax = national
     if national > 0:
         result.tax_lines.append(
-            LineItem(schedule.get("name", "National income tax"), national, schedule.get("note", ""))
+            LineItem(
+                schedule.get("name", "National income tax"), national, schedule.get("note", "")
+            )
         )
 
     regional = 0.0
@@ -446,7 +453,9 @@ def _compute_core(data: Mapping[str, Any], profile: Profile) -> ComputationResul
     result.credits_applied = _credits(data, profile, gross_tax, result)
 
     result.total_income_tax = gross_tax - result.credits_applied
-    result.net_income = profile.gross_income - result.employee_social_security - result.total_income_tax
+    result.net_income = (
+        profile.gross_income - result.employee_social_security - result.total_income_tax
+    )
     return result
 
 

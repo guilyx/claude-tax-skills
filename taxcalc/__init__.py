@@ -11,18 +11,18 @@ hunting through code, and the arithmetic stays identical across all 30
 countries so results are comparable.
 """
 
-from .loader import (  # noqa: F401
+from .engine import ComputationResult, compute
+from .loader import (
     CountryNotFound,
     available_countries,
     load_country,
 )
-from .engine import ComputationResult, compute  # noqa: F401
 
 __version__ = "0.1.0"
 __all__ = [
-    "available_countries",
-    "load_country",
-    "compute",
     "ComputationResult",
     "CountryNotFound",
+    "available_countries",
+    "compute",
+    "load_country",
 ]

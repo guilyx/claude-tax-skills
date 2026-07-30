@@ -140,9 +140,26 @@ taxcalc/                  the engine
   cli.py                  list / calc / compare / info / deadlines / validate
 skills/<name>/SKILL.md    60 skills
 references/               shared method: workflows, residence, disclaimers
-tests/                    601 tests
+tests/                    631 tests
+tools/check_freshness.py  flags country files that have fallen behind
 docs/                     data schema and contribution notes
 ```
+
+## Development
+
+```bash
+pip install -e ".[dev]"      # pytest + ruff
+pre-commit install           # optional, runs the checks below on commit
+
+python -m pytest tests/ -q   # tests
+python -m taxcalc validate   # country data structure and behaviour
+ruff check . && ruff format --check .
+python tools/check_freshness.py   # how far behind the tax years are
+```
+
+CI runs the same checks across Python 3.9–3.13, and a quarterly workflow fails
+when any country file falls more than a year behind the calendar year — stale
+rates are the failure mode that produces confident wrong answers.
 
 ## Tests
 

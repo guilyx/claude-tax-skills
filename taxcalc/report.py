@@ -7,7 +7,8 @@ and every subtotal shown rather than implied.
 
 from __future__ import annotations
 
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 from .engine import ComputationResult
 
@@ -52,9 +53,7 @@ def render_text(result: ComputationResult, data: Mapping[str, Any] | None = None
             out.append(_line(item.label, item.amount, cur))
         out.append(_line("Employee total", result.employee_social_security, cur))
         if result.employer_social_security:
-            out.append(
-                _line("Employer total (not withheld)", result.employer_social_security, cur)
-            )
+            out.append(_line("Employer total (not withheld)", result.employer_social_security, cur))
         out.append("")
 
     out.append("INCOME TAX")
@@ -72,9 +71,15 @@ def render_text(result: ComputationResult, data: Mapping[str, Any] | None = None
     out.append(_line("Net income (annual)", result.net_income, cur))
     out.append(_line("Net income (monthly)", result.net_income / 12, cur))
     out.append("")
-    out.append(f"  {'Effective income tax rate':<{LABEL_WIDTH}}{result.effective_tax_rate:>{AMOUNT_WIDTH}.2%}")
-    out.append(f"  {'Effective total burden':<{LABEL_WIDTH}}{result.effective_burden_rate:>{AMOUNT_WIDTH}.2%}")
-    out.append(f"  {'Marginal rate on next 100':<{LABEL_WIDTH}}{result.marginal_wedge:>{AMOUNT_WIDTH}.2%}")
+    out.append(
+        f"  {'Effective income tax rate':<{LABEL_WIDTH}}{result.effective_tax_rate:>{AMOUNT_WIDTH}.2%}"
+    )
+    out.append(
+        f"  {'Effective total burden':<{LABEL_WIDTH}}{result.effective_burden_rate:>{AMOUNT_WIDTH}.2%}"
+    )
+    out.append(
+        f"  {'Marginal rate on next 100':<{LABEL_WIDTH}}{result.marginal_wedge:>{AMOUNT_WIDTH}.2%}"
+    )
 
     if result.warnings:
         out.append("")

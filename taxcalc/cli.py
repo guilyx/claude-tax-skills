@@ -18,7 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from typing import Any, Dict, List
+from typing import Any
 
 from .engine import Profile, compute
 from .loader import CountryNotFound, available_countries, load_country
@@ -75,7 +75,7 @@ def cmd_compare(args: argparse.Namespace) -> int:
         if args.countries
         else [country["iso2"] for country in available_countries()]
     )
-    rows: List[Dict[str, Any]] = []
+    rows: list[dict[str, Any]] = []
     for code in codes:
         try:
             data = load_country(code)
@@ -140,7 +140,9 @@ def cmd_info(args: argparse.Namespace) -> int:
     if args.json:
         print(json.dumps(data, indent=2))
         return 0
-    print(f"{data['country']} ({data['iso2']}) - tax year {data['tax_year']}, currency {data['currency']}")
+    print(
+        f"{data['country']} ({data['iso2']}) - tax year {data['tax_year']}, currency {data['currency']}"
+    )
     residency = data.get("residency", {})
     if residency:
         print("\nRESIDENCE")
@@ -247,7 +249,7 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main(argv: List[str] | None = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
     try:

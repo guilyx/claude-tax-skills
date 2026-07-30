@@ -1,0 +1,63 @@
+# This file exists for tooling configuration and project metadata. The project
+# is not published to PyPI and is not intended to be pip-installed: the country
+# data lives in a top-level `data/` directory so that contributors edit JSON
+# rather than package internals, and the skills invoke `python -m taxcalc` from
+# a checkout. Moving the data inside the package to make a wheel work would
+# trade the thing people actually do for one they do not.
+
+[project]
+name = "taxcalc"
+version = "0.1.0"
+description = "Deterministic personal income tax engine backing the claude-tax-skills agent skills"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+keywords = ["tax", "income-tax", "payroll", "claude", "agent-skills"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial :: Accounting",
+]
+# Deliberately no runtime dependencies. The engine is arithmetic over JSON, and
+# keeping it standard-library-only means a skill can run it anywhere without a
+# install step getting in the way of answering a question.
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.5"]
+
+[project.urls]
+Repository = "https://github.com/guilyx/claude-tax-skills"
+Issues = "https://github.com/guilyx/claude-tax-skills/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # import sorting
+    "UP",   # pyupgrade
+    "B",    # bugbear
+    "SIM",  # simplify
+    "RUF",  # ruff-specific
+]
+ignore = [
+    "E501",  # line length is enforced by the formatter, not the linter
+    "B008",  # function call in default argument - not a pattern used here
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests deliberately use magic numbers and long literal tables; that is the point.
+"tests/*" = ["E741"]
+
+[tool.ruff.format]
+quote-style = "double"

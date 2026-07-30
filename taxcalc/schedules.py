@@ -15,7 +15,8 @@ for every country at once.
 
 from __future__ import annotations
 
-from typing import Any, Mapping, Sequence
+from collections.abc import Mapping, Sequence
+from typing import Any
 
 INF = float("inf")
 
@@ -51,12 +52,9 @@ def progressive_tax(taxable: float, brackets: Sequence[Mapping[str, Any]]) -> fl
 
 def marginal_rate(taxable: float, brackets: Sequence[Mapping[str, Any]]) -> float:
     """Rate that applies to the next unit of income."""
-    lower = 0.0
     for bracket in brackets:
-        upper = _upper(bracket)
-        if taxable <= upper:
+        if taxable <= _upper(bracket):
             return float(bracket["rate"])
-        lower = upper
     return float(brackets[-1]["rate"]) if brackets else 0.0
 
 
@@ -93,22 +91,6 @@ def apply_schedule(taxable: float, schedule: Mapping[str, Any]) -> float:
         return progressive_tax(taxable, schedule["brackets"])
     if kind == "piecewise_polynomial":
         return piecewise_polynomial_tax(taxable, schedule["zones"])
-    raise ValueError(f"unknown schedule type: {kind!r}")
-
-
-def schedule_marginal_rate(taxable: float, schedule: Mapping[str, Any]) -> float:
-    """Marginal rate of any schedule type (numeric for formula schedules)."""
-    kind = schedule.get("type", "progressive")
-    if kind == "none":
-        return 0.0
-    if kind == "flat":
-        return float(schedule["rate"])
-    if kind == "progressive":
-        return marginal_rate(taxable, schedule["brackets"])
-    if kind == "piecewise_polynomial":
-        step = 1.0
-        base = piecewise_polynomial_tax(taxable, schedule["zones"])
-        return (piecewise_polynomial_tax(taxable + step, schedule["zones"]) - base) / step
     raise ValueError(f"unknown schedule type: {kind!r}")
 
 

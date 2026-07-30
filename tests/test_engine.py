@@ -31,7 +31,11 @@ COUNTRY = {
         ],
         "employer": [{"name": "Pension", "rate": 0.10, "ceiling": 60_000}],
     },
-    "reporting": {"tax_year_end": "31 December", "authority": "Testland Revenue", "deadlines": [{"date": "x", "what": "y"}]},
+    "reporting": {
+        "tax_year_end": "31 December",
+        "authority": "Testland Revenue",
+        "deadlines": [{"date": "x", "what": "y"}],
+    },
     "sources": [{"name": "n/a", "url": "https://example.invalid"}],
 }
 

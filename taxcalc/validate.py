@@ -9,8 +9,8 @@ entered as 42 instead of 0.42, or a required field left out.
 from __future__ import annotations
 
 import json
-from pathlib import Path
-from typing import Any, Dict, List, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 from .loader import data_dir
 
@@ -18,8 +18,8 @@ REQUIRED_TOP_LEVEL = ["country", "iso2", "tax_year", "currency", "income_tax", "
 REQUIRED_REPORTING = ["tax_year_end", "authority", "deadlines"]
 
 
-def _check_brackets(brackets: List[Mapping[str, Any]], where: str) -> List[str]:
-    problems: List[str] = []
+def _check_brackets(brackets: list[Mapping[str, Any]], where: str) -> list[str]:
+    problems: list[str] = []
     if not brackets:
         return [f"{where}: empty bracket list"]
     previous = 0.0
@@ -47,7 +47,7 @@ def _check_brackets(brackets: List[Mapping[str, Any]], where: str) -> List[str]:
     return problems
 
 
-def _check_schedule(schedule: Mapping[str, Any], where: str) -> List[str]:
+def _check_schedule(schedule: Mapping[str, Any], where: str) -> list[str]:
     kind = schedule.get("type", "progressive")
     if kind == "progressive":
         return _check_brackets(schedule.get("brackets", []), f"{where}.brackets")
@@ -65,7 +65,7 @@ def _check_schedule(schedule: Mapping[str, Any], where: str) -> List[str]:
     return [f"{where}: unknown schedule type {kind!r}"]
 
 
-def _check_schedule_behaviour(schedule: Mapping[str, Any], where: str) -> List[str]:
+def _check_schedule_behaviour(schedule: Mapping[str, Any], where: str) -> list[str]:
     """Evaluate the schedule across a range and check it behaves like a tax.
 
     A rate table can be structurally perfect and still wrong - a mis-transcribed
@@ -75,7 +75,7 @@ def _check_schedule_behaviour(schedule: Mapping[str, Any], where: str) -> List[s
     """
     from .schedules import apply_schedule  # local import keeps validate importable alone
 
-    problems: List[str] = []
+    problems: list[str] = []
     previous = -1.0
     for income in (0, 5_000, 15_000, 30_000, 60_000, 120_000, 300_000, 1_000_000):
         try:
@@ -92,8 +92,8 @@ def _check_schedule_behaviour(schedule: Mapping[str, Any], where: str) -> List[s
     return problems
 
 
-def validate_country(payload: Mapping[str, Any], filename: str = "") -> List[str]:
-    problems: List[str] = []
+def validate_country(payload: Mapping[str, Any], filename: str = "") -> list[str]:
+    problems: list[str] = []
     prefix = filename or payload.get("iso2", "?")
 
     for key in REQUIRED_TOP_LEVEL:
@@ -144,9 +144,9 @@ def validate_country(payload: Mapping[str, Any], filename: str = "") -> List[str
     return problems
 
 
-def validate_all() -> Dict[str, List[str]]:
+def validate_all() -> dict[str, list[str]]:
     """Validate every country file. Returns ``{filename: [problems]}``."""
-    findings: Dict[str, List[str]] = {}
+    findings: dict[str, list[str]] = {}
     for path in sorted(data_dir().glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         problems = validate_country(payload, path.name)
@@ -155,7 +155,7 @@ def validate_all() -> Dict[str, List[str]]:
     return findings
 
 
-def summarise(findings: Mapping[str, List[str]], total: int) -> str:
+def summarise(findings: Mapping[str, list[str]], total: int) -> str:
     if not findings:
         return f"OK: {total} country files validated, no structural problems found."
     lines = [f"{sum(len(v) for v in findings.values())} problem(s) across {len(findings)} file(s):"]

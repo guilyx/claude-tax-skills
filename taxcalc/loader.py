@@ -6,7 +6,7 @@ import json
 import os
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
 
 
 class CountryNotFound(KeyError):
@@ -27,8 +27,8 @@ def data_dir() -> Path:
 
 
 @lru_cache(maxsize=1)
-def _index() -> Dict[str, Path]:
-    index: Dict[str, Path] = {}
+def _index() -> dict[str, Path]:
+    index: dict[str, Path] = {}
     for path in sorted(data_dir().glob("*.json")):
         try:
             payload = json.loads(path.read_text(encoding="utf-8"))
@@ -40,9 +40,9 @@ def _index() -> Dict[str, Path]:
     return index
 
 
-def available_countries() -> List[Dict[str, Any]]:
+def available_countries() -> list[dict[str, Any]]:
     """Summary of every country in the dataset, sorted by name."""
-    seen: Dict[str, Dict[str, Any]] = {}
+    seen: dict[str, dict[str, Any]] = {}
     for path in sorted(data_dir().glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         seen[payload["iso2"]] = {
@@ -55,7 +55,7 @@ def available_countries() -> List[Dict[str, Any]]:
     return sorted(seen.values(), key=lambda item: item["country"])
 
 
-def load_country(key: str) -> Dict[str, Any]:
+def load_country(key: str) -> dict[str, Any]:
     """Load one country by ISO-3166 alpha-2 code, name, or file stem."""
     normalised = key.lower().replace(" ", "-")
     path = _index().get(normalised)
