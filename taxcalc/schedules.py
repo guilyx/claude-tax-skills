@@ -121,7 +121,10 @@ def contribution_amount(base: float, rule: Mapping[str, Any]) -> float:
     explicitly rather than folded into an average rate.
     """
     if rule.get("type") == "fixed":
-        return float(rule.get("amount", 0.0))
+        # Flat-amount contributions (Denmark's ATP, Japan's national pension)
+        # attach to having earnings at all, so someone with no income owes
+        # nothing rather than a negative net.
+        return float(rule.get("amount", 0.0)) if base > 0 else 0.0
     charged = max(0.0, base)
     floor = rule.get("floor")
     if floor is not None:

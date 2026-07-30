@@ -80,6 +80,18 @@ class TestEveryCountry:
         result = compute(data, Profile(employment_income=income_for(iso2) * 10))
         assert result.effective_burden_rate <= result.marginal_wedge + 0.02
 
+    def test_zero_income_produces_no_tax_and_no_contributions(self, iso2):
+        """Someone with no income owes nothing, including flat contributions.
+
+        Denmark's ATP and Japan's national pension are fixed annual amounts, and
+        charging them against zero income produced a negative net income until
+        the engine learned that flat contributions attach to having earnings.
+        """
+        result = compute(load_country(iso2), Profile(employment_income=0))
+        assert result.total_income_tax == 0
+        assert result.employee_social_security == 0
+        assert result.net_income == 0
+
     def test_reporting_block_has_what_the_reporting_skills_need(self, iso2):
         reporting = load_country(iso2)["reporting"]
         assert reporting["authority"]

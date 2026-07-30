@@ -91,7 +91,11 @@ class TestContributions:
         rule = {"rate": 0.08, "floor": 12_570, "floor_mode": "reduce_base", "ceiling": 37_700}
         assert contribution_amount(60_000, rule) == pytest.approx(37_700 * 0.08)
 
-    def test_fixed_contributions_ignore_income(self):
+    def test_fixed_contributions_are_flat_but_need_some_income(self):
+        # Flat contributions do not scale with earnings, but they attach to
+        # having earnings: charging them against zero income would make net
+        # income negative for someone who earned nothing at all.
         rule = {"type": "fixed", "amount": 1_136}
-        assert contribution_amount(0, rule) == 1_136
+        assert contribution_amount(1, rule) == 1_136
         assert contribution_amount(500_000, rule) == 1_136
+        assert contribution_amount(0, rule) == 0

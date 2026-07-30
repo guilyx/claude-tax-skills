@@ -130,7 +130,7 @@
     {"name": "EPFO", "url": "https://www.epfindia.gov.in"}
   ],
   "warnings": [
-    "The surcharge on income above 5,000,000 is present in the data with a zero rate so that it appears in the output but does not double-count. Apply 10%, 15% or 25% manually with marginal relief.",
+    "Surcharge on income above 5,000,000 is NOT applied - the entry carries a zero rate so it never double-counts, which also means it does not appear in the output. Add 10%, 15% or 25% manually, with marginal relief.",
     "The old regime with its deductions (80C, 80D, HRA, home loan interest) is not modelled. For taxpayers with significant deductions it can produce a lower result.",
     "Provident fund is charged here on the full salary up to a proxy ceiling; in practice it is charged on basic pay, which is typically 40% to 50% of the total."
   ]

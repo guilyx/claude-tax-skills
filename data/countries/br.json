@@ -45,9 +45,9 @@
   },
   "social_security": {
     "employee": [
-      {"name": "INSS band 1", "rate": 0.075, "ceiling": 18216, "deductible": true},
-      {"name": "INSS band 2", "rate": 0.09, "floor": 18216, "floor_mode": "reduce_base", "ceiling": 15310.56, "deductible": true},
-      {"name": "INSS band 3", "rate": 0.12, "floor": 33526.56, "floor_mode": "reduce_base", "ceiling": 16763.4, "deductible": true},
+      {"name": "INSS band 1", "rate": 0.075, "ceiling": 18216, "deductible": false},
+      {"name": "INSS band 2", "rate": 0.09, "floor": 18216, "floor_mode": "reduce_base", "ceiling": 15310.56, "deductible": false},
+      {"name": "INSS band 3", "rate": 0.12, "floor": 33526.56, "floor_mode": "reduce_base", "ceiling": 16763.4, "deductible": false},
       {"name": "INSS band 4", "rate": 0.14, "floor": 50289.96, "floor_mode": "reduce_base", "ceiling": 47598.96, "deductible": true}
     ],
     "employer": [
@@ -56,7 +56,7 @@
       {"name": "FGTS", "rate": 0.08}
     ],
     "self_employed": [
-      {"name": "INSS contribuinte individual", "rate": 0.20, "ceiling": 97888.92, "deductible": true},
+      {"name": "INSS contribuinte individual", "rate": 0.20, "ceiling": 97888.92, "deductible": false},
       {"name": "ISS (municipal service tax)", "rate": 0.05, "deductible": false, "note": "2% to 5% depending on the municipality and activity"}
     ]
   },
@@ -116,7 +116,7 @@
   ],
   "warnings": [
     "INSS bands are modelled as separate contributions; the effective annual cap on employee contributions is around 11,400.",
-    "The simplified discount and dependant deductions are mutually exclusive in reality - do not add both.",
+    "The simplified 20% discount is applied, so INSS is marked non-deductible to avoid double-counting. Under the itemised route (desconto legal), INSS, dependants, education and medical costs are deductible instead and the discount is not available.",
     "Municipal ISS and the presumed-profit company route used by many professionals (pejotização) are not modelled and change the picture substantially."
   ]
 }
