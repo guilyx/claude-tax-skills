@@ -1,0 +1,125 @@
+{
+  "country": "Ireland",
+  "iso2": "IE",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "ireland-tax-calculation",
+    "reporting": "ireland-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if present 183 days in the tax year, or 280 days across the current and preceding year with at least 30 days in each.",
+    "ordinary_residence": "Acquired after three consecutive years of residence and retained for three years after leaving - a separate concept that catches many departing taxpayers.",
+    "domicile": "Non-domiciled residents are taxed on foreign income and gains only to the extent remitted to Ireland. This regime remains in place.",
+    "worldwide_income": "Yes for Irish-domiciled residents."
+  },
+  "headline": {
+    "rates": "20% up to the standard rate band, 40% above",
+    "standard_rate_band": "44,000 single; 53,000 for a one-income married couple; up to 88,000 for two incomes",
+    "usc": "Universal Social Charge of 0.5% to 8% on gross income",
+    "prsi": "4.1% employee Class A"
+  },
+  "income_tax": {
+    "name": "Income tax",
+    "type": "progressive",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {
+        "brackets": [
+          {"up_to": 44000, "rate": 0.20},
+          {"up_to": null, "rate": 0.40}
+        ]
+      },
+      "married_joint": {
+        "note": "one-income couple band; a two-income couple can raise this to 88,000",
+        "brackets": [
+          {"up_to": 53000, "rate": 0.20},
+          {"up_to": null, "rate": 0.40}
+        ]
+      },
+      "single_parent": {
+        "brackets": [
+          {"up_to": 48000, "rate": 0.20},
+          {"up_to": null, "rate": 0.40}
+        ]
+      }
+    }
+  },
+  "credits": [
+    {"name": "Personal tax credit", "amount": 2000, "refundable": false, "filing_status": "single"},
+    {"name": "Personal tax credit (married)", "amount": 4000, "refundable": false, "filing_status": "married_joint"},
+    {"name": "Employee (PAYE) tax credit", "amount": 2000, "refundable": false, "note": "not available to proprietary directors or the self-employed"}
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "PRSI Class A", "rate": 0.041, "deductible": false, "note": "exempt below 352 per week; a tapered credit applies just above that"},
+      {"name": "USC band 1", "rate": 0.005, "ceiling": 12012, "deductible": false},
+      {"name": "USC band 2", "rate": 0.02, "floor": 12012, "floor_mode": "reduce_base", "ceiling": 15370, "deductible": false},
+      {"name": "USC band 3", "rate": 0.03, "floor": 27382, "floor_mode": "reduce_base", "ceiling": 42662, "deductible": false},
+      {"name": "USC band 4", "rate": 0.08, "floor": 70044, "floor_mode": "reduce_base", "deductible": false}
+    ],
+    "employer": [
+      {"name": "Employer PRSI", "rate": 0.1115, "note": "8.9% on weekly earnings below the lower threshold"}
+    ],
+    "self_employed": [
+      {"name": "PRSI Class S", "rate": 0.041, "deductible": false, "note": "minimum annual contribution applies"},
+      {"name": "USC (self-employed, including 3% surcharge above 100,000)", "rate": 0.045, "deductible": false}
+    ]
+  },
+  "capital_gains": {
+    "rate": "33%",
+    "annual_exemption": "1,270 per person, not transferable",
+    "principal_residence": "principal private residence relief applies",
+    "deadlines": "gains from January to November are paid by 15 December of the same year; December gains by 31 January"
+  },
+  "quirks": [
+    "Tax credits reduce tax directly and are the main relief mechanism. Married couples should check that credits and the standard rate band are allocated between them in the way that minimises tax.",
+    "The USC is a separate charge on gross income with its own bands, and it applies to income that income tax reliefs have already sheltered.",
+    "Non-domiciled residents can use the remittance basis - Ireland retained it after the UK abolished its version in 2025, which has made Ireland notably more attractive for internationally mobile people.",
+    "Capital gains tax is paid on a self-assessed basis during the year of disposal, months before the return itself is due.",
+    "Most PAYE employees settle up through a simple Form 12 or an online statement of liability rather than a full self-assessment return."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Revenue Commissioners",
+    "portal": "https://www.revenue.ie - myAccount for PAYE, ROS for self-assessed",
+    "who_must_file": "Self-assessed taxpayers (the self-employed, company directors, landlords and those with substantial non-PAYE income) file a Form 11. PAYE-only taxpayers use myAccount to claim credits and get a Statement of Liability.",
+    "deadlines": [
+      {"date": "31 October 2026", "what": "Form 11 for 2025, plus preliminary tax for 2026"},
+      {"date": "Mid-November 2026", "what": "Extended deadline for filing and paying through ROS"},
+      {"date": "15 December 2026", "what": "CGT payment for disposals from January to November 2026"},
+      {"date": "31 January 2027", "what": "CGT payment for December 2026 disposals"},
+      {"date": "Any time within 4 years", "what": "PAYE taxpayers can claim refunds for prior years"}
+    ],
+    "forms": [
+      {"id": "Form 11", "name": "Self-assessed income tax return"},
+      {"id": "Form 12", "name": "Return for PAYE taxpayers with modest non-PAYE income"},
+      {"id": "CG1", "name": "Capital gains tax return"},
+      {"id": "Statement of Liability", "name": "End of year PAYE reconciliation, requested in myAccount"},
+      {"id": "Employment Detail Summary", "name": "Replaced the P60 - available in myAccount"}
+    ],
+    "documents_to_collect": [
+      "PPS number and myAccount or ROS access",
+      "Employment Detail Summary for each employment",
+      "Medical expense receipts - 20% relief is available on most unreimbursed costs",
+      "Rent tax credit details and tenancy registration",
+      "Pension contribution certificates - age-related limits apply",
+      "Records of any foreign income and foreign tax paid"
+    ],
+    "penalties": {
+      "late_filing": "5% surcharge if filed within two months of the deadline, 10% after, capped at 63,485",
+      "late_payment": "daily interest of about 0.0219% (roughly 8% a year)",
+      "preliminary_tax": "interest applies where preliminary tax is less than 90% of the final liability or 100% of the prior year"
+    }
+  },
+  "sources": [
+    {"name": "Revenue - Personal tax credits, reliefs and exemptions", "url": "https://www.revenue.ie/en/personal-tax-credits-reliefs-and-exemptions/index.aspx"},
+    {"name": "Revenue - Universal Social Charge", "url": "https://www.revenue.ie/en/jobs-and-pensions/usc/index.aspx"},
+    {"name": "Citizens Information - Income tax", "url": "https://www.citizensinformation.ie/en/money-and-tax/tax/"}
+  ],
+  "warnings": [
+    "USC bands are modelled as separate contributions; the 2% band ceiling and the third band floor should be checked against the current year's figures.",
+    "The married two-income standard rate band increase (up to 88,000) is not applied automatically - use the single status for each spouse where that is more accurate.",
+    "PRSI weekly thresholds and the tapered credit for low earners are not modelled."
+  ]
+}

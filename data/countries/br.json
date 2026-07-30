@@ -1,0 +1,122 @@
+{
+  "country": "Brazil",
+  "iso2": "BR",
+  "tax_year": 2025,
+  "currency": "BRL",
+  "skills": {
+    "calculation": "brazil-tax-calculation",
+    "reporting": "brazil-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident from the day of arrival with a permanent visa, from the day of arrival with a temporary work visa, or after 184 days of presence within any 12-month period on other visas.",
+    "worldwide_income": "Yes for residents.",
+    "departure": "Leaving requires a Declaração de Saída Definitiva do País. Without it you remain a Brazilian tax resident and stay liable to file and pay - this is the single most expensive mistake departing expatriates make.",
+    "note": "Brazilian residents are taxed monthly through carnê-leão or withholding, with an annual adjustment return."
+  },
+  "headline": {
+    "rates": "0% to 27.5% across five bands - the top rate arrives at a low income by international standards",
+    "simplified_discount": "a 20% standard discount capped at 16,754.34 replaces itemised deductions",
+    "inss": "progressive employee contribution from 7.5% to 14%, capped",
+    "dividends": "currently exempt in the hands of individuals, though reform proposals would change this"
+  },
+  "income_tax": {
+    "name": "Imposto de Renda Pessoa Física (IRPF)",
+    "type": "progressive",
+    "note": "annual table for 2025; the monthly table was adjusted in May 2025",
+    "brackets": [
+      {"up_to": 26963.20, "rate": 0.0},
+      {"up_to": 33919.80, "rate": 0.075},
+      {"up_to": 45012.60, "rate": 0.15},
+      {"up_to": 55976.16, "rate": 0.225},
+      {"up_to": null, "rate": 0.275}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Desconto simplificado",
+    "rate": 0.20,
+    "cap": 16754.34,
+    "note": "20% of taxable income capped at 16,754.34; elect the itemised route (desconto legal) instead if actual deductions are higher"
+  },
+  "personal_allowance": {
+    "name": "Dedução por dependente",
+    "per_child": 2275.08,
+    "per_dependant": 2275.08,
+    "note": "only available under the itemised route, not alongside the simplified discount"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "INSS band 1", "rate": 0.075, "ceiling": 18216, "deductible": false},
+      {"name": "INSS band 2", "rate": 0.09, "floor": 18216, "floor_mode": "reduce_base", "ceiling": 15310.56, "deductible": false},
+      {"name": "INSS band 3", "rate": 0.12, "floor": 33526.56, "floor_mode": "reduce_base", "ceiling": 16763.4, "deductible": false},
+      {"name": "INSS band 4", "rate": 0.14, "floor": 50289.96, "floor_mode": "reduce_base", "ceiling": 47598.96, "deductible": true}
+    ],
+    "employer": [
+      {"name": "INSS patronal", "rate": 0.20},
+      {"name": "RAT and terceiros (SESI, SENAI, INCRA, SEBRAE)", "rate": 0.083},
+      {"name": "FGTS", "rate": 0.08}
+    ],
+    "self_employed": [
+      {"name": "INSS contribuinte individual", "rate": 0.20, "ceiling": 97888.92, "deductible": false},
+      {"name": "ISS (municipal service tax)", "rate": 0.05, "deductible": false, "note": "2% to 5% depending on the municipality and activity"}
+    ]
+  },
+  "capital_gains": {
+    "general": "15% up to 5,000,000 of gain, rising in steps to 22.5% above 30,000,000",
+    "listed_shares": "15% on gains from share sales; monthly sales up to 20,000 on the exchange are exempt for individuals",
+    "day_trading": "20%, with 1% withheld at source",
+    "property": "15% and up, with exemptions where the proceeds are reinvested in another Brazilian residential property within 180 days, and for a single property sold for up to 440,000",
+    "offshore": "since 2024, income from offshore financial investments and controlled foreign companies is taxed annually at 15% regardless of distribution"
+  },
+  "quirks": [
+    "Departing without filing the Declaração de Saída Definitiva leaves you a Brazilian tax resident indefinitely, with worldwide income still reportable. The exit declaration is separate from the annual return and has its own deadline.",
+    "Carnê-leão is a monthly self-assessment obligation for income received from individuals or from abroad - rent from a private tenant, or a foreign salary. It is paid monthly, not annually, and interest runs from each monthly due date.",
+    "Dividends from Brazilian companies are currently exempt for individuals, which is why many professionals operate through a company and pay themselves dividends rather than salary.",
+    "The choice between the simplified 20% discount and itemised deductions is made once per return and applies to everything. Large medical or education expenses usually favour itemising; nothing else does.",
+    "The 2024 offshore rules ended the old deferral on foreign investment funds and holding companies - offshore income is now taxed annually whether or not you bring it home."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Receita Federal do Brasil (RFB)",
+    "portal": "https://www.gov.br/receitafederal - Meu Imposto de Renda / e-CAC",
+    "who_must_file": "Anyone with taxable income above roughly 33,888 in the year, exempt income above 200,000, gross rural income above 169,440, assets above 800,000 at year end, or who realised any capital gain or traded on the stock exchange.",
+    "deadlines": [
+      {"date": "15 March to 30 May 2026", "what": "Annual adjustment return (Declaração de Ajuste Anual) for 2025"},
+      {"date": "30 May 2026", "what": "First or single instalment payment; up to eight instalments available with interest"},
+      {"date": "Last working day of the following month", "what": "Carnê-leão monthly payment on income from individuals or abroad"},
+      {"date": "Last working day of the following month", "what": "Capital gains tax (DARF code 4600) on asset disposals"},
+      {"date": "Last day of February", "what": "Declaração de Saída Definitiva for those who left in the previous year"}
+    ],
+    "forms": [
+      {"id": "DIRPF", "name": "Declaração de Ajuste Anual do Imposto de Renda Pessoa Física"},
+      {"id": "Carnê-leão", "name": "Monthly self-assessment for income from individuals or foreign sources"},
+      {"id": "GCAP", "name": "Capital gains computation program, imported into the annual return"},
+      {"id": "DARF", "name": "Federal revenue payment slip"},
+      {"id": "Declaração de Saída Definitiva", "name": "Exit declaration on ceasing residence"},
+      {"id": "Informe de rendimentos", "name": "Annual income statement from employers, banks and brokers"}
+    ],
+    "documents_to_collect": [
+      "CPF and a gov.br account, ideally at the gold or silver level",
+      "Informe de rendimentos from every employer, bank and broker",
+      "Full list of assets and rights held at 31 December with acquisition cost - the return is a wealth statement as well as an income return",
+      "Medical and education expense receipts if itemising",
+      "INSS and private pension (PGBL) contribution records",
+      "Records of every share and crypto transaction, with monthly totals"
+    ],
+    "penalties": {
+      "late_filing": "1% of the tax due per month, minimum 165.74 and maximum 20% of the tax",
+      "late_payment": "0.33% per day up to 20%, plus SELIC interest",
+      "omitted_income": "75% of the tax, rising to 150% where fraud is found",
+      "carne_leao": "interest and penalty run from each monthly due date, not from the annual deadline"
+    }
+  },
+  "sources": [
+    {"name": "Receita Federal - Imposto de Renda", "url": "https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda"},
+    {"name": "Receita Federal - Tabelas IRPF", "url": "https://www.gov.br/receitafederal"},
+    {"name": "INSS", "url": "https://www.gov.br/inss"}
+  ],
+  "warnings": [
+    "INSS bands are modelled as separate contributions; the effective annual cap on employee contributions is around 11,400.",
+    "The simplified 20% discount is applied, so INSS is marked non-deductible to avoid double-counting. Under the itemised route (desconto legal), INSS, dependants, education and medical costs are deductible instead and the discount is not available.",
+    "Municipal ISS and the presumed-profit company route used by many professionals (pejotização) are not modelled and change the picture substantially."
+  ]
+}

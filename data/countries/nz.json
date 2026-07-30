@@ -1,0 +1,104 @@
+{
+  "country": "New Zealand",
+  "iso2": "NZ",
+  "tax_year": 2025,
+  "currency": "NZD",
+  "skills": {
+    "calculation": "new-zealand-tax-calculation",
+    "reporting": "new-zealand-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident after 183 days in any 12-month period, or if you have a permanent place of abode in New Zealand regardless of days.",
+    "permanent_place_of_abode": "This overrides the day count and is judged on the whole picture - property, family, social and economic ties. It is why some people remain New Zealand tax resident years after leaving.",
+    "worldwide_income": "Yes for residents.",
+    "transitional_resident": "New migrants and returning New Zealanders after ten years abroad get a four-year exemption on most foreign income."
+  },
+  "headline": {
+    "rates": "10.5% / 17.5% / 30% / 33% / 39%",
+    "acc_levy": "1.67% earners' levy up to 152,790",
+    "no_capital_gains_tax": "no general CGT, though the bright-line test taxes some property sales",
+    "kiwisaver": "3% employee and 3% employer as the default"
+  },
+  "income_tax": {
+    "name": "Income tax (PAYE)",
+    "type": "progressive",
+    "note": "full-year rates for the year ending 31 March 2026",
+    "brackets": [
+      {"up_to": 15600, "rate": 0.105},
+      {"up_to": 53500, "rate": 0.175},
+      {"up_to": 78100, "rate": 0.30},
+      {"up_to": 180000, "rate": 0.33},
+      {"up_to": null, "rate": 0.39}
+    ]
+  },
+  "social_security": {
+    "employee": [
+      {"name": "ACC earners' levy", "rate": 0.0167, "ceiling": 152790, "deductible": false},
+      {"name": "KiwiSaver employee contribution", "rate": 0.03, "deductible": false, "note": "default rate; 4%, 6%, 8% and 10% may be chosen. Opt-out is possible within 8 weeks of starting a job"}
+    ],
+    "employer": [
+      {"name": "KiwiSaver employer contribution", "rate": 0.03, "note": "subject to employer superannuation contribution tax"},
+      {"name": "ACC work levy", "rate": 0.0067, "note": "industry-rated, varies widely"}
+    ],
+    "self_employed": [
+      {"name": "ACC levies (work and earners')", "rate": 0.024, "ceiling": 152790, "deductible": true, "note": "classification unit dependent"}
+    ]
+  },
+  "capital_gains": {
+    "general": "New Zealand has no comprehensive capital gains tax",
+    "bright_line_test": "residential property sold within two years of acquisition is taxed as income, with a main home exclusion. The period was reduced from ten years to two from 1 July 2024",
+    "intention_test": "gains are taxable if the asset was acquired with the purpose of resale - this catches traders regardless of the bright-line period",
+    "fif_rules": "foreign shares costing over 50,000 NZD are taxed annually on a deemed 5% return under the foreign investment fund rules, whether or not you sell"
+  },
+  "quirks": [
+    "The foreign investment fund rules are the biggest surprise for migrants. Holding more than 50,000 NZD of foreign shares means paying tax each year on a deemed return, even with no dividends and no sale.",
+    "There is no joint filing and no spousal transfer. Each person is taxed entirely separately.",
+    "The tax year ends 31 March. Most employees have nothing to do - Inland Revenue issues an automatic income tax assessment in May or June.",
+    "KiwiSaver employer contributions are taxed (ESCT) at your marginal rate, so the headline 3% match is worth less than it appears.",
+    "Working for Families tax credits are income-tested on family income and are squared up after year end, which frequently produces a debt for families whose income rose during the year."
+  ],
+  "reporting": {
+    "tax_year_end": "31 March",
+    "authority": "Inland Revenue (IRD / Te Tari Taake)",
+    "portal": "https://www.ird.govt.nz - myIR",
+    "who_must_file": "Salary and wage earners usually receive an automatic income tax assessment and file nothing. An IR3 return is required for business income, rental income, foreign income, or income without PAYE deducted.",
+    "deadlines": [
+      {"date": "7 July 2026", "what": "IR3 return for the year ended 31 March 2026"},
+      {"date": "31 March 2027", "what": "Extended deadline if linked to a tax agent"},
+      {"date": "May to July 2026", "what": "Automatic income tax assessments issued to PAYE-only taxpayers"},
+      {"date": "7 February 2027", "what": "Terminal tax payment date (7 April if you have a tax agent)"},
+      {"date": "28 Aug / 15 Jan / 7 May", "what": "Provisional tax instalments under the standard option"}
+    ],
+    "forms": [
+      {"id": "IR3", "name": "Individual income tax return"},
+      {"id": "IR3NR", "name": "Non-resident individual return"},
+      {"id": "IR4", "name": "Company income tax return"},
+      {"id": "IR526", "name": "Tax credit claim for donations"},
+      {"id": "IR215", "name": "Adjust your income for Working for Families and student loans"},
+      {"id": "IR833", "name": "Property sale information (bright-line test)"}
+    ],
+    "documents_to_collect": [
+      "IRD number and myIR login",
+      "Summary of earnings, which IRD holds already from employer payday filing",
+      "Bank and investment income statements including resident withholding tax deducted",
+      "Foreign share holdings and their cost, for the FIF calculation",
+      "Rental property income and expenses, including interest limitation details",
+      "Donation receipts - a 33.33% credit is available on charitable giving"
+    ],
+    "penalties": {
+      "late_filing": "50 to 500 depending on net income",
+      "late_payment": "1% immediately, a further 4% after seven days, then use-of-money interest",
+      "shortfall": "20% for lack of reasonable care, up to 150% for evasion"
+    }
+  },
+  "sources": [
+    {"name": "Inland Revenue - Income tax rates", "url": "https://www.ird.govt.nz/income-tax/income-tax-for-individuals"},
+    {"name": "Inland Revenue - Tax residency", "url": "https://www.ird.govt.nz/international-tax/individuals/tax-residency-status"},
+    {"name": "ACC - Levy rates", "url": "https://www.acc.co.nz/for-business/understanding-levies-if-you-work-or-own-a-business/"}
+  ],
+  "warnings": [
+    "KiwiSaver is a savings contribution, not a tax. It reduces take-home pay but the money remains yours - treat it separately when comparing countries.",
+    "The independent earner tax credit and Working for Families credits are not modelled.",
+    "Student loan repayments of 12% above the annual threshold are not included."
+  ]
+}

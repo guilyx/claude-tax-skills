@@ -1,0 +1,124 @@
+{
+  "country": "Italy",
+  "iso2": "IT",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "italy-tax-calculation",
+    "reporting": "italy-tax-reporting"
+  },
+  "residency": {
+    "test": "From 2024: registered in the resident population register, or domiciled in Italy (where personal and family relationships are centred), or physically present, for more than 183 days.",
+    "worldwide_income": "Yes for residents.",
+    "impatriate_regime": "The regime for inbound workers exempts 50% of employment income up to 600,000 for five years, subject to qualifying conditions tightened in 2024.",
+    "flat_tax_for_new_residents": "High-net-worth individuals can elect a 200,000 annual substitute tax on all foreign income."
+  },
+  "headline": {
+    "irpef_rates": "23% / 35% / 43% on three bands since the 2024 reform",
+    "regional_surcharge": "1.23% to 3.33% depending on region",
+    "municipal_surcharge": "up to 0.9%",
+    "social_security": "about 9.19% to 10.19% employee INPS"
+  },
+  "income_tax": {
+    "name": "IRPEF",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 28000, "rate": 0.23},
+      {"up_to": 50000, "rate": 0.35},
+      {"up_to": null, "rate": 0.43}
+    ]
+  },
+  "credits": [
+    {
+      "name": "Detrazione per redditi da lavoro dipendente",
+      "amount": 1955,
+      "refundable": false,
+      "taper": {"threshold": 28000, "rate": 0.0555, "floor": 0},
+      "note": "employment income credit; the real formula has three ranges and is fully withdrawn at 50,000"
+    }
+  ],
+  "local_tax": {
+    "name": "Addizionale regionale e comunale",
+    "default_rate": 0.0233,
+    "note": "1.73% regional plus 0.6% municipal as a typical combination; Lazio and Campania are near the 3.33% cap"
+  },
+  "regions": {
+    "LOM": {"name": "Lombardia", "rate": 0.0203},
+    "LAZ": {"name": "Lazio", "rate": 0.0403},
+    "EMR": {"name": "Emilia-Romagna", "rate": 0.0263},
+    "PIE": {"name": "Piemonte", "rate": 0.0293},
+    "VEN": {"name": "Veneto", "rate": 0.0183},
+    "CAM": {"name": "Campania", "rate": 0.0393},
+    "SIC": {"name": "Sicilia", "rate": 0.0263},
+    "TOS": {"name": "Toscana", "rate": 0.0233}
+  },
+  "social_security": {
+    "employee": [
+      {"name": "INPS pension (IVS)", "rate": 0.0919, "ceiling": 55448, "deductible": true},
+      {"name": "INPS additional 1% above the first band", "rate": 0.01, "floor": 55448, "floor_mode": "reduce_base", "ceiling": 65159, "deductible": true}
+    ],
+    "employer": [
+      {"name": "INPS employer contribution", "rate": 0.30, "note": "roughly 28-32% depending on sector and company size"},
+      {"name": "TFR accrual (severance provision)", "rate": 0.0691}
+    ],
+    "self_employed": [
+      {"name": "Gestione Separata INPS", "rate": 0.2607, "ceiling": 120607, "deductible": true, "note": "professionals with their own pension fund pay lower rates"}
+    ]
+  },
+  "capital_gains": {
+    "financial_assets": "26% substitute tax on most capital gains, dividends and interest",
+    "government_bonds": "12.5% on Italian and white-list government bonds",
+    "real_estate": "26% substitute tax on gains within five years of purchase; exempt after five years or if it was your main home",
+    "crypto": "26% substitute tax, with an annual exemption that has been progressively removed"
+  },
+  "quirks": [
+    "The regime forfettario lets small self-employed taxpayers with revenue up to 85,000 pay a 15% substitute tax (5% for the first five years) on a fixed percentage of revenue, replacing IRPEF, regional and municipal surcharges entirely. It is by far the most important planning decision for freelancers.",
+    "Employees are usually settled through the employer using Modello 730, which produces the refund straight through payroll in July.",
+    "The codice fiscale is required for nearly every administrative act, including opening a bank account and signing a lease.",
+    "Regional and municipal surcharges vary by hundreds of euros between neighbouring municipalities and are based on where you were resident on 1 January.",
+    "The 2024 tightening of the impatriate regime cut the exemption from 70% to 50% and added a 600,000 cap; the version that applies depends on when you moved."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Agenzia delle Entrate",
+    "portal": "https://www.agenziaentrate.gov.it",
+    "who_must_file": "Employees with a single employer and no other income are generally not required to file. Anyone with multiple employers, self-employment income, foreign assets, or rental income must file.",
+    "deadlines": [
+      {"date": "30 September 2026", "what": "Modello 730 for employees and pensioners, for 2025 income"},
+      {"date": "31 October 2026", "what": "Modello Redditi PF for everyone else"},
+      {"date": "30 June 2026", "what": "Balance of income tax for 2025 and first advance for 2026"},
+      {"date": "30 November 2026", "what": "Second advance payment for 2026"},
+      {"date": "16th of each month", "what": "Withholding and VAT payments via Modello F24"}
+    ],
+    "forms": [
+      {"id": "Modello 730", "name": "Simplified return for employees and pensioners, largely pre-filled"},
+      {"id": "Modello Redditi PF", "name": "Full personal income tax return"},
+      {"id": "Quadro RW", "name": "Foreign assets and investments monitoring section"},
+      {"id": "Certificazione Unica (CU)", "name": "Annual employer or client withholding certificate"},
+      {"id": "Modello F24", "name": "Universal payment form"}
+    ],
+    "documents_to_collect": [
+      "Codice fiscale and SPID or CIE digital identity for portal access",
+      "Certificazione Unica from each employer or client",
+      "Precompilata - the pre-filled return Agenzia delle Entrate prepares from third-party data",
+      "Medical expense receipts and pharmacy records (tracked by fiscal code)",
+      "Mortgage interest, school fees, and renovation works invoices for the building bonuses",
+      "Foreign account balances and asset values for Quadro RW - IVIE and IVAFE wealth taxes are computed there"
+    ],
+    "penalties": {
+      "late_filing": "120% to 240% of the tax due, with a minimum of 250 where no tax is owed",
+      "late_payment": "25% of the unpaid amount, reduced under the ravvedimento operoso voluntary correction regime",
+      "quadro_rw": "3% to 15% of the undeclared foreign assets, doubled for blacklisted jurisdictions"
+    }
+  },
+  "sources": [
+    {"name": "Agenzia delle Entrate", "url": "https://www.agenziaentrate.gov.it"},
+    {"name": "INPS - Contribution rates", "url": "https://www.inps.it"},
+    {"name": "MEF - IRPEF", "url": "https://www.finanze.gov.it"}
+  ],
+  "warnings": [
+    "The employment income credit (detrazione) uses a simplified taper; the statutory formula has three separate ranges.",
+    "The regime forfettario is not modelled - for eligible self-employed taxpayers it produces a dramatically lower result.",
+    "IMU property tax, IVIE and IVAFE foreign asset taxes are not included."
+  ]
+}

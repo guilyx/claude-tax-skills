@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Tax advice
+    url: https://github.com/guilyx/claude-tax-skills/blob/master/references/disclaimers.md
+    about: This project cannot answer questions about your own tax position. It is a dataset and an engine, not an adviser.

@@ -1,0 +1,137 @@
+{
+  "country": "France",
+  "iso2": "FR",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "france-tax-calculation",
+    "reporting": "france-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if France is your home (foyer) or principal place of stay, or your main professional activity is in France, or France is the centre of your economic interests. Any one is enough.",
+    "worldwide_income": "Yes, subject to treaty relief.",
+    "note": "Households are taxed together as a foyer fiscal, not individually. This is one of the largest structural differences from Anglo-Saxon systems."
+  },
+  "headline": {
+    "rates": "0 / 11 / 30 / 41 / 45 percent",
+    "quotient_familial": "income is divided by the number of household parts before the scale is applied",
+    "social_levies": "CSG 9.2% and CRDS 0.5% on 98.25% of salary, on top of contributions",
+    "flat_tax": "30% (12.8% income tax + 17.2% social) on most investment income"
+  },
+  "income_tax": {
+    "name": "Impôt sur le revenu",
+    "type": "progressive",
+    "default_filing_status": "single",
+    "income_splitting_per_child": 0.5,
+    "note": "half a part per child for the first two, a full part from the third; the benefit per half-part is capped",
+    "by_filing_status": {
+      "single": {"income_splitting_factor": 1},
+      "married_joint": {"income_splitting_factor": 2, "note": "mariage or PACS"},
+      "single_parent": {"income_splitting_factor": 1.5}
+    },
+    "brackets": [
+      {"up_to": 11497, "rate": 0.0},
+      {"up_to": 29315, "rate": 0.11},
+      {"up_to": 83823, "rate": 0.30},
+      {"up_to": 180294, "rate": 0.41},
+      {"up_to": null, "rate": 0.45}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Abattement de 10% pour frais professionnels",
+    "amount": 504,
+    "rate": 0.10,
+    "cap": 14426,
+    "note": "automatic; elect actual expenses (frais réels) instead if they are higher"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "CSG déductible", "rate": 0.0668, "deductible": true, "note": "6.8% on 98.25% of gross"},
+      {"name": "CSG non déductible et CRDS", "rate": 0.0285, "deductible": false, "note": "2.4% CSG + 0.5% CRDS on 98.25% of gross"},
+      {"name": "Assurance vieillesse plafonnée", "rate": 0.069, "ceiling": 47100, "deductible": true},
+      {"name": "Assurance vieillesse déplafonnée", "rate": 0.004, "deductible": true},
+      {"name": "Retraite complémentaire Agirc-Arrco T1", "rate": 0.0315, "ceiling": 47100, "deductible": true},
+      {"name": "Retraite complémentaire Agirc-Arrco T2", "rate": 0.0864, "floor": 47100, "floor_mode": "reduce_base", "ceiling": 329700, "deductible": true},
+      {"name": "CEG et CET", "rate": 0.0100, "deductible": true}
+    ],
+    "employer": [
+      {"name": "Cotisations patronales (approximate)", "rate": 0.42, "note": "roughly 25-42% depending on salary level and available reliefs"}
+    ],
+    "self_employed": [
+      {"name": "Cotisations sociales travailleur indépendant", "rate": 0.45, "deductible": true, "note": "approximate blended rate; the micro-entrepreneur regime uses much lower flat rates"}
+    ]
+  },
+  "surcharges": [
+    {
+      "name": "Contribution exceptionnelle sur les hauts revenus",
+      "base": "gross_income",
+      "threshold": 250000,
+      "above_threshold_only": true,
+      "schedule": {
+        "type": "progressive",
+        "brackets": [
+          {"up_to": 250000, "rate": 0.03},
+          {"up_to": null, "rate": 0.04}
+        ]
+      },
+      "note": "thresholds double for couples filing jointly"
+    }
+  ],
+  "capital_gains": {
+    "securities": "prélèvement forfaitaire unique of 30% (12.8% tax + 17.2% social levies), or elect the progressive scale",
+    "real_estate": "19% plus 17.2% social levies, with taper relief - fully exempt after 22 years for income tax and 30 years for social levies",
+    "principal_residence": "exempt",
+    "note": "the PFU election is made for the whole household and the whole year, not per transaction"
+  },
+  "quirks": [
+    "Tax is withheld at source (prélèvement à la source) but you still file an annual declaration; the withholding rate is set from the return you filed a year earlier.",
+    "The quotient familial can make a family's effective rate dramatically lower than a single person's on identical income, but the benefit per half-part is capped (around 1,791 per half-part).",
+    "Social levies (CSG/CRDS) are not income tax and are not always creditable under treaties - US taxpayers in particular have had long-running disputes about this.",
+    "Every household member's income goes on one return. Getting married or entering a PACS mid-year changes the filing unit.",
+    "Filing deadlines differ by département, staggered across late May and early June."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Direction générale des Finances publiques (DGFiP)",
+    "portal": "https://www.impots.gouv.fr",
+    "who_must_file": "Every fiscal household resident in France, including those with no tax to pay. Non-residents file for French-source income.",
+    "deadlines": [
+      {"date": "Late May 2026", "what": "Online declaration for départements 01-19 and non-residents", "note": "exact date published each April"},
+      {"date": "Early June 2026", "what": "Online declaration for départements 20-54"},
+      {"date": "Early June 2026", "what": "Online declaration for départements 55-976"},
+      {"date": "Mid May 2026", "what": "Paper declaration deadline where paper filing is still permitted"},
+      {"date": "September 2026", "what": "Avis d'imposition issued; balance due or refund paid"}
+    ],
+    "forms": [
+      {"id": "2042", "name": "Déclaration des revenus (main return)"},
+      {"id": "2042-C", "name": "Complementary return"},
+      {"id": "2042-C-PRO", "name": "Self-employed and professional income"},
+      {"id": "2044", "name": "Rental income (régime réel)"},
+      {"id": "2047", "name": "Foreign income"},
+      {"id": "3916", "name": "Foreign bank, crypto and life insurance accounts"},
+      {"id": "2074", "name": "Capital gains on securities"}
+    ],
+    "documents_to_collect": [
+      "Numéro fiscal (13 digits) and access to the impots.gouv.fr space",
+      "Employer year-end statement and the pre-filled amounts to verify",
+      "IFU (imprimé fiscal unique) from banks and brokers",
+      "Details of every foreign account held during the year - form 3916 is mandatory and separately penalised",
+      "Receipts for childcare, home services and donations"
+    ],
+    "penalties": {
+      "late_filing": "10% increase, rising to 40% if the return is still not filed 30 days after formal notice",
+      "late_payment": "10% surcharge plus 0.20% per month interest",
+      "undeclared_foreign_account": "1,500 per account per year, or 10,000 for accounts in non-cooperative states"
+    }
+  },
+  "sources": [
+    {"name": "impots.gouv.fr - Particuliers", "url": "https://www.impots.gouv.fr/particulier"},
+    {"name": "Barème de l'impôt sur le revenu", "url": "https://www.service-public.fr/particuliers/vosdroits/F1419"},
+    {"name": "URSSAF - taux de cotisations", "url": "https://www.urssaf.fr"}
+  ],
+  "warnings": [
+    "The cap on the quotient familial benefit per half-part is not applied, so results for high-income households with children understate the tax slightly.",
+    "Employee contribution rates vary by employer, sector and pension scheme; treat the social security lines as a close approximation.",
+    "The décote for low tax amounts and the reduction for modest incomes are not modelled."
+  ]
+}

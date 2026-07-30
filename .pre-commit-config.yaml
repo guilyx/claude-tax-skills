@@ -1,0 +1,39 @@
+# Install once with: pip install pre-commit && pre-commit install
+# Run against everything with: pre-commit run --all-files
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-json          # a malformed country file breaks every skill
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-added-large-files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.8
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: taxcalc-validate
+        name: validate country data
+        # Catches bracket ordering, rates entered as percentages, a missing
+        # open-ended top band, and schedules that produce negative or
+        # decreasing tax - the mistakes that silently give wrong answers.
+        entry: python -m taxcalc validate
+        language: system
+        files: ^data/countries/.*\.json$
+        pass_filenames: false
+
+      - id: pytest
+        name: run tests
+        entry: python -m pytest tests/ -q
+        language: system
+        types: [python]
+        pass_filenames: false

@@ -1,0 +1,25 @@
+name: Data freshness
+
+# Tax parameters go stale silently - the engine keeps returning confident,
+# well-formatted, wrong numbers. This runs quarterly so that "the rates are a
+# year out of date" surfaces as a failed run rather than as a bad answer.
+on:
+  schedule:
+    - cron: "0 6 1 1,4,7,10 *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check how far behind the country files are
+        run: python tools/check_freshness.py --max-age 1

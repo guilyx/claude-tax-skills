@@ -1,0 +1,118 @@
+{
+  "country": "Poland",
+  "iso2": "PL",
+  "tax_year": 2025,
+  "currency": "PLN",
+  "skills": {
+    "calculation": "poland-tax-calculation",
+    "reporting": "poland-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if your centre of personal or economic interests is in Poland, or you stay more than 183 days in the year. Either test alone is sufficient.",
+    "worldwide_income": "Yes for residents.",
+    "return_relief": "Ulga na powrót exempts up to 85,528 a year for four years for people moving their tax residence to Poland after living abroad."
+  },
+  "headline": {
+    "rates": "12% up to 120,000, then 32%",
+    "tax_free_amount": "30,000, delivered as a 3,600 credit",
+    "health_contribution": "9% of income, and it is not deductible",
+    "flat_tax_option": "the self-employed may elect a 19% flat tax or a lump-sum on revenue"
+  },
+  "income_tax": {
+    "name": "Podatek dochodowy od osób fizycznych (PIT)",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 120000, "rate": 0.12},
+      {"up_to": null, "rate": 0.32}
+    ]
+  },
+  "credits": [
+    {
+      "name": "Kwota zmniejszająca podatek (tax-reducing amount)",
+      "amount": 3600,
+      "refundable": false,
+      "note": "the 30,000 tax-free amount expressed as a credit at 12%"
+    }
+  ],
+  "standard_deduction": {
+    "name": "Koszty uzyskania przychodu",
+    "amount": 3000,
+    "note": "250 per month for local employees, 300 per month for those commuting from another town"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "Emerytalne (pension)", "rate": 0.0976, "ceiling": 260190, "deductible": true},
+      {"name": "Rentowe (disability)", "rate": 0.015, "ceiling": 260190, "deductible": true},
+      {"name": "Chorobowe (sickness)", "rate": 0.0245, "deductible": true},
+      {"name": "Zdrowotne (health)", "rate": 0.09, "deductible": false, "note": "charged on income after social contributions and, since 2022, not deductible from tax"}
+    ],
+    "employer": [
+      {"name": "Emerytalne", "rate": 0.0976, "ceiling": 260190},
+      {"name": "Rentowe", "rate": 0.065, "ceiling": 260190},
+      {"name": "Wypadkowe (accident)", "rate": 0.0167},
+      {"name": "Fundusz Pracy i FGŚP", "rate": 0.0255}
+    ],
+    "self_employed": [
+      {"name": "ZUS (flat monthly contributions)", "type": "fixed", "amount": 19200, "deductible": true, "note": "flat monthly base regardless of income; reduced rates apply for the first 30 months of business"},
+      {"name": "Zdrowotne (health, scale taxation)", "rate": 0.09, "deductible": false}
+    ]
+  },
+  "capital_gains": {
+    "rate": "19% flat on capital gains, dividends and interest",
+    "reporting": "gains on securities are self-assessed on PIT-38 - brokers report but do not withhold",
+    "real_estate": "19% on property sold within five calendar years of acquisition; exempt after that, or if proceeds are reinvested in housing within three years",
+    "crypto": "19%, reported on PIT-38, with costs deductible only against crypto income"
+  },
+  "quirks": [
+    "The 9% health contribution is charged on top of income tax and is not deductible, so the real marginal burden on employment income is well above the headline 12% or 32%.",
+    "Under-26s are exempt from income tax on employment and contract income up to 85,528 a year, which makes early-career salaries unusually efficient.",
+    "The self-employed choose annually between the progressive scale, a 19% flat tax, and a lump-sum on registered revenue (ryczałt) at rates from 2% to 17%. The right choice can change the effective rate by twenty points.",
+    "Joint filing with a spouse effectively doubles the first bracket, which is valuable where one partner earns much more than the other.",
+    "Social contributions for the self-employed are a flat monthly amount unrelated to profit, so they are punishing at low income and negligible at high income."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Krajowa Administracja Skarbowa (National Revenue Administration)",
+    "portal": "https://www.podatki.gov.pl - e-Urząd Skarbowy / Twój e-PIT",
+    "who_must_file": "Every resident with taxable income. Employees have a return pre-prepared in Twój e-PIT which is accepted automatically at the deadline if not amended.",
+    "deadlines": [
+      {"date": "15 February 2026", "what": "Twój e-PIT pre-filled returns become available for 2025"},
+      {"date": "30 April 2026", "what": "Filing and payment deadline for PIT-36, PIT-37 and PIT-38"},
+      {"date": "28 February 2026", "what": "Employers issue PIT-11 information forms to employees"},
+      {"date": "20th of each month", "what": "Advance income tax payments for the self-employed"},
+      {"date": "31 January 2026", "what": "PIT-28 for lump-sum taxpayers"}
+    ],
+    "forms": [
+      {"id": "PIT-37", "name": "Return for employees and others taxed through withholding agents"},
+      {"id": "PIT-36", "name": "Return for business income and foreign income"},
+      {"id": "PIT-36L", "name": "Return for the 19% flat tax on business income"},
+      {"id": "PIT-38", "name": "Capital gains from securities and crypto"},
+      {"id": "PIT-28", "name": "Lump-sum tax on registered revenue"},
+      {"id": "PIT-11", "name": "Information form issued by employers and contractors"},
+      {"id": "PIT/ZG", "name": "Foreign income annex"}
+    ],
+    "documents_to_collect": [
+      "PESEL or NIP and a trusted profile (profil zaufany) or e-banking login",
+      "PIT-11 from every employer and contract payer",
+      "Broker annual statement (PIT-8C) for securities",
+      "Documentation for reliefs: children, internet, rehabilitation, thermal modernisation, donations",
+      "IKZE pension contribution certificates, which are deductible",
+      "Foreign income statements and proof of foreign tax paid"
+    ],
+    "penalties": {
+      "late_filing": "treated as a fiscal offence; an active regret filing (czynny żal) usually avoids the penalty if made before detection",
+      "late_payment": "statutory interest, currently around 14.5% a year",
+      "understatement": "fines set in daily rates tied to the minimum wage, and criminal fiscal liability for larger amounts"
+    }
+  },
+  "sources": [
+    {"name": "podatki.gov.pl", "url": "https://www.podatki.gov.pl"},
+    {"name": "ZUS - Contribution rates", "url": "https://www.zus.pl"},
+    {"name": "Ministry of Finance - PIT", "url": "https://www.gov.pl/web/finanse"}
+  ],
+  "warnings": [
+    "The health contribution base for the self-employed differs by tax regime and is not modelled accurately here.",
+    "The under-26 exemption and the return relief are not applied automatically.",
+    "The middle-class relief was abolished; do not apply figures from 2022 guidance."
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "country": "Austria",
+  "iso2": "AT",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "austria-tax-calculation",
+    "reporting": "austria-tax-reporting"
+  },
+  "residency": {
+    "test": "Unlimited liability if you have a domicile (a dwelling you can use) or habitual abode of more than six months in Austria.",
+    "worldwide_income": "Yes for unlimited taxpayers, with treaty relief and progression.",
+    "note": "Austria applies the same Wohnsitz concept as Germany, so keeping an available home can create residence even with limited presence."
+  },
+  "headline": {
+    "rates": "0 / 20 / 30 / 40 / 48 / 50 / 55 percent",
+    "tax_free_amount": "13,308",
+    "social_security": "about 18.12% employee up to a monthly ceiling",
+    "13th_and_14th_salaries": "the two extra monthly salaries are taxed at just 6% within limits"
+  },
+  "income_tax": {
+    "name": "Einkommensteuer",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 13308, "rate": 0.0},
+      {"up_to": 21617, "rate": 0.20},
+      {"up_to": 35836, "rate": 0.30},
+      {"up_to": 69166, "rate": 0.40},
+      {"up_to": 103072, "rate": 0.48},
+      {"up_to": 1000000, "rate": 0.50},
+      {"up_to": null, "rate": 0.55}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Werbungskostenpauschale",
+    "amount": 132,
+    "note": "small flat allowance; most employees claim actual costs instead"
+  },
+  "credits": [
+    {"name": "Verkehrsabsetzbetrag (commuter credit)", "amount": 487, "refundable": false},
+    {"name": "Familienbonus Plus", "per_child": 2000, "refundable": false, "note": "2,000 per child under 18, 700 after; split between parents"}
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Sozialversicherung (pension, health, unemployment, accident)", "rate": 0.1812, "ceiling": 90300, "deductible": true, "note": "monthly ceiling of 6,450 including the special payments"}
+    ],
+    "employer": [
+      {"name": "Sozialversicherung Dienstgeber", "rate": 0.2098, "ceiling": 90300},
+      {"name": "Nebenkosten (DB, DZ, Kommunalsteuer, MVK)", "rate": 0.0787}
+    ],
+    "self_employed": [
+      {"name": "SVS (GSVG) contributions", "rate": 0.2683, "ceiling": 84600, "deductible": true}
+    ]
+  },
+  "capital_gains": {
+    "financial_assets": "27.5% flat rate (Kapitalertragsteuer) on dividends, interest from securities and capital gains",
+    "bank_interest": "25%",
+    "real_estate": "30% Immobilienertragsteuer, with a reduced effective rate for property acquired before 2002",
+    "principal_residence": "exempt if it was your main residence for two years before sale, or five of the last ten"
+  },
+  "quirks": [
+    "The 13th and 14th salaries (Urlaubsgeld and Weihnachtsgeld) are taxed at 6% within the annual sixth (Jahressechstel). This is a genuine structural advantage - annual take-home is materially higher than a naive monthly calculation suggests.",
+    "Most employees are not required to file, but the voluntary assessment (Arbeitnehmerveranlagung) can be filed for five prior years and usually produces a refund, particularly if you worked part of a year.",
+    "The Pendlerpauschale for commuting is generous where public transport is not reasonable, and is claimed through payroll or the annual return.",
+    "Austria has no wealth tax and no inheritance tax, which is unusual for a high-tax European country.",
+    "The Familienbonus Plus is a credit rather than an allowance, so it is worth the same to every parent regardless of marginal rate."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Finanzamt Österreich",
+    "portal": "https://finanzonline.bmf.gv.at",
+    "who_must_file": "Mandatory for self-employed income above 730 where total income exceeds 12,816, for taxpayers with two or more simultaneous employments, and where certain credits were applied in payroll. Voluntary otherwise.",
+    "deadlines": [
+      {"date": "30 April 2026", "what": "Paper return for 2025"},
+      {"date": "30 June 2026", "what": "FinanzOnline electronic return for 2025"},
+      {"date": "31 March 2027", "what": "Extended deadline when represented by a Steuerberater"},
+      {"date": "31 December 2030", "what": "Last date for a voluntary Arbeitnehmerveranlagung for 2025 (five years)"},
+      {"date": "15 Feb / 15 May / 15 Aug / 15 Nov", "what": "Quarterly prepayments where assessed"}
+    ],
+    "forms": [
+      {"id": "E1", "name": "Income tax return (Einkommensteuererklärung)"},
+      {"id": "L1", "name": "Employee assessment (Arbeitnehmerveranlagung)"},
+      {"id": "E1a", "name": "Business income supplement"},
+      {"id": "L1k", "name": "Child-related supplement including Familienbonus Plus"},
+      {"id": "Lohnzettel L16", "name": "Annual payroll statement filed by the employer"}
+    ],
+    "documents_to_collect": [
+      "Steuernummer and FinanzOnline access",
+      "Jahreslohnzettel from each employer (usually already transmitted electronically)",
+      "Receipts for work equipment, professional training and travel",
+      "Church contribution, donation and private pension certificates",
+      "Childcare and Familienbonus documentation",
+      "Commuting details for the Pendlerpauschale"
+    ],
+    "penalties": {
+      "late_filing": "Verspätungszuschlag of up to 10% of the assessed tax",
+      "late_payment": "Säumniszuschlag of 2%, with further 1% charges after three and six months",
+      "interest": "Anspruchszinsen from 1 October of the following year"
+    }
+  },
+  "sources": [
+    {"name": "BMF - Steuern", "url": "https://www.bmf.gv.at/themen/steuern.html"},
+    {"name": "FinanzOnline", "url": "https://finanzonline.bmf.gv.at"},
+    {"name": "Sozialversicherung - Beitragssätze", "url": "https://www.sozialversicherung.at"}
+  ],
+  "warnings": [
+    "The 6% rate on the 13th and 14th salaries is not applied. For employees paid 14 salaries, the real annual tax is lower than this model shows.",
+    "The single blended social security rate hides small differences between white-collar and blue-collar schemes.",
+    "Church tax (Kirchenbeitrag) is deductible up to 600 and is not modelled."
+  ]
+}

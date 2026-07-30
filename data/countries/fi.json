@@ -1,0 +1,124 @@
+{
+  "country": "Finland",
+  "iso2": "FI",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "finland-tax-calculation",
+    "reporting": "finland-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if you have your permanent home in Finland or stay for more than six consecutive months.",
+    "worldwide_income": "Yes for residents.",
+    "three_year_rule": "Finnish citizens who move abroad are generally still treated as resident for the year of departure and the three following years unless they show no substantial ties.",
+    "key_employee_regime": "Foreign key employees can elect a 32% flat tax on Finnish salary for up to 48 months."
+  },
+  "headline": {
+    "state_tax": "progressive from 12.64% to 44.25%",
+    "municipal_tax": "about 7.5% on average since the 2023 wellbeing services reform moved most of it to the state",
+    "employee_contributions": "roughly 9% covering pension, unemployment and health insurance",
+    "capital_income": "30%, rising to 34% above 30,000"
+  },
+  "income_tax": {
+    "name": "Valtion tulovero (state income tax)",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 21200, "rate": 0.1264},
+      {"up_to": 31500, "rate": 0.19},
+      {"up_to": 52100, "rate": 0.3025},
+      {"up_to": 88200, "rate": 0.34},
+      {"up_to": 150000, "rate": 0.4175},
+      {"up_to": null, "rate": 0.4425}
+    ]
+  },
+  "local_tax": {
+    "name": "Kunnallisvero (municipal tax)",
+    "default_rate": 0.0753,
+    "note": "national average for 2025; municipal rates fell sharply in 2023 when healthcare funding moved to the wellbeing services counties"
+  },
+  "regions": {
+    "HEL": {"name": "Helsinki", "rate": 0.0536},
+    "ESP": {"name": "Espoo", "rate": 0.0546},
+    "TAM": {"name": "Tampere", "rate": 0.0790},
+    "TUR": {"name": "Turku", "rate": 0.0786},
+    "OUL": {"name": "Oulu", "rate": 0.0800}
+  },
+  "standard_deduction": {
+    "name": "Tulonhankkimisvähennys",
+    "amount": 750,
+    "note": "automatic income acquisition deduction; claim actual expenses instead if higher"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "TyEL pension contribution", "rate": 0.0715, "deductible": true, "note": "8.65% for employees aged 53 to 62"},
+      {"name": "Unemployment insurance", "rate": 0.0059, "deductible": true},
+      {"name": "Health insurance - daily allowance", "rate": 0.0084, "floor": 16862, "deductible": true},
+      {"name": "Health insurance - medical care", "rate": 0.0051, "deductible": false}
+    ],
+    "employer": [
+      {"name": "TyEL employer share", "rate": 0.1738},
+      {"name": "Health insurance", "rate": 0.0187},
+      {"name": "Unemployment insurance", "rate": 0.0027, "note": "higher rate above the payroll threshold"}
+    ],
+    "self_employed": [
+      {"name": "YEL entrepreneur pension", "rate": 0.244, "ceiling": 218400, "deductible": true, "note": "based on declared YEL income, not actual profit"}
+    ]
+  },
+  "capital_gains": {
+    "rate": "30% up to 30,000 of capital income, 34% above",
+    "deemed_acquisition_cost": "you may deduct 20% of the sale price instead of the actual cost, or 40% if the asset was held over ten years - often better than the real figure",
+    "principal_residence": "exempt if it was your permanent home for at least two years",
+    "small_sales": "sales totalling under 1,000 in a year are exempt"
+  },
+  "quirks": [
+    "The tax card (verokortti) sets your withholding rate. Exceeding your estimated annual income means the higher additional rate applies, so updating the card mid-year when you get a raise is standard practice.",
+    "The deemed acquisition cost rule lets you claim 20% or 40% of the sale price as cost without any documentation, which frequently beats the real acquisition cost for long-held assets.",
+    "Municipal tax rates dropped by roughly 12 percentage points in 2023 when healthcare moved to the counties. Comparisons with older figures are misleading.",
+    "Church tax of 1% to 2.25% applies to members of the Lutheran or Orthodox church and is collected with income tax.",
+    "The YEL pension contribution for the self-employed is charged on a declared income figure that also determines your future pension and sickness benefits - setting it too low is a common and costly mistake."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Verohallinto (Finnish Tax Administration)",
+    "portal": "https://www.vero.fi - MyTax (OmaVero)",
+    "who_must_file": "Everyone receives a pre-completed return. If it is correct, no action is needed; if anything is missing or wrong you must correct it by your personal deadline.",
+    "deadlines": [
+      {"date": "March 2026", "what": "Pre-completed tax return published in MyTax"},
+      {"date": "May 2026", "what": "Correction deadline - one of three dates in May, printed on your own return"},
+      {"date": "1 April 2026", "what": "Deadline for self-employed and business operators"},
+      {"date": "During the year", "what": "Update your tax card in MyTax whenever income changes"},
+      {"date": "August and October", "what": "Residual tax instalment due dates"}
+    ],
+    "forms": [
+      {"id": "Esitäytetty veroilmoitus", "name": "Pre-completed tax return"},
+      {"id": "Verokortti", "name": "Tax card setting the withholding rate"},
+      {"id": "Form 9", "name": "Capital gains from securities"},
+      {"id": "Form 7H", "name": "Rental income from an apartment"},
+      {"id": "Form 5", "name": "Business income for the self-employed"},
+      {"id": "Form 16", "name": "Foreign income"}
+    ],
+    "documents_to_collect": [
+      "Finnish personal identity code and online banking or mobile ID for MyTax",
+      "The pre-completed return, which contains salary, benefits and Finnish investment income",
+      "Broker statements for foreign securities - not pre-filled",
+      "Records of commuting costs above the 750 threshold and of work-related expenses",
+      "Mortgage interest details (deductibility on home loans was fully phased out from 2023 - check the current position)",
+      "Household deduction (kotitalousvähennys) invoices for domestic help and renovation"
+    ],
+    "penalties": {
+      "late_filing": "late-filing penalty of 50 for individuals",
+      "negligence": "punitive tax increase of 2% to 10% of the added income",
+      "interest": "late payment interest at the reference rate plus 7 percentage points"
+    }
+  },
+  "sources": [
+    {"name": "Vero.fi - Individuals", "url": "https://www.vero.fi/en/individuals/"},
+    {"name": "Vero.fi - Tax rates", "url": "https://www.vero.fi/en/individuals/tax-cards-and-tax-returns/income-and-deductions/"},
+    {"name": "Tyoelake.fi - Pension contributions", "url": "https://www.tyoelake.fi"}
+  ],
+  "warnings": [
+    "The earned income deduction (ansiotulovähennys) and basic deduction (perusvähennys) are not modelled, so results at low incomes overstate the tax.",
+    "Church tax is excluded.",
+    "Wellbeing services county funding is inside the state rates shown here; do not add it separately."
+  ]
+}

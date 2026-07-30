@@ -1,0 +1,38 @@
+name: New country request
+description: Propose adding a country to the dataset and its two skills
+title: "[country] "
+labels: ["new-country"]
+body:
+  - type: input
+    id: country
+    attributes:
+      label: Country and ISO-3166 alpha-2 code
+      placeholder: Mexico (MX)
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this country
+      description: Who would use it — a common relocation destination, a large remote-work market, somewhere with a notable expat regime?
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Official tax authority URL
+      description: Where the rates and filing calendar can be verified.
+    validations:
+      required: true
+
+  - type: textarea
+    id: shape
+    attributes:
+      label: Anything unusual about the system
+      description: |
+        The engine handles progressive brackets, flat rates, formula schedules,
+        capped and floored contributions, surcharges, tapered allowances,
+        credits and income splitting. Flag anything that does not fit those
+        shapes, since it may need an engine change rather than just data.

@@ -1,0 +1,132 @@
+{
+  "country": "South Korea",
+  "iso2": "KR",
+  "tax_year": 2025,
+  "currency": "KRW",
+  "skills": {
+    "calculation": "south-korea-tax-calculation",
+    "reporting": "south-korea-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if you have a domicile in Korea or a place of residence for 183 days or more in a tax year.",
+    "worldwide_income": "Yes for residents, but a foreign resident who has had a domicile in Korea for five years or less in the last ten is taxed on foreign-source income only if it is paid in or remitted to Korea.",
+    "flat_rate_election": "Foreign employees may elect a flat 19% (20.9% including local income tax) on gross employment income with no deductions, for up to 20 years from first starting work in Korea."
+  },
+  "headline": {
+    "rates": "6% to 45% across eight brackets",
+    "local_income_tax": "an additional 10% of the income tax itself",
+    "social_insurance": "roughly 9.4% employee across pension, health, care and employment insurance",
+    "foreign_flat_tax": "19% plus local tax, elective for foreign employees"
+  },
+  "income_tax": {
+    "name": "Income tax (jonghap sodeukse)",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 14000000, "rate": 0.06},
+      {"up_to": 50000000, "rate": 0.15},
+      {"up_to": 88000000, "rate": 0.24},
+      {"up_to": 150000000, "rate": 0.35},
+      {"up_to": 300000000, "rate": 0.38},
+      {"up_to": 500000000, "rate": 0.40},
+      {"up_to": 1000000000, "rate": 0.42},
+      {"up_to": null, "rate": 0.45}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Employment income deduction",
+    "amount": 3500000,
+    "rate": 0.21,
+    "cap": 15000000,
+    "note": "approximation of the statutory five-tier formula, which is capped at 20,000,000"
+  },
+  "personal_allowance": {
+    "name": "Basic personal deduction",
+    "amount": 1500000,
+    "per_dependant": 1500000,
+    "note": "1,500,000 for the taxpayer and for each qualifying dependant"
+  },
+  "surcharges": [
+    {
+      "name": "Local income tax",
+      "base": "tax",
+      "rate": 0.10,
+      "above_threshold_only": false,
+      "note": "a flat 10% of the national income tax, collected with it"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "National pension", "rate": 0.045, "ceiling": 74280000, "deductible": true, "note": "monthly income base capped at 6,190,000"},
+      {"name": "National health insurance", "rate": 0.03545, "ceiling": 148800000, "deductible": true},
+      {"name": "Long-term care insurance", "rate": 0.00459, "ceiling": 148800000, "deductible": true, "note": "12.95% of the health insurance premium"},
+      {"name": "Employment insurance", "rate": 0.009, "deductible": true}
+    ],
+    "employer": [
+      {"name": "National pension", "rate": 0.045, "ceiling": 74280000},
+      {"name": "National health and long-term care", "rate": 0.04004, "ceiling": 148800000},
+      {"name": "Employment insurance", "rate": 0.0115},
+      {"name": "Industrial accident compensation", "rate": 0.0143}
+    ],
+    "self_employed": [
+      {"name": "National pension (both halves)", "rate": 0.09, "ceiling": 74280000, "deductible": true},
+      {"name": "National health insurance (both halves)", "rate": 0.0709, "deductible": true}
+    ]
+  },
+  "capital_gains": {
+    "listed_shares": "gains of small shareholders on listed shares traded on the exchange are exempt; large shareholders pay 20% to 25%",
+    "real_estate": "6% to 45% at ordinary rates with holding-period adjustments; heavy surcharges apply to multiple-home owners and to short holding periods",
+    "principal_residence": "exempt up to 1.2bn won of sale price where the two-year holding and residence conditions are met",
+    "financial_investment_income_tax": "the planned comprehensive financial investment income tax was repealed - confirm the current position before relying on older guidance"
+  },
+  "quirks": [
+    "The flat 19% election for foreign employees ignores all deductions and credits. It wins at high salaries and loses at moderate ones - run both computations rather than assuming.",
+    "Year-end settlement (yeonmal jeongsan) in February is when employees reconcile the year. It is famously document-heavy, but the Hometax simplified service pulls most receipts automatically.",
+    "Credit card and debit card spending above 25% of salary generates an income deduction, which is why Koreans pay for almost everything by card.",
+    "Housing rent, monthly rent payments, and jeonse loan principal repayments all generate deductions or credits that foreign residents routinely fail to claim.",
+    "Severance pay is taxed under a separate, much lighter regime rather than as ordinary income."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "National Tax Service (NTS)",
+    "portal": "https://www.hometax.go.kr - Hometax",
+    "who_must_file": "Employees with a single employer are settled by the February year-end settlement and do not file. A May global income tax return is required for business income, multiple employers, or other income above thresholds.",
+    "deadlines": [
+      {"date": "February 2026", "what": "Year-end settlement (yeonmal jeongsan) with your employer for 2025"},
+      {"date": "1 to 31 May 2026", "what": "Global income tax return for 2025"},
+      {"date": "30 June 2026", "what": "Extended deadline for taxpayers with an external audit requirement"},
+      {"date": "31 May 2026", "what": "Payment of the balance; instalments available above 10,000,000 won"},
+      {"date": "Two months from disposal", "what": "Preliminary capital gains return on property"}
+    ],
+    "forms": [
+      {"id": "Global income tax return", "name": "Annual return filed in May via Hometax"},
+      {"id": "Year-end settlement forms", "name": "Deduction declarations submitted to the employer in February"},
+      {"id": "Withholding receipt", "name": "Employer certificate of income and tax withheld"},
+      {"id": "Flat tax application", "name": "Election for the 19% flat rate by foreign employees"},
+      {"id": "Overseas financial account report", "name": "Required where foreign accounts exceed 500,000,000 won on any month-end"}
+    ],
+    "documents_to_collect": [
+      "Resident registration number or alien registration number, and Hometax certificate or simple authentication",
+      "Withholding receipt from each employer",
+      "The Hometax simplified year-end settlement data, which already holds card spending, insurance, medical and education payments",
+      "Housing lease contract and rent payment records",
+      "Donation receipts",
+      "Details of foreign accounts and foreign income for residents past the five-year mark"
+    ],
+    "penalties": {
+      "late_filing": "20% of the tax due, or 40% where the failure is deliberate",
+      "understatement": "10% of the underreported tax, 40% for fraudulent reporting",
+      "late_payment": "0.022% per day, roughly 8% a year",
+      "foreign_account_report": "up to 20% of the unreported balance"
+    }
+  },
+  "sources": [
+    {"name": "National Tax Service - English", "url": "https://www.nts.go.kr/english/"},
+    {"name": "Hometax", "url": "https://www.hometax.go.kr"},
+    {"name": "National Pension Service", "url": "https://www.nps.or.kr"}
+  ],
+  "warnings": [
+    "The employment income deduction is approximated; results below about 45,000,000 won of salary understate the deduction and therefore overstate tax.",
+    "Tax credits for children, pension savings, medical and education costs are not modelled and materially reduce the real liability.",
+    "The 19% flat rate election for foreign employees is not computed - compare it separately."
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "country": "Saudi Arabia",
+  "iso2": "SA",
+  "tax_year": 2025,
+  "currency": "SAR",
+  "skills": {
+    "calculation": "saudi-arabia-tax-calculation",
+    "reporting": "saudi-arabia-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if you have a permanent place of abode and are present at least 30 days in the year, or are present at least 183 days regardless of accommodation.",
+    "worldwide_income": "There is no personal income tax on employment income, so residence matters mainly for treaty certificates and for business taxation.",
+    "note": "Residence status does affect whether a non-Saudi carrying on business is subject to the 20% income tax on business profits."
+  },
+  "headline": {
+    "personal_income_tax": "none on salary or employment income",
+    "business_income": "20% income tax on the non-GCC share of business profits; Zakat of 2.5% on the Saudi and GCC share",
+    "vat": "15%",
+    "gosi": "social insurance for Saudi nationals; expatriates are covered only for occupational hazards"
+  },
+  "income_tax": {
+    "name": "Personal income tax",
+    "type": "none",
+    "note": "Saudi Arabia does not tax individual employment income"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "GOSI (Saudi nationals only)", "rate": 0.0, "note": "11.75% for Saudi nationals joining from July 2024 under the reformed scheme, phasing upward; nil for expatriate employees"}
+    ],
+    "employer": [
+      {"name": "GOSI occupational hazards (all employees)", "rate": 0.02},
+      {"name": "GOSI pension and unemployment (Saudi nationals only)", "rate": 0.0, "note": "11.75% for Saudi national employees"}
+    ]
+  },
+  "capital_gains": {
+    "individuals": "no capital gains tax on personal investments for resident individuals",
+    "shares": "disposals of shares in Saudi listed companies through Tadawul are exempt",
+    "business": "gains realised by a taxable business form part of the 20% income tax base",
+    "non_residents": "20% capital gains tax can apply to non-residents disposing of shares in Saudi companies"
+  },
+  "quirks": [
+    "There is no personal income tax, but there is a 15% VAT - among the highest in the region and a real cost of living.",
+    "Businesses are taxed under a split system: the share of profit attributable to Saudi and GCC ownership pays Zakat at 2.5%, the non-GCC share pays 20% income tax. Mixed-ownership companies compute both.",
+    "Withholding tax of 5% to 20% applies to payments made to non-residents for services, royalties and dividends, and is the most common compliance failure for foreign businesses.",
+    "The GOSI reform of July 2024 raised contribution rates for newly joining Saudi nationals on a phased schedule - the rate depends on when the employee first joined.",
+    "Real Estate Transaction Tax of 5% applies on property transfers, in place of VAT on real estate."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Zakat, Tax and Customs Authority (ZATCA)",
+    "portal": "https://zatca.gov.sa",
+    "who_must_file": "Individuals in employment file nothing. Non-Saudi individuals carrying on business in the Kingdom, and entities, must register and file annually.",
+    "deadlines": [
+      {"date": "No personal return", "what": "Employees have no personal income tax filing obligation"},
+      {"date": "120 days after year end", "what": "Annual income tax or Zakat return for businesses"},
+      {"date": "Monthly or quarterly", "what": "VAT returns - monthly above 40m SAR of annual supplies, quarterly below"},
+      {"date": "First 10 days of the following month", "what": "Withholding tax return on payments to non-residents"},
+      {"date": "Monthly", "what": "GOSI contribution submissions"}
+    ],
+    "forms": [
+      {"id": "Income tax return", "name": "Annual return for non-GCC owned business income, filed via ZATCA portal"},
+      {"id": "Zakat return", "name": "Annual Zakat declaration for Saudi and GCC ownership"},
+      {"id": "VAT return", "name": "Periodic VAT return"},
+      {"id": "WHT return", "name": "Monthly withholding tax return"},
+      {"id": "Zakat/tax certificate", "name": "Clearance certificate required to renew licences and receive government payments"}
+    ],
+    "documents_to_collect": [
+      "Iqama (residence permit) or national ID and a ZATCA portal account",
+      "Commercial registration and licence details if in business",
+      "Audited financial statements for the business year",
+      "Contracts with non-residents to assess withholding tax",
+      "GOSI registration records for all employees",
+      "E-invoicing (FATOORA) compliant records - phase two integration is mandatory in waves"
+    ],
+    "penalties": {
+      "late_filing": "1% of revenue for every 30 days of delay, capped at 20% of the tax due",
+      "late_payment": "1% of the unpaid tax for every 30 days",
+      "vat": "5% to 25% of the tax due, plus fixed penalties for e-invoicing breaches",
+      "understatement": "up to 25% of the difference"
+    }
+  },
+  "sources": [
+    {"name": "ZATCA", "url": "https://zatca.gov.sa/en"},
+    {"name": "GOSI", "url": "https://www.gosi.gov.sa"},
+    {"name": "Saudi Income Tax Law", "url": "https://zatca.gov.sa/en/RulesRegulations/Taxes/Pages/default.aspx"}
+  ],
+  "warnings": [
+    "This model returns zero personal tax, which is correct for employment income. Business income of non-Saudi individuals is taxable at 20% and is not computed here.",
+    "GOSI contributions for Saudi nationals are not modelled.",
+    "Expatriate dependent fees and labour levies are employer costs that are not reflected."
+  ]
+}

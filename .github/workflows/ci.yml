@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install ruff
+
+      - name: Lint
+        run: ruff check --output-format=github .
+
+      - name: Check formatting
+        run: ruff format --check .
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - run: pip install pytest
+
+      - name: Validate country data
+        # Runs first: a structural problem in the data explains most test
+        # failures, and its message is far more specific than a test traceback.
+        run: python -m taxcalc validate
+
+      - name: Run tests
+        run: python -m pytest tests/ -q
+
+      - name: Smoke-test the CLI
+        run: |
+          python -m taxcalc list
+          python -m taxcalc calc DE --employment 85000
+          python -m taxcalc compare 90000 --countries US,GB,DE,SG
+          python -m taxcalc deadlines JP
+
+  freshness:
+    # Informational on every run; the scheduled workflow is what enforces it.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Report how far behind the country files are
+        run: python tools/check_freshness.py --max-age 2

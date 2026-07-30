@@ -1,0 +1,118 @@
+{
+  "country": "Belgium",
+  "iso2": "BE",
+  "tax_year": 2025,
+  "currency": "EUR",
+  "skills": {
+    "calculation": "belgium-tax-calculation",
+    "reporting": "belgium-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if your main home or the seat of your wealth is in Belgium. Entry in the national register creates a rebuttable presumption of residence.",
+    "worldwide_income": "Yes for residents, with exemption-with-progression for treaty-exempt foreign income.",
+    "expat_regime": "The special tax regime for inbound taxpayers (BIRTI) allows up to 30% of gross remuneration, capped at 90,000, to be paid free of tax and social security as a cost proper to the employer."
+  },
+  "headline": {
+    "rates": "25% / 40% / 45% / 50% - the top rate starts unusually low",
+    "tax_free_allowance": "10,570",
+    "social_security": "13.07% employee, with no ceiling",
+    "municipal_surcharge": "typically 7% to 9% of income tax"
+  },
+  "income_tax": {
+    "name": "Impôt des personnes physiques / Personenbelasting",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 16320, "rate": 0.25},
+      {"up_to": 28800, "rate": 0.40},
+      {"up_to": 49840, "rate": 0.45},
+      {"up_to": null, "rate": 0.50}
+    ]
+  },
+  "standard_deduction": {
+    "name": "Forfait de frais professionnels",
+    "rate": 0.30,
+    "cap": 5750,
+    "note": "flat professional expense deduction; actual expenses may be claimed instead"
+  },
+  "personal_allowance": {
+    "name": "Quotité exemptée d'impôt",
+    "amount": 10570,
+    "per_child": 1980,
+    "note": "the child supplement rises steeply for the second, third and later children"
+  },
+  "surcharges": [
+    {
+      "name": "Additionnels communaux",
+      "base": "tax",
+      "rate": 0.075,
+      "above_threshold_only": false,
+      "note": "municipal surcharge on income tax; 0% in a few municipalities, up to about 9% elsewhere"
+    }
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "ONSS/RSZ employee contribution", "rate": 0.1307, "deductible": true, "note": "no ceiling"}
+    ],
+    "employer": [
+      {"name": "ONSS/RSZ employer contribution", "rate": 0.25, "note": "about 25% for white-collar workers after structural reductions"}
+    ],
+    "self_employed": [
+      {"name": "Cotisations sociales indépendants", "rate": 0.205, "ceiling": 105000, "deductible": true, "note": "20.5% up to about 76,000, then 14.16% to the ceiling"}
+    ]
+  },
+  "capital_gains": {
+    "general": "Belgium historically did not tax private capital gains realised in the normal management of private wealth. A general capital gains tax of 10% on financial assets has been agreed politically - confirm whether it is in force for the year in question.",
+    "speculative": "gains outside normal management of private wealth are taxed at 33%",
+    "real_estate": "16.5% on sales of non-primary property within five years",
+    "dividends_interest": "30% withholding, with a partial exemption for the first tranche of dividends"
+  },
+  "quirks": [
+    "The 50% bracket starts below 50,000 of taxable income, so Belgium reaches its top marginal rate at a lower income than almost any other developed country.",
+    "Social security has no ceiling, which keeps the marginal wedge high all the way up the income scale.",
+    "The municipal surcharge is applied to your tax, not your income, and depends on where you were registered on 1 January.",
+    "Company cars, meal vouchers and group insurance are heavily used precisely because cash salary is taxed so hard - the benefits package matters more than the headline salary.",
+    "Married and legally cohabiting couples file jointly and the marital quotient can transfer part of one spouse's income to the other where incomes are unequal."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "SPF Finances / FOD Financiën",
+    "portal": "https://financien.belgium.be - Tax-on-web via MyMinfin",
+    "who_must_file": "Every resident taxpayer receives a return. Many receive a simplified proposed assessment which becomes final unless corrected.",
+    "deadlines": [
+      {"date": "30 June 2026", "what": "Paper return for income year 2025"},
+      {"date": "15 July 2026", "what": "Online return via Tax-on-web"},
+      {"date": "Mid-October 2026", "what": "Extended online deadline for returns including self-employment or foreign income"},
+      {"date": "Two months from notice", "what": "Payment of the assessed balance"},
+      {"date": "10 Apr / 10 Jul / 10 Oct / 20 Dec", "what": "Advance payments for the self-employed"}
+    ],
+    "forms": [
+      {"id": "Déclaration IPP / Aangifte PB", "name": "Personal income tax return, Parts 1 and 2"},
+      {"id": "Fiche 281.10", "name": "Annual employment income statement"},
+      {"id": "Fiche 281.20", "name": "Company director remuneration"},
+      {"id": "Proposition de déclaration simplifiée", "name": "Simplified proposed assessment"}
+    ],
+    "documents_to_collect": [
+      "National register number and itsme or eID card reader for portal access",
+      "Fiche 281.10 from each employer",
+      "Mortgage certificate and life insurance statements",
+      "Pension savings (épargne-pension) certificate",
+      "Childcare cost certificates",
+      "Details of foreign accounts, which must be reported to the National Bank as well as on the return, and of foreign property"
+    ],
+    "penalties": {
+      "late_filing": "50 to 1,250 administrative fine, plus an ex officio assessment",
+      "understatement": "10% to 200% tax increase depending on intent and repetition",
+      "late_payment": "interest at the statutory rate, currently around 4% to 8% a year"
+    }
+  },
+  "sources": [
+    {"name": "SPF Finances - Particuliers", "url": "https://finances.belgium.be/fr/particuliers"},
+    {"name": "ONSS - Contribution rates", "url": "https://www.onss.be"},
+    {"name": "MyMinfin / Tax-on-web", "url": "https://eservices.minfin.fgov.be"}
+  ],
+  "warnings": [
+    "The municipal surcharge is set to a typical 7.5%. Substitute the actual rate of the commune of residence on 1 January.",
+    "The marital quotient and the detailed child allowance scale are not modelled.",
+    "The BIRTI inbound regime is not applied; if it is available, reduce gross salary by the exempt portion before calculating."
+  ]
+}

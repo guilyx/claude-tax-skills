@@ -1,0 +1,40 @@
+name: Bug report
+description: The engine, CLI or a skill behaves incorrectly
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a wrong tax *rate or threshold*, please use the "Tax data correction"
+        template instead — those are data fixes rather than code fixes.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The exact command, if there is one.
+      render: shell
+      placeholder: python -m taxcalc calc DE --employment 85000
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.12.1"

@@ -1,0 +1,195 @@
+{
+  "country": "United States",
+  "iso2": "US",
+  "tax_year": 2025,
+  "currency": "USD",
+  "skills": {
+    "calculation": "us-tax-calculation",
+    "reporting": "us-tax-reporting"
+  },
+  "residency": {
+    "test": "Citizens and green card holders are taxed on worldwide income regardless of where they live. Others are resident under the substantial presence test.",
+    "substantial_presence": "31 days in the current year AND 183 days counting current year + 1/3 of prior year + 1/6 of the year before that.",
+    "worldwide_income": "Yes - the US is one of only two countries taxing citizens on worldwide income wherever they reside.",
+    "exit": "Expatriation may trigger the section 877A exit tax for covered expatriates."
+  },
+  "headline": {
+    "top_federal_rate": "37% above 626,350 (single) / 751,600 (married filing jointly)",
+    "payroll": "7.65% employee FICA up to the Social Security wage base, plus 0.9% additional Medicare on high wages",
+    "state_tax": "0% to ~13.3% depending on state; nine states levy no tax on wage income",
+    "capital_gains": "0/15/20% long-term, plus 3.8% net investment income tax above 200,000 / 250,000"
+  },
+  "income_tax": {
+    "name": "Federal income tax",
+    "type": "progressive",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {
+        "brackets": [
+          {"up_to": 11925, "rate": 0.10},
+          {"up_to": 48475, "rate": 0.12},
+          {"up_to": 103350, "rate": 0.22},
+          {"up_to": 197300, "rate": 0.24},
+          {"up_to": 250525, "rate": 0.32},
+          {"up_to": 626350, "rate": 0.35},
+          {"up_to": null, "rate": 0.37}
+        ]
+      },
+      "married_joint": {
+        "brackets": [
+          {"up_to": 23850, "rate": 0.10},
+          {"up_to": 96950, "rate": 0.12},
+          {"up_to": 206700, "rate": 0.22},
+          {"up_to": 394600, "rate": 0.24},
+          {"up_to": 501050, "rate": 0.32},
+          {"up_to": 751600, "rate": 0.35},
+          {"up_to": null, "rate": 0.37}
+        ]
+      },
+      "head_of_household": {
+        "brackets": [
+          {"up_to": 17000, "rate": 0.10},
+          {"up_to": 64850, "rate": 0.12},
+          {"up_to": 103350, "rate": 0.22},
+          {"up_to": 197300, "rate": 0.24},
+          {"up_to": 250500, "rate": 0.32},
+          {"up_to": 626350, "rate": 0.35},
+          {"up_to": null, "rate": 0.37}
+        ]
+      },
+      "married_separate": {
+        "brackets": [
+          {"up_to": 11925, "rate": 0.10},
+          {"up_to": 48475, "rate": 0.12},
+          {"up_to": 103350, "rate": 0.22},
+          {"up_to": 197300, "rate": 0.24},
+          {"up_to": 250525, "rate": 0.32},
+          {"up_to": 375800, "rate": 0.35},
+          {"up_to": null, "rate": 0.37}
+        ]
+      }
+    }
+  },
+  "standard_deduction": {
+    "name": "Standard deduction",
+    "note": "2025 amounts as increased by the July 2025 reconciliation act",
+    "default_filing_status": "single",
+    "by_filing_status": {
+      "single": {"amount": 15750},
+      "married_joint": {"amount": 31500},
+      "head_of_household": {"amount": 23625},
+      "married_separate": {"amount": 15750}
+    }
+  },
+  "social_security": {
+    "employee": [
+      {"name": "Social Security (OASDI)", "rate": 0.062, "ceiling": 176100, "deductible": false},
+      {"name": "Medicare", "rate": 0.0145, "deductible": false},
+      {"name": "Additional Medicare", "rate": 0.009, "floor": 200000, "floor_mode": "reduce_base", "deductible": false, "note": "threshold is 250,000 for married filing jointly"}
+    ],
+    "employer": [
+      {"name": "Social Security (OASDI)", "rate": 0.062, "ceiling": 176100},
+      {"name": "Medicare", "rate": 0.0145},
+      {"name": "FUTA", "rate": 0.006, "ceiling": 7000}
+    ],
+    "self_employed": [
+      {"name": "SECA Social Security", "rate": 0.124, "ceiling": 176100, "deductible": false},
+      {"name": "SECA Medicare", "rate": 0.029, "deductible": false}
+    ]
+  },
+  "credits": [
+    {
+      "name": "Child tax credit",
+      "per_child": 2200,
+      "refundable": false,
+      "taper": {"threshold": 200000, "rate": 0.05, "floor": 0},
+      "note": "phase-out starts at 400,000 for joint filers; up to 1,700 per child is refundable"
+    }
+  ],
+  "local_tax": {
+    "name": "State income tax",
+    "default_rate": 0.0,
+    "note": "state tax varies enormously; pass --region or --local-rate"
+  },
+  "regions": {
+    "CA": {"name": "California", "rate": 0.093, "note": "approximate high-bracket rate; California is progressive to 13.3%"},
+    "NY": {"name": "New York", "rate": 0.0685, "note": "approximate; New York City adds a further ~3.9%"},
+    "IL": {"name": "Illinois", "rate": 0.0495},
+    "PA": {"name": "Pennsylvania", "rate": 0.0307},
+    "MA": {"name": "Massachusetts", "rate": 0.05, "note": "plus 4% surtax on income above ~1m"},
+    "CO": {"name": "Colorado", "rate": 0.044},
+    "GA": {"name": "Georgia", "rate": 0.0539},
+    "NC": {"name": "North Carolina", "rate": 0.0425},
+    "AZ": {"name": "Arizona", "rate": 0.025},
+    "TX": {"name": "Texas", "rate": 0.0},
+    "FL": {"name": "Florida", "rate": 0.0},
+    "WA": {"name": "Washington", "rate": 0.0, "note": "no wage income tax; 7% tax on large long-term capital gains"},
+    "NV": {"name": "Nevada", "rate": 0.0},
+    "TN": {"name": "Tennessee", "rate": 0.0},
+    "NH": {"name": "New Hampshire", "rate": 0.0},
+    "WY": {"name": "Wyoming", "rate": 0.0},
+    "SD": {"name": "South Dakota", "rate": 0.0},
+    "AK": {"name": "Alaska", "rate": 0.0}
+  },
+  "capital_gains": {
+    "long_term": "0% / 15% / 20% depending on total taxable income; holding period over one year",
+    "short_term": "taxed as ordinary income",
+    "net_investment_income_tax": "3.8% on investment income above 200,000 (single) / 250,000 (joint)",
+    "principal_residence": "up to 250,000 (single) / 500,000 (joint) of gain excluded if owned and used 2 of the last 5 years"
+  },
+  "quirks": [
+    "Citizens and green card holders must file from abroad. The foreign earned income exclusion (130,000 for 2025) and foreign tax credit usually eliminate double tax, but the return is still due.",
+    "FBAR (FinCEN 114) is separate from the tax return and is triggered by aggregate foreign account balances over 10,000 at any point in the year. Penalties are severe and unrelated to whether tax was owed.",
+    "State residency is decided separately from federal residency, and some states (notably California and New York) are aggressive about domicile after a move.",
+    "Estimated tax payments are due quarterly for income without withholding; underpayment penalties accrue even if the return is filed on time.",
+    "The alternative minimum tax still applies to some taxpayers with large deductions or incentive stock option exercises."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Internal Revenue Service (IRS)",
+    "portal": "https://www.irs.gov/filing",
+    "who_must_file": "Anyone with gross income above the standard deduction for their status, plus anyone with net self-employment income of 400 or more, regardless of total income.",
+    "deadlines": [
+      {"date": "15 April 2026", "what": "Form 1040 filing and payment deadline for tax year 2025"},
+      {"date": "15 June 2026", "what": "Automatic deadline for citizens living abroad", "note": "filing extension only - interest still runs from 15 April"},
+      {"date": "15 October 2026", "what": "Extended deadline if Form 4868 was filed"},
+      {"date": "15 Apr / 15 Jun / 15 Sep / 15 Jan", "what": "Quarterly estimated tax instalments"},
+      {"date": "15 April 2026", "what": "FBAR (FinCEN 114), automatically extended to 15 October"}
+    ],
+    "forms": [
+      {"id": "1040", "name": "US Individual Income Tax Return"},
+      {"id": "1040-NR", "name": "Nonresident alien income tax return"},
+      {"id": "Schedule C", "name": "Profit or loss from business (sole proprietors)"},
+      {"id": "Schedule D", "name": "Capital gains and losses"},
+      {"id": "Schedule SE", "name": "Self-employment tax"},
+      {"id": "2555", "name": "Foreign earned income exclusion"},
+      {"id": "1116", "name": "Foreign tax credit"},
+      {"id": "8938", "name": "Statement of specified foreign financial assets (FATCA)"},
+      {"id": "FinCEN 114", "name": "Report of foreign bank and financial accounts (FBAR)"},
+      {"id": "4868", "name": "Application for automatic extension"}
+    ],
+    "documents_to_collect": [
+      "W-2 from each employer",
+      "1099-NEC / 1099-K for contract and platform income",
+      "1099-INT, 1099-DIV, 1099-B for investment income",
+      "1098 mortgage interest and 1098-T tuition statements",
+      "Form 1095-A if health coverage came from the marketplace",
+      "Records of estimated tax payments already made"
+    ],
+    "penalties": {
+      "late_filing": "5% of unpaid tax per month, capped at 25%",
+      "late_payment": "0.5% of unpaid tax per month, capped at 25%",
+      "accuracy": "20% of the underpayment for substantial understatement or negligence",
+      "fbar": "up to 10,000 per non-wilful violation; wilful violations far higher"
+    }
+  },
+  "sources": [
+    {"name": "IRS - Tax inflation adjustments", "url": "https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2025"},
+    {"name": "IRS - Filing", "url": "https://www.irs.gov/filing"},
+    {"name": "SSA - Contribution and benefit base", "url": "https://www.ssa.gov/oact/cola/cbb.html"}
+  ],
+  "warnings": [
+    "State and city income taxes are approximated by a single rate. For California, New York City, Oregon and other progressive-state cases, compute state tax separately.",
+    "The alternative minimum tax, net investment income tax and qualified business income deduction are not modelled."
+  ]
+}

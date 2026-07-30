@@ -1,0 +1,108 @@
+{
+  "country": "Hong Kong SAR",
+  "iso2": "HK",
+  "tax_year": 2025,
+  "currency": "HKD",
+  "skills": {
+    "calculation": "hong-kong-tax-calculation",
+    "reporting": "hong-kong-tax-reporting"
+  },
+  "residency": {
+    "test": "Hong Kong taxes on a territorial source basis, not on residence. Salaries tax applies to income arising in or derived from Hong Kong from an office, employment or pension.",
+    "worldwide_income": "No. Income from services rendered entirely outside Hong Kong is not chargeable.",
+    "sixty_day_rule": "A visitor present for 60 days or fewer in the year of assessment is exempt from salaries tax on services performed here.",
+    "note": "The year of assessment runs 1 April to 31 March."
+  },
+  "headline": {
+    "progressive_rates": "2% / 6% / 10% / 14% / 17% on net chargeable income",
+    "standard_rate": "15% on net income, 16% on the part above 5,000,000 - you pay whichever method gives less",
+    "basic_allowance": "132,000",
+    "no_capital_gains_tax": "no capital gains tax, no VAT, no dividend or interest tax"
+  },
+  "income_tax": {
+    "name": "Salaries tax (progressive rates)",
+    "type": "progressive",
+    "note": "applied to net chargeable income after allowances; the Inland Revenue Department charges the lower of this and the standard rate computation",
+    "brackets": [
+      {"up_to": 50000, "rate": 0.02},
+      {"up_to": 100000, "rate": 0.06},
+      {"up_to": 150000, "rate": 0.10},
+      {"up_to": 200000, "rate": 0.14},
+      {"up_to": null, "rate": 0.17}
+    ]
+  },
+  "personal_allowance": {
+    "name": "Basic allowance",
+    "amount": 132000,
+    "per_child": 130000,
+    "note": "264,000 for married persons assessed jointly; an extra 130,000 child allowance applies in the year of birth"
+  },
+  "social_security": {
+    "employee": [
+      {"name": "Mandatory Provident Fund (MPF)", "rate": 0.05, "ceiling": 360000, "deductible": true, "note": "5% of relevant income capped at 1,500 a month; deductible up to 18,000 a year"}
+    ],
+    "employer": [
+      {"name": "MPF employer contribution", "rate": 0.05, "ceiling": 360000}
+    ],
+    "self_employed": [
+      {"name": "MPF self-employed contribution", "rate": 0.05, "ceiling": 360000, "deductible": true}
+    ]
+  },
+  "capital_gains": {
+    "general": "no capital gains tax",
+    "trading": "profits from a trade carried on in Hong Kong are subject to profits tax, so frequent share trading can be recharacterised",
+    "property": "no CGT, but stamp duty applies on transfers and property trading profits can fall within profits tax",
+    "dividends_interest": "not taxable for individuals"
+  },
+  "quirks": [
+    "You are charged the lower of the progressive computation and the standard rate computation. The standard rate is applied to net income before allowances, so it only wins at high income - roughly above 2.2m for a single person.",
+    "Salaries tax is not withheld from pay. You receive an assessment and pay in two instalments, which is a genuine cash flow shock in the first year of working here.",
+    "Provisional tax means the first bill covers the year just ended plus an advance for the current year, so the initial payment is close to double a normal year's tax.",
+    "There is no tax on dividends, interest or capital gains, and no sales tax. The headline income tax rates understate how light the overall burden is.",
+    "Employers must file an IR56E when you start, an IR56B annually, and an IR56G before you leave Hong Kong - the last one triggers a withholding obligation on your final pay."
+  ],
+  "reporting": {
+    "tax_year_end": "31 March",
+    "authority": "Inland Revenue Department (IRD)",
+    "portal": "https://www.gov.hk/etax - eTAX",
+    "who_must_file": "Anyone who receives a tax return (BIR60). If you have chargeable income and have not received a return, you must notify the IRD within four months of the end of the year of assessment.",
+    "deadlines": [
+      {"date": "Early May 2026", "what": "Individual tax returns (BIR60) issued for the year ended 31 March 2026"},
+      {"date": "1 month from issue", "what": "Filing deadline for BIR60, typically early June; one extra month for e-filing"},
+      {"date": "3 months from issue", "what": "Extended deadline where the taxpayer has a sole proprietorship"},
+      {"date": "January 2027", "what": "First instalment of tax, covering the balance plus provisional tax"},
+      {"date": "April 2027", "what": "Second instalment of provisional tax"}
+    ],
+    "forms": [
+      {"id": "BIR60", "name": "Individual tax return - salaries, property and sole proprietorship"},
+      {"id": "IR56B", "name": "Employer's return of remuneration, issued annually"},
+      {"id": "IR56E", "name": "Employer notification of a new employee"},
+      {"id": "IR56G", "name": "Employer notification of an employee departing Hong Kong"},
+      {"id": "IR6163", "name": "Notification of chargeability where no return was issued"},
+      {"id": "IR831", "name": "Objection or application for revision of assessment"}
+    ],
+    "documents_to_collect": [
+      "Hong Kong Identity Card number and eTAX password or MyGovHK account",
+      "IR56B from each employer",
+      "Records of days spent outside Hong Kong if claiming relief for services rendered abroad",
+      "MPF contribution statements",
+      "Home loan interest records - deductible up to 100,000 a year for 20 years of assessment",
+      "Approved charitable donation receipts and elderly residential care expense records"
+    ],
+    "penalties": {
+      "late_filing": "fine up to 10,000 and additional tax up to three times the undercharged amount",
+      "late_payment": "5% surcharge, plus a further 10% if still unpaid after six months",
+      "incorrect_return": "penalties up to three times the tax undercharged; prosecution for wilful evasion"
+    }
+  },
+  "sources": [
+    {"name": "Inland Revenue Department - Salaries tax", "url": "https://www.ird.gov.hk/eng/tax/ind.htm"},
+    {"name": "IRD - Tax rates", "url": "https://www.ird.gov.hk/eng/tax/ind_ctr.htm"},
+    {"name": "MPFA - Mandatory Provident Fund", "url": "https://www.mpfa.org.hk"}
+  ],
+  "warnings": [
+    "This model applies only the progressive computation. Check the standard rate computation (15% of net income, 16% above 5,000,000) and use whichever is lower.",
+    "One-off rate reductions are announced most years in the Budget and are not reflected here.",
+    "Married persons may elect joint assessment or personal assessment; both can produce a lower result and are not modelled."
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "country": "Czechia",
+  "iso2": "CZ",
+  "tax_year": 2025,
+  "currency": "CZK",
+  "skills": {
+    "calculation": "czechia-tax-calculation",
+    "reporting": "czechia-tax-reporting"
+  },
+  "residency": {
+    "test": "Resident if you have a permanent home available in Czechia, or stay at least 183 days in the calendar year.",
+    "worldwide_income": "Yes for residents.",
+    "note": "Days of presence are counted including days of arrival and departure."
+  },
+  "headline": {
+    "rates": "15% up to 36 times the average wage, 23% above",
+    "threshold_2025": "1,676,052 CZK",
+    "employee_contributions": "7.1% social plus 4.5% health",
+    "capital_gains": "15% or 23%, with a time-test exemption for long-held securities"
+  },
+  "income_tax": {
+    "name": "Daň z příjmů fyzických osob",
+    "type": "progressive",
+    "brackets": [
+      {"up_to": 1676052, "rate": 0.15},
+      {"up_to": null, "rate": 0.23}
+    ]
+  },
+  "credits": [
+    {"name": "Sleva na poplatníka (basic taxpayer credit)", "amount": 30840, "refundable": false},
+    {"name": "Daňové zvýhodnění na dítě (child credit)", "per_child": 15204, "refundable": true, "note": "15,204 for the first child, 22,320 for the second, 27,840 for the third and later; refundable as a tax bonus"}
+  ],
+  "social_security": {
+    "employee": [
+      {"name": "Sociální pojištění (social security)", "rate": 0.071, "ceiling": 2234736, "deductible": false, "note": "6.5% pension plus 0.6% sickness insurance"},
+      {"name": "Zdravotní pojištění (health)", "rate": 0.045, "deductible": false, "note": "no ceiling"}
+    ],
+    "employer": [
+      {"name": "Sociální pojištění", "rate": 0.248, "ceiling": 2234736},
+      {"name": "Zdravotní pojištění", "rate": 0.09}
+    ],
+    "self_employed": [
+      {"name": "Sociální pojištění OSVČ", "rate": 0.292, "ceiling": 2234736, "deductible": false, "note": "charged on 55% of profit in 2025, rising in steps to 60% by 2026"},
+      {"name": "Zdravotní pojištění OSVČ", "rate": 0.135, "deductible": false, "note": "charged on 50% of profit"}
+    ]
+  },
+  "capital_gains": {
+    "rate": "taxed as other income at 15% or 23%",
+    "time_test": "securities held more than three years, or shares in a company held more than five years, are exempt - but from 2025 the exemption is capped at 40m CZK of proceeds per year",
+    "real_estate": "exempt after ten years of ownership, or five years for property acquired before 2021, or if the proceeds are used for your own housing needs",
+    "small_sales": "annual securities sales under 100,000 CZK are exempt regardless of holding period"
+  },
+  "quirks": [
+    "Most employees never file. If you have a single employer and sign the annual declaration (růžové prohlášení), payroll settles everything.",
+    "The three-year time test makes long-term securities investing effectively tax free for ordinary investors, subject to the new 40m cap from 2025.",
+    "The self-employed can use lump-sum expense percentages (paušální výdaje) of 40% to 80% of revenue depending on activity, with no receipts required - this is usually better than tracking real costs.",
+    "The paušální daň scheme lets small entrepreneurs pay one fixed monthly amount covering income tax, social and health, and file nothing at all.",
+    "Health insurance has no ceiling while social insurance does, so the marginal wedge falls at high income but never to zero."
+  ],
+  "reporting": {
+    "tax_year_end": "31 December",
+    "authority": "Finanční správa (Financial Administration)",
+    "portal": "https://www.mojedane.cz - MOJE daně",
+    "who_must_file": "Anyone with income from more than one employer at a time, self-employment income above 50,000 CZK, other income above 20,000 CZK, or income taxed at 23%. Single-employer employees who sign the annual declaration are settled by payroll.",
+    "deadlines": [
+      {"date": "1 April 2026", "what": "Paper return for the 2025 tax year"},
+      {"date": "1 May 2026", "what": "Electronic return (one month later than paper)"},
+      {"date": "1 July 2026", "what": "Return filed by a registered tax adviser or auditor"},
+      {"date": "15 February 2026", "what": "Deadline to ask your employer for the annual payroll settlement instead of filing"},
+      {"date": "Within 8 days of filing", "what": "Social and health insurance returns for the self-employed"}
+    ],
+    "forms": [
+      {"id": "Přiznání k dani z příjmů fyzických osob", "name": "Personal income tax return"},
+      {"id": "Příloha 1", "name": "Business and professional income"},
+      {"id": "Příloha 2", "name": "Rental and other income"},
+      {"id": "Příloha 3", "name": "Foreign income"},
+      {"id": "Potvrzení o zdanitelných příjmech", "name": "Employer certificate of taxable income"},
+      {"id": "Přehled OSVČ", "name": "Annual social and health insurance summary for the self-employed"}
+    ],
+    "documents_to_collect": [
+      "Rodné číslo (birth number) and data box (datová schránka) or bank identity for electronic filing",
+      "Potvrzení o zdanitelných příjmech from each employer",
+      "Mortgage interest certificate - deductible up to 150,000 CZK",
+      "Pension and life insurance contribution confirmations",
+      "Donation receipts",
+      "Broker statements including holding periods, which determine the time-test exemption"
+    ],
+    "penalties": {
+      "late_filing": "0.05% of the assessed tax per day, capped at 5% or 300,000 CZK; no penalty within a five working day grace period",
+      "late_payment": "interest at the CNB repo rate plus 8 percentage points",
+      "failure_to_register": "separate penalties for late registration as a taxpayer"
+    }
+  },
+  "sources": [
+    {"name": "Finanční správa", "url": "https://www.financnisprava.cz"},
+    {"name": "MOJE daně portal", "url": "https://www.mojedane.cz"},
+    {"name": "ČSSZ - Social security", "url": "https://www.cssz.cz"}
+  ],
+  "warnings": [
+    "The 23% rate applies to gross income above 36 times the average wage, not to taxable income after deductions - this model applies it to taxable income.",
+    "Lump-sum expense percentages and the paušální daň regime are not modelled and change the result substantially for the self-employed.",
+    "The spouse credit and disability credits are not included."
+  ]
+}
